@@ -16,67 +16,66 @@
     </header>
     <div id="contentDiv">
         
-    <div id="registerDiv">
-        <form id="register-form" class="" enctype="application/json" action="/signup" method="post">
-            <div class="">
+        <div id="registerDiv">
+            <form id="register-form" class="" enctype="application/json" action="/signup" method="post">
                 <div class="">
-                    <label class="" for="registerName">New Username</label>
-                    <input id="registerName" class="" name="registerName" type="text" placeholder="Username" value="" />
+                    <div class="">
+                        <label class="" for="registerName">New Username</label>
+                        <input id="registerName" class="" name="registerName" type="text" placeholder="Username" value="" />
+                    </div>
                 </div>
-            </div>
-            <div class="">
                 <div class="">
-                    <label class="" for="registerPw">Type Password</label>
-                    <input id="registerPw" class="" name="registerPw" type="password" placeholder="Password" value="" />
+                    <div class="">
+                        <label class="" for="registerPw">Type Password</label>
+                        <input id="registerPw" class="" name="registerPw" type="password" placeholder="Password" value="" />
+                    </div>
                 </div>
-            </div>
-            <div class="">
                 <div class="">
-                    <label class="" for="confirmPw">Confirm Password</label>
-                    <input id="confirmPw" class="" name="confirmPw" type="password" placeholder="Confirm Password"
-                        value="" />
+                    <div class="">
+                        <label class="" for="confirmPw">Confirm Password</label>
+                        <input id="confirmPw" class="" name="confirmPw" type="password" placeholder="Confirm Password"
+                            value="" />
+                    </div>
                 </div>
-            </div>
-            <div class="">
-                <input class="" id="register_button" type="submit" value="Register" />
-            </div>
-            <div class="">
-                {{{signupMsg}}}
-            </div>
-            <div class="">
-                <button id="loginButton" class="" type="button">already have account?</button>
-            </div>
-        </form>
-    </div>
+                <div class="">
+                    <input class="" id="register_button" type="submit" value="Register" />
+                </div>
+                <div class="">
+                    {{{signupMsg}}}
+                </div>
+                <div class="">
+                    <button id="loginButton" class="" type="button">already have account?</button>
+                </div>
+            </form>
+        </div>
 
-    <div id="loginDiv">
-        <form id="login-form" class="" enctype="application/json" action="/login" method="post">
-            <div class="">
+        <div id="loginDiv">
+            <form id="login-form" class="" enctype="application/json" action="/login" method="post">
                 <div class="">
-                    <label class="" for="loginName">Username</label>
-                    <input id="loginName" class="" name="loginName" type="text" placeholder="Username"
-                        value="" />
+                    <div class="">
+                        <label class="" for="loginName">Username</label>
+                        <input id="loginName" class="" name="loginName" type="text" placeholder="Username"
+                            value="" />
+                    </div>
                 </div>
-            </div>
-            <div class="">
                 <div class="">
-                    <label class="" for="loginPw">Type Password</label>
-                    <input id="loginPw" class="" name="loginPw" type="password" placeholder="Password"
-                        value="" />
+                    <div class="">
+                        <label class="" for="loginPw">Type Password</label>
+                        <input id="loginPw" class="" name="loginPw" type="password" placeholder="Password"
+                            value="" />
+                    </div>
                 </div>
-            </div>
-            <div class="">
-                <input class="" id="login_button" type="submit" value="Login" />
-            </div>
-            <div class="" style="color:red;">
-                {{{loginMsg}}}
-            </div>
-            <div class="">
-                <button id="signupButton" class="" type="button">sign up</button>
-            </div>
-        </form>
-    </div>
-
+                <div class="">
+                    <input class="" id="login_button" type="submit" value="Login" />
+                </div>
+                <div class="" style="color:red;">
+                    {{{loginMsg}}}
+                </div>
+                <div class="">
+                    <button id="signupButton" class="" type="button">sign up</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script>
         var loginDiv = document.getElementById("loginDiv"),
