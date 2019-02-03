@@ -1,0 +1,24 @@
+{
+  "name": "kickstart",
+  "version": "1.0.0",
+  "description": "ACIT3900/4900 Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seungilpark/kickstart.git"
+  },
+  "author": "Jeremy Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seungilpark/kickstart/issues"
+  },
+  "homepage": "https://github.com/seungilpark/kickstart#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hbs": "^4.0.1",
+    "request": "^2.88.0"
+  }
+}
