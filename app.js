@@ -55,5 +55,12 @@ app.get('/admin', (request, response) => {
     });
 });
 
+app.get('/popup', (request, response) => {
+    response.render('popup.hbs', {
+        eventPicUrl:"https://i.ytimg.com/vi/EDzLx3hkli0/maxresdefault.jpg",
+
+    });
+});
+
 
 module.exports = app;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>event popup</title>
+    {{> styles}}
+</head>
+
+<body>
+
+    <div id="boxDiv">
+        <div id="boxTop">
+            <button id="closeBut">x</button>
+            <img src="{{eventPicUrl}}" id="eventPic">
+            <div id="infoTop">
+                <div id="eventName">Name: <br><br></div>
+                <div id="eventLocation">Location:<br><br></div>
+                <div id="eventTime">Time:<br><br></div>
+                <div id="eventPoints">Points:</div>
+            </div>
+        </div>
+        <div id="boxBot">
+            <div id="eventDes">Description:</div>
+            <div id="eventButs">
+                <button>Register</button>
+                <button>Share</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="cal">
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=eou7m0rdvt8b69jgauk36mn34k%40group.calendar.google.com&amp;color=%2342104A&amp;ctz=America%2FVancouver" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+
+</body>
+
+</html>
