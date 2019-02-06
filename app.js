@@ -55,5 +55,11 @@ app.get('/admin', (request, response) => {
     });
 });
 
+app.get('/events/calendar', (request, response) => {
+    response.render('events_cal.hbs', {
+
+    });
+})
+ 
 
 module.exports = app;
