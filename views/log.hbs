@@ -11,59 +11,21 @@
 
 <body>
     <header id="loginHeader">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4RmvrxyMD6HzL1VaLEeFFPWsgYSCjhp1nSbYfspJk8AGiHctN" alt="BCIT Student Life Logo" id="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4RmvrxyMD6HzL1VaLEeFFPWsgYSCjhp1nSbYfspJk8AGiHctN"
+            alt="BCIT Student Life Logo" id="logo">
         <h1>KicK Start Program</h1>
     </header>
     <div id="contentDiv">
-        
-        <div id="registerDiv">
-            <form id="register-form" class="" enctype="application/json" action="/signup" method="post">
-                <div class="">
-                    <div class="">
-                        <label class="" for="registerName">New Username</label>
-                        <input id="registerName" class="" name="registerName" type="text" placeholder="Username" value="" />
-                    </div>
-                </div>
-                <div class="">
-                    <div class="">
-                        <label class="" for="registerPw">Type Password</label>
-                        <input id="registerPw" class="" name="registerPw" type="password" placeholder="Password" value="" />
-                    </div>
-                </div>
-                <div class="">
-                    <div class="">
-                        <label class="" for="confirmPw">Confirm Password</label>
-                        <input id="confirmPw" class="" name="confirmPw" type="password" placeholder="Confirm Password"
-                            value="" />
-                    </div>
-                </div>
-                <div class="">
-                    <input class="" id="register_button" type="submit" value="Register" />
-                </div>
-                <div class="">
-                    {{{signupMsg}}}
-                </div>
-                <div class="">
-                    <button id="loginButton" class="" type="button">already have account?</button>
-                </div>
-            </form>
-        </div>
 
         <div id="loginDiv">
             <form id="login-form" class="" enctype="application/json" action="/login" method="post">
                 <div class="">
-                    <div class="">
-                        <label class="" for="loginName">Username</label>
-                        <input id="loginName" class="" name="loginName" type="text" placeholder="Username"
-                            value="" />
-                    </div>
+                    <label class="" for="loginName">Username</label>
+                    <input id="loginName" class="" name="loginName" type="text" placeholder="Username" value="" />
                 </div>
                 <div class="">
-                    <div class="">
-                        <label class="" for="loginPw">Password</label>
-                        <input id="loginPw" class="" name="loginPw" type="password" placeholder="Password"
-                            value="" />
-                    </div>
+                    <label class="" for="loginPw">Password</label>
+                    <input id="loginPw" class="" name="loginPw" type="password" placeholder="Password" value="" />
                 </div>
                 <div class="">
                     <input class="" id="login_button" type="submit" value="Login" />
@@ -77,25 +39,7 @@
             </form>
         </div>
     </div>
-    <script>
-        var loginDiv = document.getElementById("loginDiv"),
-            registerDiv = document.getElementById("registerDiv"),
-            signupButton = document.getElementById("signupButton"),
-            loginButton = document.getElementById("loginButton");
 
-        signupButton.addEventListener("click", function () {
-            loginDiv.style.display = "none";
-            registerDiv.style.display = "block";
-        });
-
-        loginButton.addEventListener("click", () => {
-            loginDiv.style.display = "block";
-            registerDiv.style.display = "none";
-        });
-
-    </script>
-
-    </div>
 </body>
 
 </html>

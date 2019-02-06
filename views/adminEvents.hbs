@@ -13,7 +13,39 @@
     {{> navigation}}
 
     <div id="contentDiv">
-        <h1>admin page for events</h1>
+        <div id="formDiv">
+            <h2>New Event</h2>
+            <form action="/admin" method="POST" id="adminEventForm">
+                <div>
+                    <label for="eventTitleInput">Event Name</label>
+                    <input id="eventTitleInput" type="text">
+                </div>
+                <div>
+                    <label for="dateInput">Date</label>
+                    <input id="dateInput" type="date">
+                </div>
+                <div>
+                    <label for="startTimeInput">Start Time</label>
+                    <input id="startTimeInput" type="time">
+                </div>
+                <div>
+                    <label for="endTimeInput">End Time</label>
+                    <input id="endTimeInput" type="time">
+                </div>
+                <div>
+                    <label for="location">Location</label>
+                    <input id="location" type="text">
+                </div>
+                <div>
+                    <label for="descriptionInput">Description</label>
+                    <input id="descriptionInput" type="textarea">
+                </div>
+                <input class="submitButton" type="submit">
+            </form>
+        </div>
+        <div id="adminEventDiv">
+
+        </div>
     </div>
 
 </body>
