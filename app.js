@@ -60,6 +60,8 @@ app.get('/events/calendar', (request, response) => {
 
     });
 })
+
+
  
 app.get('/popup', (request, response) => {
     response.render('popup.hbs', {
