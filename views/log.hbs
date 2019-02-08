@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kick Start Login</title>
-    {{> styles}}
+    <link href='style.css' rel='stylesheet' type='text/css'/>
 </head>
 
 <body>
     <header id="loginHeader">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4RmvrxyMD6HzL1VaLEeFFPWsgYSCjhp1nSbYfspJk8AGiHctN"
             alt="BCIT Student Life Logo" id="logo">
-        <h1>KicK Start Program</h1>
+        <h1>Kick Start</h1>
     </header>
     <div id="contentDiv">
 
         <div id="loginDiv">
             <form id="login-form" class="" enctype="application/json" action="/login" method="post">
                 <div class="">
-                    <label class="" for="loginName">Username</label>
+                    <h2>Sign In</h2>
+                    <label class="" for="loginName">BCIT ID</label>
                     <input id="loginName" class="" name="loginName" type="text" placeholder="Username" value="" />
                 </div>
                 <div class="">
@@ -29,12 +30,6 @@
                 </div>
                 <div class="">
                     <input class="" id="login_button" type="submit" value="Login" />
-                </div>
-                <div class="" style="color:red;">
-                    {{{loginMsg}}}
-                </div>
-                <div class="">
-                    <button id="signupButton" class="" type="button">sign up</button>
                 </div>
             </form>
         </div>

@@ -10,6 +10,7 @@ hbs.registerPartial('navigation', '/views/partials/navigation')
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/css'))
 app.use(express.json());
 app.use(express.urlencoded());
 
@@ -55,7 +56,7 @@ app.get('/admin', (request, response) => {
     });
 });
 
-app.get('/events/calendar', (request, response) => {
+app.get('/calendar', (request, response) => {
     response.render('events_cal.hbs', {
 
     });

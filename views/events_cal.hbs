@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Events Page</title>
-    {{> styles}}
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+
 </head>
 
 <body>
@@ -16,7 +17,7 @@
        {{!-- <h1>events page</h1> --}}
     <div id="topBar" style="position: absolute; width: 100vw; height: 10vh">
        <button id="blockView" class="viewButtons" style="position: absolute; left: 10vw; top: 3vh" onclick="location.href='/events'">Block View</button>
-       <button id="calendarView" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/events/calendar'">Calendar View</button>
+       <button id="calendarView" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/calendar'">Calendar View</button>
 
         <form action="">
             <input type="text" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
