@@ -1,8 +1,29 @@
 const express = require('express');
 const request = require('request');
 const hbs = require('hbs');
-
 const app = express();
+
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "password",
+    database: "kickstart",
+    port: 3308
+});
+
+connection.connect(function(error){
+    if(!!error){
+        console.log(error);
+    }else{
+        console.log('app.js connected with DB');
+    }
+});
+
+
+
+
 
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerPartial('style', '/views/partials/styles')
@@ -37,9 +58,42 @@ app.get('/main', (request, response) => {
 
 
 app.get('/events', (request, response) => {
-    response.render('events.hbs', {
-        
-    });
+
+    connection.query("select * from kickstart_events where events_date = '2019-02-07';", function(error, rows, fields){
+        if(error){
+            console.log(error);
+        }else{
+            console.log('Retriving data successfully');
+            console.log(rows);
+            response.render('events.hbs', {
+                title1: rows[0].events_title,
+                start_time1: rows[0].events_start_time,
+                end_time1: rows[0].events_end_time,
+                date1: rows[0].events_date,
+                location1: rows[0].events_locations,
+                date1: rows[0].events_date,
+                description1: rows[0].events_desc,
+
+                title2: rows[1].events_title,
+                start_time2: rows[1].events_start_time,
+                end_time2: rows[1].events_end_time,
+                date2: rows[1].events_date,
+                location2: rows[1].events_locations,
+                date2: rows[1].events_date,
+                description2: rows[1].events_desc,
+
+                title3: rows[2].events_title,
+                start_time3: rows[2].events_start_time,
+                end_time3: rows[2].events_end_time,
+                date3: rows[2].events_date,
+                location3: rows[2].events_locations,
+                date3: rows[2].events_date,
+                description3: rows[2].events_desc,
+            });
+        }
+    })
+
+    
 });
 
 
