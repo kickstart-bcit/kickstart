@@ -1,19 +1,20 @@
 #contentDiv {
     position: fixed;
-    top:22vh;
+    top:14vh;
     width: 100vw;
-    height:78vh;
+    height:100vh;
+    overflow-y: scroll;
+    left: 0px;
 }
 
 body {
     /*background-color: #E5E5E5;*/
     background-color: #fff;
-    overflow: scroll;
+    overflow: hidden;
     color: #515456;
     font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif;
     font-weight: 400;
     line-height: 1.4rem;
-    padding: 20px;
 }
 
 
@@ -118,7 +119,7 @@ button {
     position: fixed;
     top: 0;
     left: 0;
-    height: 16vh;
+    height: 14vh;
     width: 100vw;
 }
 
@@ -225,12 +226,6 @@ button {
     font-size: 1.2rem;
 }
 
-
-
-
-
-
-// {{!-- !-- Main Page -- --}}
 
 
 
