@@ -15,40 +15,42 @@
 
     <div id="contentDiv">
         <div id="adminEventContentDiv">
-            <div id="formDiv">
-                <h2>New Event</h2>
-                <form action="/admin" method="POST" id="adminEventForm">
-                    <div class="adminEventFormDiv">
-                        <label class="floatLabel" for="eventTitleInput">Event Name</label>
-                        <input class="fieldInput" id="eventTitleInput" type="text">
-                    </div>
-                    <div class="adminEventFormDiv">
-                        <label class="floatLabel" for="dateInput">Date</label>
-                        <input class="fieldInput" id="dateInput" type="date">
-                    </div>
-                    <div class="adminEventFormDiv">
-                        <label class="floatLabel" for="startTimeInput">Start Time</label>
-                        <input class="fieldInput" id="startTimeInput" type="time">
-                    </div>
-                    <div class="adminEventFormDiv">
-                        <label class="floatLabel" for="endTimeInput">End Time</label>
-                        <input class="fieldInput" id="endTimeInput" type="time">
-                    </div>
-                    <div class="adminEventFormDiv">
-                        <label class="floatLabel" for="location">Location</label>
-                        <input class="fieldInput" id="location" type="text">
-                    </div>
-                    <div class="adminEventFormDiv">
-                        <label class="floatLabel" for="descriptionInput">Description</label>
-                        <input class="fieldInput" id="descriptionInput" type="textarea">
-                    </div>
-                    <input class="submitButton" type="submit">
-                </form>
+            <div id="formDivWrap">
+              <div id="formDiv">
+                  <h2>New Event<br><br></h2>
+                  <form action="/admin" method="POST" id="adminEventForm">
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="eventTitleInput">Event Name</label>
+                          <input class="fieldInput" id="eventTitleInput" type="text">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="dateInput">Date</label>
+                          <input class="fieldInput" id="dateInput" type="date">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="startTimeInput">Start Time</label>
+                          <input class="fieldInput" id="startTimeInput" type="time">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="endTimeInput">End Time</label>
+                          <input class="fieldInput" id="endTimeInput" type="time">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="location">Location</label>
+                          <input class="fieldInput" id="location" type="text">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="descriptionInput">Description</label>
+                          <input class="fieldInput" id="descriptionInput" type="textarea">
+                      </div>
+                      <br><input class="submitButton" type="submit">
+                  </form>
+              </div>
             </div>
 
 
         <div id="adminEventDiv">
-            <h2>Current Events</h2>
+            <h2>Current Events<br><br></h2>
             <table id="adminEventtb">
               <tr>
                 <td>Visit Student Health Office <button class="adminEventEditButton">Edit</button></td>
@@ -74,6 +76,7 @@
             </table>
         </div>
     </div>
+  </div>
 
 </body>
 

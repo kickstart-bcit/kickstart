@@ -1,7 +1,7 @@
 
 #adminEventtb {
   border-collapse: collapse;
-  width: 80%;
+  width: 90%;
 }
 #adminEventtb td{
   border: 1px solid #ddd;
@@ -24,31 +24,33 @@
 
 #adminEventContentDiv {
     width: 100%;
-    height:100%;
+    height: 100%;
     display:flex;
     flex-direction: row;
-    justify-content: space-between
+    position: relative;
+
 
 }
+
 #formDiv {
 	position: relative;
-    width:25%;
+    width: 80%;
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 30px;
+    margin-bottom: 20%;
+    bottom: 10px;
+
 }
 
 #adminEventForm {
-    width:100%;
-    height:90%;
+    top: -30px;
+    position: relative;
 }
 
-#adminEventDiv {
-	position: relative;
-    width:60%;
-    display:flex;
-    flex-direction: column;
-}
+
 .adminEventContainer {
     display: flex;
     margin: 10px;
@@ -59,7 +61,6 @@
 	border-bottom: 1px solid rgba(0,0,0,.2);
 	top: -5%;
 }
-
 
 
 .floatLabel {
@@ -75,12 +76,28 @@
     border: 0;
     color: rgba(0,0,0,.9);
     display: block;
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 10px;
-    line-height: 1rem;
+    font-size: 1.3rem;
     padding: 32px 0 6px;
     width: 100%;
     outline: none;
+}
+
+
+#formDivWrap {
+    background-color: #f7f7f7;
+    border-right: 1px solid rgba(0,0,0,.2);
+    height: auto;
+    position: relative;
+    width: 35vw;
+}
+
+
+#adminEventDiv {
+    position: relative;
+    width:60vw;
+    display:flex;
+    flex-direction: column;
+    padding-left: 50px;
+    height: 100vh;
 
 }
