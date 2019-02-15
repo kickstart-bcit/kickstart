@@ -30,7 +30,7 @@ app.post('/login', (request, response) => {
 app.get('/main', (request, response) => {
     response.render('main.hbs', {
         profileUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBO2O1ALH1poBQKrOjkDwHJh6HmZyd5aDGdazJmWxjAhxib5L",
-        username:'Jeremy Park',
+        username:'John Smith',
         userPoints: 888
     });
 });
