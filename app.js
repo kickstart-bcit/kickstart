@@ -3,10 +3,13 @@ const request = require('request');
 const hbs = require('hbs');
 const app = express();
 const eventConnector = require('./connectors/eventConnector.js');
+const rewardsConnector = require('./connectors/rewardsConnector.js');
+
 
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerPartial('style', '/views/partials/styles')
 hbs.registerPartial('navigation', '/views/partials/navigation')
+
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
@@ -46,10 +49,15 @@ app.get('/events', async (request, response) => {
 });
 
 
-app.get('/rewards', (request, response) => {
-    response.render('rewards.hbs', {
-        
-    });
+app.get('/rewards', async (request, response) => {
+    try {
+        let renderedRewards = rewardsConnector.renderRewards(await rewardsConnector.fetchRewards()); 
+        response.render('rewards.hbs', { renderedRewards });
+    }
+    catch (err){
+        console.log(err);
+        response.render('rewards.hbs', "error")
+    }       
 });
 
 
