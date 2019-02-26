@@ -2,8 +2,20 @@ const express = require('express');
 const request = require('request');
 const hbs = require('hbs');
 const app = express();
-const eventConnector = require('./connectors/eventConnector.js');
-const rewardsConnector = require('./connectors/rewardsConnector.js');
+const session = require('client-sessions');
+const sessionHelper = require('./middlewares/sessionMiddleware')
+
+// session configuration
+app.use(session({
+    cookieName: 'session',
+    secret: 'banana kick',
+    duration: 30 * 60 * 1000,
+    activeDuration: 5 * 60 * 1000,
+  }));
+
+// DB connectors
+// const eventConnector = require('./connectors/eventConnector.js');
+// const rewardsConnector = require('./connectors/rewardsConnector.js');
 
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -17,64 +29,30 @@ app.use(express.static(__dirname + '/css'))
 app.use(express.json());
 app.use(express.urlencoded());
 
+// Routers
+const loginRouter = require('./routers/loginRouter');
+const mainRouter = require('./routers/mainRouter');
+const eventsRouter = require('./routers/eventsRouter');
+const rewardsRouter = require('./routers/rewardsRouter');
+const adminRouter = require('./routers/adminRouter');
+
+app.use('/login', sessionHelper.refreshCookie,  sessionHelper.requireLogin, loginRouter);
+app.use('/main', sessionHelper.refreshCookie,  sessionHelper.requireLogin, mainRouter);
+app.use('/events', sessionHelper.refreshCookie,  sessionHelper.requireLogin, eventsRouter);
+app.use('/rewards', sessionHelper.refreshCookie,  sessionHelper.requireLogin, rewardsRouter);
+app.use('/admin', sessionHelper.refreshCookie,  sessionHelper.requireLogin, adminRouter);
 
 app.get('/', (request, response) => {
-    response.render('log.hbs', {});
+    response.redirect('/login');
 });
 
-app.post('/login', (request, response) => {
-    // validation/authentication goes here 
-    response.redirect('/main');
-});
-
-
-app.get('/main', (request, response) => {
-    response.render('main.hbs', {
-        profileUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBO2O1ALH1poBQKrOjkDwHJh6HmZyd5aDGdazJmWxjAhxib5L",
-        username:'John Smith',
-        userPoints: 888
-    });
-});
-
-
-app.get('/events', async (request, response) => {
-    try {
-        let renderedEvents = eventConnector.renderEvents(await eventConnector.fetchEvents()); 
-        response.render('events.hbs', { renderedEvents });
-    }
-    catch (err){
-        console.log(err);
-        response.render('events.hbs', "error")
-    }        
-});
-
-
-app.get('/rewards', async (request, response) => {
-    try {
-        let renderedRewards = rewardsConnector.renderRewards(await rewardsConnector.fetchRewards()); 
-        response.render('rewards.hbs', { renderedRewards });
-    }
-    catch (err){
-        console.log(err);
-        response.render('rewards.hbs', "error")
-    }       
-});
-
-
-app.get('/admin', (request, response) => {
-    response.render('adminEvents.hbs', {
-        
-    });
-});
 
 app.get('/calendar', (request, response) => {
     response.render('events_cal.hbs', {
-
+        
     });
 })
 
-
- 
 app.get('/popup', (request, response) => {
     response.render('popup.hbs', {
         eventPicUrl:"https://i.ytimg.com/vi/EDzLx3hkli0/maxresdefault.jpg",
