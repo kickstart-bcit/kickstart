@@ -16,7 +16,7 @@
 	    <div id="contentDiv">
             <div id="redeempointsbox">
                 <div id="pointsbox" style="font-size: 25px">
-                    Current Points: <b>888</b>
+                    Current Points: <b>{{userPoints}}</b>
                 </div>
         	    	<div id="redeembox">
         		        Redeem your points here: <input class="inputbox" type="text" name="redeem"> <button>Submit</button><br>
@@ -70,40 +70,8 @@
 	        	<h2>Rewards</h2>
 
                 <table id="rewardstb">
-                      <tr>
-                        <td>1-month Parking Pass (Enter Draw)</td>
-                        <td>500</td>
-                      </tr>
-                      <tr>
-                        <td>Free Coffee Voucher</td>
-                        <td>20</td>
-                      </tr>
-                      <tr>
-                        <td>$50 credit at bookstore (Enter Draw)</td>
-                        <td>400</td>
-                      </tr>
-                      <tr>
-                        <td>$10 credit for printing</td>
-                        <td>100</td>
-                      </tr>
-                      <tr>
-                        <td>BCIT Swag Bag</td>
-                        <td>50</td>
-                      </tr>
-                      <tr>
-                        <td>1-term BCIT Recreation Membership</td>
-                        <td>300</td>
-                      </tr>
-                      <tr>
-                        <td>$30 credit at BCIT SA Geared Up Store</td>
-                        <td>200</td>
-                      </tr>
-                      <tr>
-                        <td>Free Official Transcript</td>
-                        <td>80</td>
-                      </tr>
-
-                    </table>
+                  {{{ renderedRewards }}}
+                </table>
 	        </div>
 	    </div>
 	    <footer>
