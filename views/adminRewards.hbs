@@ -15,12 +15,8 @@
 
     <div id="contentDiv">
       <div id="adminLinkFormDiv">
-        <form class="adminLinkForm" action="/admin" method="post" enctype="application/json">
-          <input id="adminEventsLink" name="adminPageType" value="events" type="submit">
-        </form>
-        <form class="adminLinkForm" action="/admin" method="post" enctype="application/json">
-          <input id="adminRewardsLink" name="adminPageType" value="rewards" type="submit">
-        </form>
+        <button id="adminEventsLink" class="viewButtons" style="" onclick="location.href='/admin'">Block View</button>
+        <button id="adminRewardsLink" class="viewButtons" style="" onclick="location.href='/adminRewards'">Calendar View</button>
       </div>
         <div id="adminRewardContentDiv">
             <div id="formDivWrap">

@@ -15,12 +15,8 @@
 
     <div id="contentDiv">
       <div id="adminLinkFormDiv">
-        <form class="adminLinkForm" action="/admin" method="post" enctype="application/json">
-          <input id="adminEventsLink" name="adminPageType" value="events" type="submit">
-        </form>
-        <form class="adminLinkForm" action="/admin" method="post" enctype="application/json">
-          <input id="adminRewardsLink" name="adminPageType" value="rewards" type="submit">
-        </form>
+        <button id="adminEventsLink" class="viewButtons" style="position: absolute; left: 10vw; top: 3vh" onclick="location.href='/admin'">Block View</button>
+        <button id="adminRewardsLink" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/adminRewards'">Calendar View</button>
       </div>
         <div id="adminEventContentDiv">
             <div id="formDivWrap">
@@ -29,31 +25,31 @@
                   <form action="/admin" enctype="application/json" method="POST" id="adminEventForm">
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="eventTitleInput">Event Name</label>
-                          <input class="fieldInput" name="eventTitleInput" id="eventTitleInput" type="text">
+                          <input class="fieldInput" name="eventTitleInput" id="eventTitleInput" type="text" value="">
                       </div>
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="dateInput">Date</label>
-                          <input class="fieldInput" name="dateInput" id="dateInput" type="date">
+                          <input class="fieldInput" name="dateInput" id="dateInput" type="date" value="">
                       </div>
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="startTimeInput">Start Time</label>
-                          <input class="fieldInput" name="startTimeInput" id="startTimeInput" type="time">
+                          <input class="fieldInput" name="startTimeInput" id="startTimeInput" type="time" value="">
                       </div>
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="endTimeInput">End Time</label>
-                          <input class="fieldInput" name="endTimeInput" id="endTimeInput" type="time">
+                          <input class="fieldInput" name="endTimeInput" id="endTimeInput" type="time" value="">
                       </div>
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="location">Location</label>
-                          <input class="fieldInput" name="locationInput" id="location" type="text">
+                          <input class="fieldInput" name="locationInput" id="location" type="text" value="">
                       </div>
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="pointsInput">Points</label>
-                          <input class="fieldInput" name="pointsInput" id="pointsInput" type="number">
+                          <input class="fieldInput" name="pointsInput" id="pointsInput" type="number"value="">
                       </div>
                       <div class="adminEventFormDiv">
                           <label class="floatLabel" for="descriptionInput">Description</label>
-                          <input class="fieldInput" name="descInput" id="descriptionInput" type="textarea">
+                          <input class="fieldInput" name="descInput" id="descriptionInput" type="textarea" value="">
                       </div>
                       <br><input class="submitButton" type="submit">
                   </form>

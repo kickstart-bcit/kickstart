@@ -9,15 +9,15 @@ const rewardsConnector = require('../connectors/rewardsConnector');
 // "/admin" handlers
 
 router.get('/', (request, response) => {
-    response.render('adminEvents.hbs', {
+    response.render('adminRewards.hbs', {
         
     });
 });
 
 
 router.post('/', (request, response)=>{
-    console.log("in '/newEvent' post handler",request.body);
-    response.render('adminEvents.hbs', {
+    console.log("in '/adminRewards' post handler", request.body);
+    response.render('adminRewards.hbs', {
     
     });
 })

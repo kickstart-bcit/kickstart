@@ -35,12 +35,14 @@ const mainRouter = require('./routers/mainRouter');
 const eventsRouter = require('./routers/eventsRouter');
 const rewardsRouter = require('./routers/rewardsRouter');
 const adminRouter = require('./routers/adminRouter');
+const adminRewardsRouter = require('./routers/adminRewardsRouter');
 
-app.use('/login', sessionHelper.refreshCookie,  sessionHelper.requireLogin, loginRouter);
+app.use('/login', loginRouter);
 app.use('/main', sessionHelper.refreshCookie,  sessionHelper.requireLogin, mainRouter);
 app.use('/events', sessionHelper.refreshCookie,  sessionHelper.requireLogin, eventsRouter);
 app.use('/rewards', sessionHelper.refreshCookie,  sessionHelper.requireLogin, rewardsRouter);
 app.use('/admin', sessionHelper.refreshCookie,  sessionHelper.requireLogin, adminRouter);
+app.use('/adminRewards', sessionHelper.refreshCookie,  sessionHelper.requireLogin, adminRewardsRouter);
 
 app.get('/', (request, response) => {
     response.redirect('/login');
