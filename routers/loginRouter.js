@@ -21,7 +21,7 @@ router.route('/')
     // validation/authentication goes here
     try {
         let user = await userConnector.fetchUser(request.body.loginName);
-        console.log(request.body.loginPw, user["users_pw"]);
+        console.log(request.body, user["users_pw"]);
         if (user){
             if (user["users_pw"] === request.body.loginPw){
                 // on success login
