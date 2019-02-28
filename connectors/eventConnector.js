@@ -45,7 +45,32 @@ const renderEvents = (rows) => {
     ).join("").replace(/\s\s+/g, " ");
 }
 
+
+const fetchSearchedEvent = (word) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "kickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart_events where events_title like ?",[word], (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+  });
+}
+
+
+
+
 module.exports = {
   fetchEvents,
-  renderEvents
+  renderEvents,
+  fetchSearchedEvent
 };
