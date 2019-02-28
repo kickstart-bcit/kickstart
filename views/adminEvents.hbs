@@ -7,68 +7,83 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Events</title>
     <link href='style.css' rel='stylesheet' type='text/css'/>
+    <link href='admin.css' rel='stylesheet' type='text/css'/>
 </head>
 
 <body>
     {{> navigation}}
 
     <div id="contentDiv">
+      <div id="adminLinkFormDiv">
+        <button id="adminEventsLink" class="viewButtons" style="position: absolute; left: 10vw; top: 3vh" onclick="location.href='/admin'">Block View</button>
+        <button id="adminRewardsLink" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/adminRewards'">Calendar View</button>
+      </div>
         <div id="adminEventContentDiv">
-            <div id="formDiv">
-            <h2>New Event</h2>
-            <form action="/admin" method="POST" id="adminEventForm">
-                <div class="adminEventFormDiv">
-                    <label for="eventTitleInput">Event Name</label>
-                    <input id="eventTitleInput" type="text">
-                </div>
-                <div class="adminEventFormDiv">
-                    <label for="dateInput">Date</label>
-                    <input id="dateInput" type="date">
-                </div>
-                <div class="adminEventFormDiv">
-                    <label for="startTimeInput">Start Time</label>
-                    <input id="startTimeInput" type="time">
-                </div>
-                <div class="adminEventFormDiv">
-                    <label for="endTimeInput">End Time</label>
-                    <input id="endTimeInput" type="time">
-                </div>
-                <div class="adminEventFormDiv">
-                    <label for="location">Location</label>
-                    <input id="location" type="text">
-                </div>
-                <div class="adminEventFormDiv">
-                    <label for="descriptionInput">Description</label>
-                    <input id="descriptionInput" type="textarea">
-                </div>
-                <input class="submitButton" type="submit">
-            </form>
-        </div>
+            <div id="formDivWrap">
+              <div id="formDiv">
+                  <h2>New Event<br><br></h2>
+                  <form action="/admin" enctype="application/json" method="POST" id="adminEventForm">
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="eventTitleInput">Event Name</label>
+                          <input class="fieldInput" name="eventTitleInput" id="eventTitleInput" type="text" value="">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="dateInput">Date</label>
+                          <input class="fieldInput" name="dateInput" id="dateInput" type="date" value="">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="startTimeInput">Start Time</label>
+                          <input class="fieldInput" name="startTimeInput" id="startTimeInput" type="time" value="">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="endTimeInput">End Time</label>
+                          <input class="fieldInput" name="endTimeInput" id="endTimeInput" type="time" value="">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="location">Location</label>
+                          <input class="fieldInput" name="locationInput" id="location" type="text" value="">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="pointsInput">Points</label>
+                          <input class="fieldInput" name="pointsInput" id="pointsInput" type="number"value="">
+                      </div>
+                      <div class="adminEventFormDiv">
+                          <label class="floatLabel" for="descriptionInput">Description</label>
+                          <input class="fieldInput" name="descInput" id="descriptionInput" type="textarea" value="">
+                      </div>
+                      <br><input class="submitButton" type="submit">
+                  </form>
+              </div>
+            </div>
+
         <div id="adminEventDiv">
-            <h2>Current Events</h2>
-            <div class="adminEventContainer">
-                <div class="adminEventTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, pariatur?</div>
-                <button class="adminEventEditButton">Edit</button>
-            </div>
-            <div class="adminEventContainer">
-                <div class="adminEventTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, pariatur?</div>
-                <button class="adminEventEditButton">Edit</button>
-            </div>
-            <div class="adminEventContainer">
-                <div class="adminEventTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, pariatur?</div>
-                <button class="adminEventEditButton">Edit</button>
-            </div>
-            <div class="adminEventContainer">
-                <div class="adminEventTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, pariatur?</div>
-                <button class="adminEventEditButton">Edit</button>
-            </div>
-            <div class="adminEventContainer">
-                <div class="adminEventTitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, pariatur?</div>
-                <button class="adminEventEditButton">Edit</button>
-            </div>
-        </div>
+            <h2>Current Events<br><br></h2>
+            <table id="adminEventtb">
+              <tr>
+                <td>Visit Student Health Office <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Visit Tim Hortons <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Visit International Office <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Visit Student Life Office <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Visit EhPods <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Visit Student Information &amp; Enrollment Services <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+              <tr>
+                <td>Visit Student Association Office <button class="adminEventEditButton">Edit</button></td>
+              </tr>
+            </table>
         </div>
     </div>
+  </div>
 
 </body>
 

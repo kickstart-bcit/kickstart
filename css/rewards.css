@@ -1,0 +1,80 @@
+#pointsbox {
+	position: relative;
+	float: right;
+	width: 25%;
+	top: 5px;
+}
+
+#redeembox {
+	position: relative;
+	float: right;
+	width: 50%;
+}
+
+#redeempointsbox {
+	position: relative;
+	left: 0px;
+	right: 0px;
+	margin: auto;
+	width: 95vw;
+	display: inline-block;
+	padding-top: 30px;
+}
+
+#rewardsleft {
+	width:40%; 
+	float:left;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 100px;
+
+}
+
+#rewardsright {
+	width:40%; 
+	float:right;
+	padding-top: 20px;
+	padding-bottom: 100px;
+}
+
+
+/*list*/
+
+
+#completed{
+	padding-top: 50px;
+}
+
+#toCompletetb {
+  border-collapse: collapse;
+  width: 90%;
+}
+#toCompletetb td{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#toCompletetb tr:hover {background-color: #f4f4f4;}
+
+
+
+#completedtb {
+  border-collapse: collapse;
+  width: 90%;
+}
+#completedtb td{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#completedtb tr:hover {background-color: #f4f4f4;}
+
+
+#rewardstb {
+  border-collapse: collapse;
+  width: 85%;
+}
+#rewardstb td{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#rewardstb tr:hover {background-color: #f4f4f4;}
+

@@ -7,57 +7,71 @@
 	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	    <title>Rewards Page</title>
 	    <link href='style.css' rel='stylesheet' type='text/css'/>
+        <link href='rewards.css' rel='stylesheet' type='text/css'/>
 	</head>
 
 	<body>
 	    {{> navigation}}
 
 	    <div id="contentDiv">
-	    	<div>
-		        {{!-- <h1>Rewards page</h1> --}}
-		        <b>Redeem your points here </b><input type="text" name="redeem"><button>Submit</button><br>
-                <b>Current Points: 888</b>
-	    	</div>
-	        <div style="width:60%; float:left;">
-	        	<div id="completed">
-                    <h2>Completed</h2>
-                    <div class="challengeName">Visit Student Life Office</div>
-                    <div class="challengePoint">10</div>
-                    <div class="challengeName">Visit EhPods</div>
-                    <div class="challengePoint">5</div>
-                    <div class="challengeName">Visit Student Information &amp; Enrollment Services</div>
-                    <div class="challengePoint">5</div>
-                    <div class="challengeName">Visit Student Association Office</div>
-                    <div class="challengePoint">10</div>
+            <div id="redeempointsbox">
+                <div id="pointsbox" style="font-size: 25px">
+                    Current Points: <b>{{userPoints}}</b>
                 </div>
+        	    	<div id="redeembox">
+        		        Redeem your points here: <input class="inputbox" type="text" name="redeem"> <button>Submit</button><br>
+        	    	</div>
+            </div>
+            
+	        <div id="rewardsleft">
 	        	<div id="incomplete">
                     <h2>To Complete</h2>
-                    <div class="challengeName">Visit Student Health Office</div>
-                    <div class="challengePoint">5</div>
-                    <div class="challengeName">Visit Tim Hortons</div>
-                    <div class="challengePoint">5</div>
-                    <div class="challengeName">Visit International Office</div>
-                    <div class="challengePoint">5</div>
+                    <table id="toCompletetb">
+                      <tr>
+                        <td>Visit Student Health Office</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit Tim Hortons</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit International Office</td>
+                        <td>5</td>
+                      </tr>
+                    </table>
                 </div>
+                
+                <div id="completed">
+                    <h2>Completed</h2>
+
+                    <table id="completedtb">
+                      <tr>
+                        <td>Visit Student Life Office</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>Visit EhPods</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit Student Information &amp; Enrollment Services</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit Student Association Office</td>
+                        <td>10</td>
+                      </tr>
+                    </table>
+                </div>    
+
 	        </div>
-	        <div style="width:40%; float:right;">
+	        <div id="rewardsright">
 	        	<h2>Rewards</h2>
-                <div class="rewardName">1-month Parking Pass (Enter Draw)</div>
-                <div class="rewardPoint">500</div>
-                <div class="rewardName">Free Coffee Voucher</div>
-                <div class="rewardPoint">20</div>
-                <div class="rewardName">$50 credit at bookstore (Enter Draw)</div>
-                <div class="rewardPoint">400</div>
-                <div class="rewardName">$10 credit for printing</div>
-                <div class="rewardPoint">100</div>
-                <div class="rewardName">BCIT Swag Bag</div>
-                <div class="rewardPoint">50</div>
-                <div class="rewardName">1-term BCIT Recreation Membership</div>
-                <div class="rewardPoint">300</div>
-                <div class="rewardName">$30 credit at BCIT SA Geared Up Store</div>
-                <div class="rewardPoint">200</div>
-                <div class="rewardName">Free Official Transcript</div>
-                <div class="rewardPoint">80</div>
+
+                <table id="rewardstb">
+                  {{{ renderedRewards }}}
+                </table>
 	        </div>
 	    </div>
 	    <footer>
