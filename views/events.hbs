@@ -19,10 +19,10 @@
        {{!-- <h1>events page</h1> --}}
     <div id="topBar" style="position: absolute; width: 100vw; height: 10vh">
        <button id="blockView" class="viewButtons" style="position: absolute; left: 10vw; top: 3vh" onclick="location.href='/events'">Block View</button>
-       <button id="calendarView" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/calendar'">Calendar View</button>
+       <button id="calendarView" class="viewButtons" style="position: absolute; left: 18vw; top: 3vh" onclick="location.href='/calendar'">Calendar View</button>
 
-        <form action="">
-            <input type="text" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
+        <form action="/events", method="POST">
+            <input type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
             <input type="submit" value="Submit" id="searchButton" style="position: absolute; left: 53%; top: 3vh">
         </form>
 
