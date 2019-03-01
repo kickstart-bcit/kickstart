@@ -59,6 +59,28 @@ const renderEvents = (rows) => {
 }
 
 
+const defaultFetchEvent = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "kickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart.kickstart_events;", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); 
+            else resolve(rows);
+        });
+
+        connector.end();
+  });
+}
+
+
 const fetchSearchedEvent = (word) => {
     return new Promise((resolve, reject) => {
         const connector = mysql.createConnection({
@@ -71,7 +93,7 @@ const fetchSearchedEvent = (word) => {
 
         connector.connect();
       
-        connector.query("select * from kickstart_events where events_title like ?",[word], (error, rows, fields) => {
+        connector.query("select * from kickstart_events where events_title like ?;", [word], (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
 
@@ -79,6 +101,69 @@ const fetchSearchedEvent = (word) => {
   });
 }
 
+const fetchSortedEvent = (condition) => {
+    if(condition === 'datetime'){
+        return new Promise((resolve, reject) => {
+            const connector = mysql.createConnection({
+                host: "localhost",
+                user: "root",
+                password: "Password",
+                database: "kickstart",
+                port: 3306
+            });
+    
+            connector.connect();
+    
+            connector.query("SELECT * FROM kickstart.kickstart_events order by events_date and events_start_time asc;", (error, rows, fields) => {
+                if(error) reject("couldn't connect to db"); else resolve(rows);
+            });
+
+            connector.end()
+        })
+    }
+    else if (condition === 'point'){
+        return new Promise((resolve, reject) => {
+            const connector = mysql.createConnection({
+                host: "localhost",
+                user: "root",
+                password: "Password",
+                database: "kickstart",
+                port: 3306
+            });
+    
+            connector.connect();
+    
+            connector.query("SELECT * FROM kickstart.kickstart_events order by events_point asc;", (error, rows, fields) => {
+                if(error) reject("couldn't connect to db"); else resolve(rows);
+            });
+
+            connector.end()
+        })
+    }
+    else if (condition === 'campus'){
+        return new Promise((resolve, reject) => {
+            const connector = mysql.createConnection({
+                host: "localhost",
+                user: "root",
+                password: "Password",
+                database: "kickstart",
+                port: 3306
+            });
+    
+            connector.connect();
+    
+            connector.query("SELECT * FROM kickstart.kickstart_events order by events_campus asc;", (error, rows, fields) => {
+                if(error) reject("couldn't connect to db"); else resolve(rows);
+            });
+
+            connector.end()
+        })
+    }
+    else{
+        console.log('Sorting error from eventConnector');
+    }
+    
+}
 
 
 
@@ -86,5 +171,7 @@ module.exports = {
   fetchEvents,
   renderEvents,
   fetchSearchedEvent,
-  renderAdminEvents
+  renderAdminEvents,
+  fetchSortedEvent,
+  defaultFetchEvent
 };
