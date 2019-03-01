@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcom to Kick Start Main</title>
+    <link href='style.css' rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+    {{> navigation}}
+
+    <div id="contentDiv">
+        <div id="userProfile">
+            <img src="{{profileUrl}}" alt="Profile Picture" id="profilePic">
+        </div>
+        <div id="userDesc">
+            <h2 id="mainName">Welcome {{username}}!</h2>
+            <p>Your Points: {{userPoints}}</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

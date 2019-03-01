@@ -1,0 +1,141 @@
+
+#adminEventtb {
+  border-collapse: collapse;
+  width: 90%;
+}
+#adminEventtb td{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#adminEventtb tr:hover {background-color: #f4f4f4;}
+
+
+.adminEventEditButton {
+	float: right;
+}
+
+#contentDiv h2 {
+    font-size: 2.2rem;
+}
+
+#adminEventContentDiv {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    position: relative;
+}
+
+#formDiv {
+	position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 40px;
+    padding-right: 30px;
+    margin-bottom: 15%;
+    bottom: 10px;
+}
+
+#adminEventForm {
+    top: -30px;
+    position: relative;
+}
+
+.adminEventContainer {
+    display: flex;
+    margin: 10px;
+
+}
+.adminEventFormDiv{
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	top: -5%;
+}
+
+.floatLabel {
+    top: 30px;
+    left: 0;
+    z-index: 2;
+    position: relative;
+    user-select: none;
+}
+
+.fieldInput {
+    background-color: transparent;
+    border: 0;
+    color: rgba(0,0,0,.9);
+    display: block;
+    font-size: 1.3rem;
+    padding: 32px 0 6px;
+    width: 100%;
+    outline: none;
+}
+
+#formDivWrap {
+    background-color: #f7f7f7;
+    border-right: 1px solid rgba(0,0,0,.2);
+    height: auto;
+    position: relative;
+    width: 35vw;
+}
+
+#adminEventDiv {
+    position: relative;
+    width:60vw;
+    display:flex;
+    flex-direction: column;
+    padding-left: 50px;
+    height: 100vh;
+
+}
+
+
+/* 
+
+    Admin Rewards 
+
+*/
+#adminRewardContentDiv {
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction: row;
+    position: relative;
+
+}
+
+#adminRewardtb {
+    border-collapse: collapse;
+    width: 90%;
+  }
+
+#adminRewardtb td{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#adminRewardtb tr:hover {background-color: #f4f4f4;}
+
+#adminRewardForm {
+    top: -30px;
+    position: relative;
+}
+
+
+.adminRewardFormDiv{
+	position: relative;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	top: -5%;
+}
+
+#adminRewardDiv {
+    position: relative;
+    width:60vw;
+    display:flex;
+    flex-direction: column;
+    padding-left: 50px;
+    height: 100vh;
+
+}

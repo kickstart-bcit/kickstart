@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	    <title>Rewards Page</title>
+	    <link href='style.css' rel='stylesheet' type='text/css'/>
+        <link href='rewards.css' rel='stylesheet' type='text/css'/>
+	</head>
+
+	<body>
+	    {{> navigation}}
+
+	    <div id="contentDiv">
+            <div id="redeempointsbox">
+                <div id="pointsbox" style="font-size: 25px">
+                    Current Points: <b>{{userPoints}}</b>
+                </div>
+        	    	<div id="redeembox">
+        		        Redeem your points here: <input class="inputbox" type="text" name="redeem"> <button>Submit</button><br>
+        	    	</div>
+            </div>
+            
+	        <div id="rewardsleft">
+	        	<div id="incomplete">
+                    <h2>To Complete</h2>
+                    <table id="toCompletetb">
+                      <tr>
+                        <td>Visit Student Health Office</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit Tim Hortons</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit International Office</td>
+                        <td>5</td>
+                      </tr>
+                    </table>
+                </div>
+                
+                <div id="completed">
+                    <h2>Completed</h2>
+
+                    <table id="completedtb">
+                      <tr>
+                        <td>Visit Student Life Office</td>
+                        <td>10</td>
+                      </tr>
+                      <tr>
+                        <td>Visit EhPods</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit Student Information &amp; Enrollment Services</td>
+                        <td>5</td>
+                      </tr>
+                      <tr>
+                        <td>Visit Student Association Office</td>
+                        <td>10</td>
+                      </tr>
+                    </table>
+                </div>    
+
+	        </div>
+	        <div id="rewardsright">
+	        	<h2>Rewards</h2>
+
+                <table id="rewardstb">
+                  {{{ renderedRewards }}}
+                </table>
+	        </div>
+	    </div>
+	    <footer>
+	    	<div style="float:left; width:50%; text-align: right;"><p style="padding-right: 5px">Contact Us</p></div>
+	    	<div style="float:right; width:50%; text-align: left;"><p style="padding-left: 5px">Privacy</p></div>
+	    </footer>
+	</body>
+
+</html>
