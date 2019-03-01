@@ -3,15 +3,25 @@
 
 const express = require('express');
 const router = express.Router();
-const eventsConnector = require('../connectors/eventConnector');
+const eventConnector = require('../connectors/eventConnector');
 const rewardsConnector = require('../connectors/rewardsConnector');
 
 // "/admin" handlers
 
-router.get('/', (request, response) => {
-    response.render('adminEvents.hbs', {
-        
-    });
+router.get('/', async (request, response) => {
+    try {
+        let events = await eventConnector.fetchEvents();
+        let renderedAdminEvents = eventConnector.renderAdminEvents(events); 
+        response.render('adminEvents.hbs', {
+            renderedAdminEvents, events
+
+        });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('adminEvents.hbs', "error")
+    }
+
 });
 
 

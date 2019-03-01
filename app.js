@@ -81,4 +81,13 @@ app.get('/popup', (request, response) => {
     });
 });
 
+
+app.get('/logout', (request, response) => {
+    if (request.session && request.session.user){
+        delete request.session;
+        delete request.session.user;
+    }
+    response.redirect('/login');
+})
+
 module.exports = app;
