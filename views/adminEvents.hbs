@@ -14,10 +14,6 @@
     {{> adminNav}}
 
     <div id="contentDiv">
-      <div id="adminLinkFormDiv">
-        <button id="adminEventsLink" class="viewButtons" style="position: absolute; left: 10vw; top: 3vh" onclick="location.href='/admin'">Block View</button>
-        <button id="adminRewardsLink" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/adminRewards'">Calendar View</button>
-      </div>
         <div id="adminEventContentDiv">
             <div id="formDivWrap">
               <div id="formDiv">
@@ -59,27 +55,7 @@
         <div id="adminEventDiv">
             <h2>Current Events<br><br></h2>
             <table id="adminEventtb">
-              <tr>
-                <td>Visit Student Health Office <button class="adminEventEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Tim Hortons <button class="adminEventEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit International Office <button class="adminEventEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Student Life Office <button class="adminEventEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit EhPods <button class="adminEventEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Student Information &amp; Enrollment Services <button class="adminEventEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Student Association Office <button class="adminEventEditButton">Edit</button></td>
-              </tr>
+              {{{renderedAdminEvents}}}
             </table>
         </div>
     </div>

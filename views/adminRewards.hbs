@@ -14,10 +14,6 @@
     {{> adminNav}}
 
     <div id="contentDiv">
-      <div id="adminLinkFormDiv">
-        <button id="adminEventsLink" class="viewButtons" style="" onclick="location.href='/admin'">Block View</button>
-        <button id="adminRewardsLink" class="viewButtons" style="" onclick="location.href='/adminRewards'">Calendar View</button>
-      </div>
         <div id="adminRewardContentDiv">
             <div id="formDivWrap">
               <div id="formDiv">
@@ -26,22 +22,6 @@
                       <div class="adminRewardFormDiv">
                           <label class="floatLabel" for="RewardTitleInput">Reward Name</label>
                           <input class="fieldInput" name="RewardTitleInput" id="RewardTitleInput" type="text">
-                      </div>
-                      <div class="adminRewardFormDiv">
-                          <label class="floatLabel" for="dateInput">Date</label>
-                          <input class="fieldInput" name="dateInput" id="dateInput" type="date">
-                      </div>
-                      <div class="adminRewardFormDiv">
-                          <label class="floatLabel" for="startTimeInput">Start Time</label>
-                          <input class="fieldInput" name="startTimeInput" id="startTimeInput" type="time">
-                      </div>
-                      <div class="adminRewardFormDiv">
-                          <label class="floatLabel" for="endTimeInput">End Time</label>
-                          <input class="fieldInput" name="endTimeInput" id="endTimeInput" type="time">
-                      </div>
-                      <div class="adminRewardFormDiv">
-                          <label class="floatLabel" for="location">Location</label>
-                          <input class="fieldInput" name="locationInput" id="location" type="text">
                       </div>
                       <div class="adminRewardFormDiv">
                           <label class="floatLabel" for="pointsInput">Points</label>
@@ -59,27 +39,7 @@
         <div id="adminRewardDiv">
             <h2>Current Rewards<br><br></h2>
             <table id="adminRewardtb">
-              <tr>
-                <td>Visit Student Health Office <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Tim Hortons <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit International Office <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Student Life Office <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit EhPods <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Student Information &amp; Enrollment Services <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
-              <tr>
-                <td>Visit Student Association Office <button class="adminRewardEditButton">Edit</button></td>
-              </tr>
+              {{{renderedAdminRewards}}}
             </table>
         </div>
     </div>

@@ -8,10 +8,18 @@ const rewardsConnector = require('../connectors/rewardsConnector');
 
 // "/admin" handlers
 
-router.get('/', (request, response) => {
-    response.render('adminRewards.hbs', {
-        
-    });
+router.get('/', async (request, response) => {
+    try {
+        let rewards = await rewardsConnector.fetchRewards();
+        let renderedAdminRewards = rewardsConnector.renderAdminRewards(rewards); 
+        response.render('adminRewards.hbs', {
+            renderedAdminRewards, rewards
+        });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('adminEvents.hbs', "error")
+    }    
 });
 
 
