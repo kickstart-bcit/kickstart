@@ -283,4 +283,28 @@ button {
     padding: 10px;
 }
 
+#blocks {
+    position: absolute;
+    width: 90vw; 
+    height: 100vh;
+    top: 12vh;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
 
+.blocks {
+    position: relative;
+    width: 25%;
+    margin: 50px;
+    height: auto;
+    background-color: #E5E5E5;
+    text-align: center;
+}
+
+#blocks div {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+
+}

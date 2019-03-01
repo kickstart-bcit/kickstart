@@ -29,10 +29,12 @@ const fetchEvents = () => {
 }
 
 const renderEvents = (rows) => {
+    console.log(rows);
     return rows.map( row =>
-        `<div class="block">
+        `<div class="blocks">
+                <img src=${row.events_pic} style="position: relative; width: 100%; height: auto"/>
                 <h3>${row.events_title}</h3>
-                <span class="startTime">${row.events_start_time}</span><br/>
+                <span class="startTime" style="width: auto; justify-content: center;">${row.events_start_time} - </span>
                 <span class="endTime">${row.events_end_time}</span><br/>
                 <span class="eventDate">${row.events_date}</span><br/>
                 <span class="eventsLocation">${row.events_locations}, </span>
