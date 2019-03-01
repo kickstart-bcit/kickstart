@@ -28,6 +28,28 @@ const fetchEvents = () => {
   });
 }
 
+
+const fetchOnGoingEvents = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "kickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart_events", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+  });
+}
+
+
 const renderEvents = (rows) => {
     return rows.map( row =>
         `<div class="blocks">
@@ -42,6 +64,8 @@ const renderEvents = (rows) => {
             </div>`
     ).join("").replace(/\s\s+/g, " ");
 }
+
+
 
 module.exports = {
   fetchEvents,
