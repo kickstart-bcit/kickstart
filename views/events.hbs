@@ -18,21 +18,23 @@
     <div id="contentDiv">
        {{!-- <h1>events page</h1> --}}
 
-    <div id="topBar" style="position: absolute; width: 100vw; height: 10vh; display: inline-block">
+    <div id="topBar" style="position: absolute; width: 100vw; height: 10vh; top: 2vh; display: inline-block">
        <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
        <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
         <form action="/events", method="POST">
-            <input type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh;">
 
-            <select name="sortBy" style="position: absolute; left: 55%; top: 3vh;">
+            <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 35%; top: 3vh;">
+
+            <select name="sortBy" class="inputbox" style="position: absolute; left: 55%; top: 3vh;">
                 <option value="" disabled selected>Sort By</option>
                 <option value="datetime">Date and time</option>
                 <option value="point">Point</option>
                 <option value="campus">Campus</option>
             </select>
 
-            <input type="submit" value="Submit" id="searchButton" style="position: absolute; left: 63%; top: 3vh;">
+            <input type="submit" value="Search" class="submitButton" id="searchButton" style="position: absolute; left: 64%; top: 3vh;">
+
         </form>
 
         <h3 style="position: absolute; left: 53%; top: 1vh;">OR</h3>
