@@ -1,8 +1,8 @@
 #contentDiv {
     position: fixed;
-    top:14vh;
+    top: 14vh;
     width: 100vw;
-    height:100vh;
+    height: 100vh;
     overflow-y: scroll;
     left: 0px;
 }
@@ -12,11 +12,10 @@ body {
     background-color: #fff;
     overflow: hidden;
     color: #515456;
-    font-family: Lato,'Lucida Sans Unicode','Lucida Grande',sans-serif;
+    font-family: Lato, 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     font-weight: 400;
     line-height: 1.4rem;
 }
-
 
 button {
     background-color: #006fbf;
@@ -85,8 +84,6 @@ button {
     height: auto;
 }
 
-
-
 // {{!-- !-- Header Page -- --}}
 #loginHeader {
     background-color: #003E6B;
@@ -95,18 +92,18 @@ button {
     left: 0;
     height: 16vh;
     width: 100vw;
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
 
 #loginHeader img {
     position: relative;
     width: auto;
-    height:100%;
+    height: 100%;
 }
 
 #loginHeader h1 {
-    color:white;
+    color: white;
     font-size: 2.4rem;
     height: 100%;
     width: auto;
@@ -129,14 +126,14 @@ button {
     left: 0;
     height: 100%;
     width: auto;
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
 
 #bannerDiv img {
     position: relative;
     width: auto;
-    height:100%;
+    height: 100%;
 }
 
 #bannerDiv h1 {
@@ -156,45 +153,45 @@ button {
     display: flex;
     flex-direction: row;
     height: 20%;
-    width:30%;
+    width: 30%;
     justify-content: flex-end;
-    align-items:flex-end;
+    align-items: flex-end;
 }
 
 #navDiv input {
-    width:auto;
-    height:30px;
-    color:white;
+    width: auto;
+    height: 30px;
+    color: white;
     background-color: #003E6B;
     font-size: 1.7rem;
     margin: 15px;
-    border:none;
+    border: none;
 }
 
 #navDiv input:hover {
-    width:auto;
-    height:30px;
-    color:white;
+    width: auto;
+    height: 30px;
+    color: white;
     background-color: #003E6B;
     font-size: 1.7rem;
     margin: 15px;
-    opacity:0.8;
-    transform: scale(1.2,1.2);
+    opacity: 0.8;
+    transform: scale(1.2, 1.2);
 }
 
 // {{!-- !-- Login Page -- --}}
 #loginDiv {
     position: relative;
-    top:10vh;
-    left:0;
-    right:0;A
-    bottom: 0;
+
+    top: 10vh;
+    left: 0;
+    right: 0;
+    A bottom: 0;
     margin: auto;
     border: 2px solid #003E6B;
-    width:340px;
-    height:300px;
+    width: 340px;
+    height: 300px;
     background-color: aliceblue;
-    
 }
 
 #loginDiv h2 {
@@ -203,42 +200,37 @@ button {
 
 #loginForm {
     display: flex;
-    justify-content:space-evenly;
-    flex-flow:column wrap;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
     align-items: center;
-    height:200px;
-    width:100%;
+    height: 200px;
+    width: 100%;
 }
 
 #loginForm div {
     display: flex;
-
 }
-#loginForm label {
-    width:70px;
-    height:30px;
-    margin-right: 15px;
-} 
 
-#loginForm input{
-    width:100px
-    height:30px;
+#loginForm label {
+    width: 70px;
+    height: 30px;
+    margin-right: 15px;
+}
+
+#loginForm input {
+    width: 100px height: 30px;
     font-size: 1.2rem;
 }
 
-
-
-
-
 // {{!-- !-- Events Page -- --}}
-#closeBut{
+#closeBut {
     float: right;
     position: relative;
     height: auto;
     width: ;
 }
 
-#boxDiv{
+#boxDiv {
     width: 32vw;
     height: 30vh;
     position: absolute;
@@ -246,7 +238,7 @@ button {
     background-color: gray;
 }
 
-#cal{
+#cal {
     width: 32vw;
     position: absolute;
     top: 500px;
@@ -274,8 +266,6 @@ button {
     padding: 3%;
 }
 
-
-
 #boxBot {
     width: 100%;
     height: 20%;
@@ -285,26 +275,68 @@ button {
 
 #blocks {
     position: absolute;
-    width: 90vw; 
+    width: 100vw; 
     height: 100vh;
-    top: 12vh;
+    top: 19vh;
     left: 0px;
     right: 0px;
     margin: auto;
+
+}
+
+.blocks:hover {
+    border-radius: .3rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d3d9e3;
+    border-width: 1px;
+    box-shadow: inset 0 2px 0 0 rgba(185, 194, 208, .2);
 }
 
 .blocks {
     position: relative;
     width: 25%;
     margin: 50px;
+    margin-bottom: 0px;
+    margin-top: 0px;
     height: auto;
-    background-color: #E5E5E5;
     text-align: center;
+    display: inline-block;
+    line-height: 1.6rem;
+
+
 }
 
 #blocks div {
     display: inline-block;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 5px;
 
+}
+
+
+/*get rid of overflow and change width back*/
+.eventboxdate{
+    position: relative;
+    top: 20px;
+    width: 20%;
+    height: 60px;
+    margin-right: 2%;
+    float: left;
+    overflow: hidden;
+
+}
+
+.eventboxinfo{
+    position: relative;
+    width: 77%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.searchbox {
+    position: absolute; 
+    left: 42%; 
+    top: 3vh;
+    display: inline-block;
 }

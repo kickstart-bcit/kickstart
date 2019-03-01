@@ -23,9 +23,34 @@
        <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
         <form action="/events", method="POST">
-            <input type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
-            <input type="submit" value="Submit" id="searchButton" style="position: absolute; left: 53%; top: 3vh">
+
+            <input type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh;">
+
+            <select name="sortBy" style="position: absolute; left: 55%; top: 3vh;">
+                <option value="" disabled selected>Sort By</option>
+                <option value="datetime">Date and time</option>
+                <option value="point">Point</option>
+                <option value="campus">Campus</option>
+            </select>
+
+            <input type="submit" value="Submit" id="searchButton" style="position: absolute; left: 63%; top: 3vh;">
+
         </form>
+
+        <h3 style="position: absolute; left: 53%; top: 1vh;">OR</h3>
+
+        {{!-- <form action='/events', method="POST">
+
+            <select name="sortBy" id = "sortBy" style="position: absolute; right: 35%; top: 3vh">
+                <option value="datetime">Date and time</option>
+                <option value="point">Point</option>
+                <option value="campus">Campus</option>
+            </select>
+
+            <input type="submit" value="Submit" id="sortDropdown" style="position: absolute; right: 30%; top: 3vh">
+        </form> --}}
+
+        
 
     </div>
 
@@ -36,5 +61,14 @@
     </div>
 
 </body>
+
+{{!-- <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", 'http://localhost:3000/events', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        value: document.getElementById('sorBy').value
+    }));
+</script> --}}
 
 </html>
