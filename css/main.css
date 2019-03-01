@@ -1,10 +1,14 @@
+#body {
+    background-color: red;
+}
+
 #userContent {
     height: 100px;
     width: 300px;
     position: relative;
     left: 57%;
     margin-left: -500px;
-    top: 20%;
+    top: 10%;
     margin-top: -50px;
 }
 
@@ -19,14 +23,15 @@
     left: 60%
 }
 
-.eventButton {
+
+/* .eventButton {
     position: relative;
     left: 60%;
     bottom: 25px;
     border-radius: 10px;
     height: 25px;
     border: 1px solid black;
-}
+} */
 
 #featuredEvent1 {
     position: relative;
@@ -48,7 +53,7 @@
 }
 
 #featuredEvent3 {
-    top: 200%;
+    top: 210%;
     position: absolute;
     background-color: white;
     border: 1px solid black;
@@ -66,5 +71,6 @@
     position: relative;
     font-size: 40px;
     left: 45%;
-    font-family: Georgia, 'Times New Roman', Times, serif
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    top: 5%
 }
