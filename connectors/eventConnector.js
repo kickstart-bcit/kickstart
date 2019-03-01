@@ -39,16 +39,22 @@ const renderAdminEvents = (rows) => {
 const renderEvents = (rows) => {
     return rows.map( row =>
         `<div class="blocks">
-                <img src=${row.events_pic} style="position: relative; width: 100%; height: auto"/>
+            <img src=${row.events_pic} style="position: relative; width: 100%; height: auto"/>
+            <div class="eventboxdate">
+                <span class="eventDate">${row.events_date}</span><br/>
+            </div>
+
+            <div class="eventboxinfo">
                 <h3>${row.events_title}</h3>
                 <span class="startTime" style="width: auto; justify-content: center;">${row.events_start_time} - </span>
                 <span class="endTime">${row.events_end_time}</span><br/>
-                <span class="eventDate">${row.events_date}</span><br/>
                 <span class="eventsLocation">${row.events_locations}, </span>
                 <span class="eventsCampus">${row.events_campus}</span><br/>
                 <p class="eventsDesc">${row.events_desc}</p>
                 <button class="eventsButton">Participate</button>
-            </div>`
+            </div>
+
+        </div>`
     ).join("").replace(/\s\s+/g, " ");
 }
 
