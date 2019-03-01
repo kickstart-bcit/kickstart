@@ -11,7 +11,11 @@ router.route('/')
 .get( async (request, response) => {
     if (request.session && request.session.user) {
         let user = await userConnector.fetchUser(request.session.user.users_id);
-        if (user) response.redirect('/main');
+        if (user) {
+            if (user.users_type == "admin") response.redirect('/admin');
+            response.redirect('/main');
+        } 
+            
     } else {
         response.render('log.hbs', {});
     }
@@ -28,6 +32,7 @@ router.route('/')
                 console.log("login success", user["users_pw"])
                 request.session.user = user;
                 response.locals.user = user;
+                if (user.users_type == "admin") response.redirect('/admin');
                 response.redirect('/main');
             } else response.render('log.hbs', {errMsg: "wrong password"});
         }

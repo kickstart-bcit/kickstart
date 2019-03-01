@@ -17,18 +17,19 @@
 
     <div id="contentDiv">
        {{!-- <h1>events page</h1> --}}
-    <div id="topBar" style="position: absolute; width: 100vw; height: 10vh">
-       <button id="blockView" class="viewButtons" style="position: absolute; left: 10vw; top: 3vh" onclick="location.href='/events'">Block View</button>
-       <button id="calendarView" class="viewButtons" style="position: absolute; left: 16vw; top: 3vh" onclick="location.href='/calendar'">Calendar View</button>
 
-        <form action="">
-            <input type="text" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
+    <div id="topBar" style="position: absolute; width: 100vw; height: 10vh; display: inline-block">
+       <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
+       <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
+
+        <form action="/events", method="POST">
+            <input type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
             <input type="submit" value="Submit" id="searchButton" style="position: absolute; left: 53%; top: 3vh">
         </form>
 
     </div>
 
-    <div id="blocks" style="position: absolute; width: 100vw; top: 28vh; left: 0px">
+    <div id="blocks">
         {{{ renderedEvents }}}
     </div>
 

@@ -5,6 +5,25 @@ const app = express();
 const session = require('client-sessions');
 const sessionHelper = require('./middlewares/sessionMiddleware')
 
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "Password",
+    database: "kickstart",
+    port: 3306
+});
+
+connection.connect(function(error){
+    if(!!error){
+        console.log(error);
+    }else{
+        console.log('app.js connected with DB');
+    }
+});
+
+
 // session configuration
 app.use(session({
     cookieName: 'session',
@@ -61,5 +80,14 @@ app.get('/popup', (request, response) => {
 
     });
 });
+
+
+app.get('/logout', (request, response) => {
+    if (request.session && request.session.user){
+        delete request.session;
+        delete request.session.user;
+    }
+    response.redirect('/login');
+})
 
 module.exports = app;
