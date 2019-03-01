@@ -53,7 +53,8 @@ router.post('/', async (request, response) => {
                 response.render('events.hbs', { renderedEvents });
             }
         }
-        else if(request.body.searchTerm === '' && request.body.sortBy === ''){
+        console.log(request.body.searchTerm, '111111111111111111111', request.body.sortBy);
+        if(request.body.searchTerm === '' && request.body.sortBy === undefined){
             console.log('=============================================================================');
             console.log('Displaying all events without conditions');
             console.log('=============================================================================');
