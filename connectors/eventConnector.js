@@ -37,24 +37,38 @@ const renderAdminEvents = (rows) => {
 
 
 const renderEvents = (rows) => {
-    return rows.map( row =>
-        `<div class="blocks">
-            <img src=${row.events_pic} style="position: relative; width: 100%; height: auto"/>
-            <div class="eventboxdate">
-                <span class="eventDate">${row.events_date}</span><br/>
-            </div>
+        return rows.map( row => {
+            let pic ="";
+            let alt = "";
+            if (row.events_campus == "Richmond") {
+                pic = "https://photorator.com/photos/images/bcit-aerospace-campus-richmond-bc-canada--61776.jpg";
+                alt = "BCIT Richmond Campus"
+            } else if (row.events_campus == "Downtown") {
+                pic ="https://www.vanarts.com/drive/uploads/2017/01/BCIT-from-570-Dunsmuir_street-level-1024x681.jpg";
+                alt = "BCIT Downtown Campus"
+            } else if (row.events_campus == "Burnaby") {
+                pic = "https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg";
+                alt = "BCIT Burnaby Campus"
+            }
 
-            <div class="eventboxinfo">
-                <h3>${row.events_title}</h3>
-                <span class="startTime" style="width: auto; justify-content: center;">${row.events_start_time} - </span>
-                <span class="endTime">${row.events_end_time}</span><br/>
-                <span class="eventsLocation">${row.events_locations}, </span>
-                <span class="eventsCampus">${row.events_campus}</span><br/>
-                <p class="eventsDesc">${row.events_desc}</p>
-                <button class="eventsButton">Participate</button>
-            </div>
+            return `<div class="blocks">
+                <img alt=${alt} src=${pic} style="position: relative; width: 100%; height: auto"/>
+                <div class="eventboxdate">
+                    <span class="eventDate">${row.events_date}</span><br/>
+                </div>
 
-        </div>`
+                <div class="eventboxinfo">
+                    <h3>${row.events_title}</h3>
+                    <span class="startTime" style="width: auto; justify-content: center;">${row.events_start_time} - </span>
+                    <span class="endTime">${row.events_end_time}</span><br/>
+                    <span class="eventsLocation">${row.events_locations}, </span>
+                    <span class="eventsCampus">${row.events_campus}</span><br/>
+                    <p class="eventsDesc">${row.events_desc}</p>
+                    <button class="eventsButton">Participate</button>
+                </div>
+
+            </div>`
+        }
     ).join("").replace(/\s\s+/g, " ");
 }
 
