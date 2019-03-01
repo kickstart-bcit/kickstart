@@ -28,6 +28,13 @@ const fetchRewards = () => {
   });
 }
 
+const renderAdminRewards = (rows) => {
+    return rows.map( row =>
+        `<tr><td>${row.rewards_title}<button class="adminEventEditButton">Edit</button></td></tr>`
+    ).join("").replace(/\s\s+/g, " ");
+}
+
+
 const renderRewards = (rows) => {
     return rows.map( row =>
         `<tr>
@@ -39,5 +46,6 @@ const renderRewards = (rows) => {
 
 module.exports = {
   fetchRewards,
-  renderRewards
+  renderRewards,
+  renderAdminRewards
 };

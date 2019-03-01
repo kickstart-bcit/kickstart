@@ -28,8 +28,15 @@ const fetchEvents = () => {
   });
 }
 
+
+const renderAdminEvents = (rows) => {
+    return rows.map( row =>
+        `<tr><td>${row.events_title}<button class="adminEventEditButton">Edit</button></td></tr>`
+    ).join("").replace(/\s\s+/g, " ");
+}
+
+
 const renderEvents = (rows) => {
-    console.log(rows);
     return rows.map( row =>
         `<div class="blocks">
                 <img src=${row.events_pic} style="position: relative; width: 100%; height: auto"/>
@@ -158,6 +165,7 @@ module.exports = {
   fetchEvents,
   renderEvents,
   fetchSearchedEvent,
+  renderAdminEvents,
   fetchSortedEvent,
   defaultFetchEvent
 };
