@@ -1,200 +1,3 @@
-<<<<<<< HEAD
-            #contentDiv {
-                position: fixed;
-                top: 18vh;
-                width: 100vw;
-                height: 82vh;
-            }
-            
-            body {
-                background-color: #E5E5E5;
-                overflow: scroll;
-            }
-            /* // {{!-- !-- Header Page -- --}} */
-            
-            #loginHeader {
-                background-color: #003E6B;
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 16vh;
-                width: 100vw;
-                display: flex;
-                flex-direction: row;
-            }
-            
-            #loginHeader img {
-                position: relative;
-                width: auto;
-                height: 50%;
-            }
-            
-            #loginHeader h1 {
-                color: white;
-                font-size: 2.4rem;
-                height: 100%;
-                width: auto;
-                position: relative;
-                padding-left: 20px;
-            }
-            
-            #Header {
-                background-color: #003E6B;
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 16vh;
-                width: 100vw;
-            }
-            
-            #bannderDiv {
-                position: relative;
-                top: 0;
-                left: 0;
-                height: 110%;
-                width: auto;
-                display: flex;
-                flex-direction: row;
-            }
-            
-            #bannderDiv img {
-                position: relative;
-                width: auto;
-                height: auto;
-            }
-            
-            #bannderDiv h1 {
-                color: white;
-                font-size: 2.4rem;
-                height: 100%;
-                width: auto;
-                position: relative;
-                padding-left: 20px;
-            }
-            
-            #navDiv {
-                position: absolute;
-                bottom: 0;
-                right: 50px;
-                display: flex;
-                flex-direction: row;
-                height: 20%;
-                width: 30%;
-                justify-content: flex-end;
-                align-items: flex-end;
-            }
-            
-            #navDiv input {
-                width: auto;
-                height: 30px;
-                color: white;
-                background-color: #003E6B;
-                font-size: 1.7rem;
-                margin: 15px;
-                border: none;
-            }
-            
-            #navDiv input:hover {
-                width: auto;
-                height: 30px;
-                color: white;
-                background-color: #003E6B;
-                font-size: 1.7rem;
-                margin: 15px;
-                opacity: 0.8;
-                transform: scale(1.2, 1.2);
-            }
-            /* // {{!-- !-- Main Page -- --}} */
-            /* // {{!-- !-- Events Page -- --}}  */
-            
-            #closeBut {
-                float: right;
-                position: relative;
-                height: auto;
-                /* width:  */
-            }
-            
-            #boxDiv {
-                width: 32vw;
-                height: 30vh;
-                position: absolute;
-                top: 0px;
-                background-color: gray;
-            }
-            
-            #cal {
-                width: 32vw;
-                position: absolute;
-                top: 500px;
-            }
-            
-            #boxTop {
-                position: relative;
-                width: 100%;
-                height: 55%;
-            }
-            
-            #eventPic {
-                float: left;
-                width: 50%;
-                height: auto;
-                position: relative;
-                padding: 2%;
-            }
-            
-            #infoTop {
-                float: right;
-                position: relative;
-                width: 35%;
-                height: auto;
-                padding: 3%;
-            }
-            
-            #boxBot {
-                width: 100%;
-                height: 20%;
-                position: relative;
-                padding: 10px;
-            }
-            /* // {{!-- !-- Rewards Page -- --}}
-            // {{!-- !-- Admin Page -- --}} */
-            
-            #contentDiv h2 {
-                font-size: 2.2rem;
-            }
-            
-            #adminEventContentDiv {
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between
-            }
-            
-            #formDiv {
-                width: 30vw;
-                display: flex;
-                flex-direction: column;
-                margin-left: 20px;
-            }
-            
-            #adminEventForm {
-                width: 100%;
-                height: 90%;
-                top: 10%;
-            }
-            
-            #adminEventDiv {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-            }
-            
-            .adminEventContainer {
-                display: flex;
-                margin: 10px;
-            }
-=======
 #contentDiv {
     position: fixed;
     top:14vh;
@@ -266,6 +69,29 @@ button {
     display: inline-block;
     margin: 0;
     min-width: calc(2rem + 1em);
+    vertical-align: middle;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+    color: #565a5c;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.02rem;
+    line-height: 1.2rem;
+    min-height: calc(2rem + 2px);
+    background-color: #ffffff;
+    border-color: #d3d9e3;
+    border-width: 1px;
+    box-shadow: inset 0 2px 0 0 rgba(185, 194, 208, .2);
+    padding: 0.4rem 0.75rem;
+    height: auto;
+}
+
+.inputboxlong {
+    border-radius: 0.3rem;
+    border-style: solid;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    width: 350px;
     vertical-align: middle;
     transition: background-color 0.5s ease, border-color 0.5s ease;
     color: #565a5c;
@@ -384,7 +210,7 @@ button {
     position: relative;
     top:10vh;
     left:0;
-    right:0;A
+    right:0;
     bottom: 0;
     margin: auto;
     border: 2px solid #003E6B;
@@ -482,27 +308,67 @@ button {
 
 #blocks {
     position: absolute;
-    width: 90vw; 
+    width: 100vw; 
     height: 100vh;
-    top: 12vh;
+    top: 19vh;
     left: 0px;
     right: 0px;
     margin: auto;
+
+}
+
+.blocks:hover {
+    border-radius: .3rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #d3d9e3;
+    border-width: 1px;
+    box-shadow: inset 0 2px 0 0 rgba(185, 194, 208, .2);
 }
 
 .blocks {
     position: relative;
     width: 25%;
     margin: 50px;
+    margin-bottom: 0px;
+    margin-top: 0px;
     height: auto;
-    background-color: #E5E5E5;
     text-align: center;
+    display: inline-block;
+    line-height: 1.6rem;
+
+
 }
 
 #blocks div {
     display: inline-block;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 5px;
 
 }
->>>>>>> f354adb4f64641a1c4b332648ccce9a35e03559e
+
+/*get rid of overflow and change width back*/
+.eventboxdate{
+    position: relative;
+    top: 20px;
+    width: 20%;
+    height: 60px;
+    margin-right: 2%;
+    float: left;
+    overflow: hidden;
+
+}
+
+.eventboxinfo{
+    position: relative;
+    width: 77%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.searchbox {
+    position: absolute; 
+    left: 42%; 
+    top: 3vh;
+    display: inline-block;
+}

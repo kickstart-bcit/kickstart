@@ -23,8 +23,10 @@
        <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
         <form action="/events", method="POST">
-            <input type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 42%; top: 3vh"><br>
-            <input type="submit" value="Submit" id="searchButton" style="position: absolute; left: 53%; top: 3vh">
+            <div class="searchbox">
+                <input type="text" class="inputboxlong" name="searchTerm" id="searchWord" placeholder="Search here">
+                <input type="submit" value="Search" id="searchButton" class="submitButton">
+            </div>
         </form>
 
     </div>
