@@ -27,7 +27,11 @@ router.post('/', async (request, response) => {
             var formatted_term = request.body.searchTerm.charAt(0).toUpperCase() + request.body.searchTerm.slice(1);
             formatted_term = `%${formatted_term}%`;
             console.log('The search term is: ', formatted_term);
-            let renderedEvents = eventConnector.renderEvents(await eventConnector.fetchSearchedEvent(formatted_term));
+            if (request.body.searchType === 'campus') {
+                var renderedEvents = eventConnector.renderEvents(await eventConnector.fetchSearchedEventByCampus(formatted_term));
+            } else if (!request.body.searchType || request.body.searchType === 'title') {
+                var renderedEvents = eventConnector.renderEvents(await eventConnector.fetchSearchedEvent(formatted_term));
+            }
             response.render('events.hbs', { renderedEvents });
         }
         else if (request.body.sortBy !== ''){

@@ -13,7 +13,7 @@ const fetchUser = (userId) => {
             host: "localhost",
             user: "root",
             password: "Password",
-            database: "kickstart",
+            database: "realkickstart",
             port: 3306
         });
 
