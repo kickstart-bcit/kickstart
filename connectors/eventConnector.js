@@ -64,13 +64,35 @@ const renderEvents = (rows) => {
                     <span class="eventsLocation">${row.events_locations}, </span>
                     <span class="eventsCampus">${row.events_campus}</span><br/>
                     <p class="eventsDesc">${row.events_desc}</p>
-                    <button class="eventsButton">Participate</button>
+                    <button class="eventsButton" onclick="sendJoin(${row.events_id})">Participate</button>
                 </div>
 
             </div>`
         }
     ).join("").replace(/\s\s+/g, " ");
 }
+
+const determineJoined = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "kickstart",
+            port: 3306
+        });
+
+        connector.connect();
+        userNumber = request.session.user.users_id;
+        
+
+
+        connector.end();
+        console.log(userNumber);
+    });
+
+}
+
 
 
 const defaultFetchEvent = () => {
