@@ -74,25 +74,45 @@ const renderEvents = (rows) => {
     ).join("").replace(/\s\s+/g, " ");
 }
 
-const determineJoined = () => {
+const determineJoined = (user_id, event_id) => {
     return new Promise((resolve, reject) => {
         const connector = mysql.createConnection({
             host: "localhost",
             user: "root",
             password: "Password",
-            database: "kickstart",
+            database: "realkickstart",
             port: 3306
         });
 
         connector.connect();
-        userNumber = request.session.user.users_id;
+        connector.query("select * from participations where frn_users_id = ? and frn_events_id = ?;", [user_id, event_id], (error, rows, fields) => {
+            if (error) reject(error); else resolve(rows);
+        })
         
-
-
         connector.end();
-        console.log(userNumber);
     });
 
+}
+
+
+const joiningEvent = (user_id, event_id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+
+        connector.query("insert into participations (frn_users_id, frn_events_id) values (?, ?);", [user_id, event_id], (error, rows, fields) => {
+            if(error) reject(error); else resolve(rows);
+        })
+
+        connector.end();
+    });
 }
 
 
@@ -232,5 +252,7 @@ module.exports = {
   renderAdminEvents,
   fetchSortedEvent,
   defaultFetchEvent,
-  fetchSearchedEventByCampus
+  fetchSearchedEventByCampus,
+  determineJoined,
+  joiningEvent
 };
