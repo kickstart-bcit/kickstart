@@ -65,13 +65,56 @@ const renderEvents = (rows) => {
                     <span class="eventsCampus">${row.events_campus}</span><br/>
                     <span class="eventsPoints">${row.events_points}</span><br/>
                     <p class="eventsDesc">${row.events_desc}</p>
-                    <button onclick="" class="eventsButton">Participate</button>
+                    <button class="eventsButton" onclick="sendJoin(${row.events_id})">Participate</button>
+
                 </div>
 
             </div>`
         }
     ).join("").replace(/\s\s+/g, " ");
 }
+
+const determineJoined = (user_id, event_id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+        connector.query("select * from participations where frn_users_id = ? and frn_events_id = ?;", [user_id, event_id], (error, rows, fields) => {
+            if (error) reject(error); else resolve(rows);
+        })
+        
+        connector.end();
+    });
+
+}
+
+
+const joiningEvent = (user_id, event_id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+
+        connector.query("insert into participations (frn_users_id, frn_events_id) values (?, ?);", [user_id, event_id], (error, rows, fields) => {
+            if(error) reject(error); else resolve(rows);
+        })
+
+        connector.end();
+    });
+}
+
 
 
 const defaultFetchEvent = () => {
@@ -209,5 +252,7 @@ module.exports = {
   renderAdminEvents,
   fetchSortedEvent,
   defaultFetchEvent,
-  fetchSearchedEventByCampus
+  fetchSearchedEventByCampus,
+  determineJoined,
+  joiningEvent
 };

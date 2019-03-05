@@ -1,6 +1,5 @@
 // router methods definitions go here!
 
-
 const express = require('express');
 const router = express.Router();
 const eventConnector = require('../connectors/eventConnector.js');
@@ -23,7 +22,7 @@ router.get('/', async (request, response) => {
 router.post('/', async (request, response) => {
     try {
         // console.log(request.body);
-        if(request.body.searchTerm !== ''){
+        if(request.body.searchTerm !== '' && request.body.searchTerm !== undefined){
             var formatted_term = request.body.searchTerm.charAt(0).toUpperCase() + request.body.searchTerm.slice(1);
             formatted_term = `%${formatted_term}%`;
             console.log('The search term is: ', formatted_term);
@@ -71,6 +70,35 @@ router.post('/', async (request, response) => {
         response.render('events.hbs', "error")
     }        
 });
+
+router.post('/join', async (request, response) => {
+    console.log('the event id is ', request.body.value);
+    console.log('user is ', request.session.user.users_id);
+    event_id = request.body.value;
+    user_id = request.session.user.users_id;
+
+    result = await eventConnector.determineJoined(user_id, event_id);
+
+    console.log(result);
+
+    if(result.length !== 0){
+        var isJoined = true;
+        console.log('==================================================================');
+        console.log('the student has enrolled');
+        console.log('==================================================================');
+        
+    }else{
+        var isJoined = false;
+        console.log('==================================================================');
+        console.log('the student is not yet enrolled');
+        console.log('==================================================================');
+    }
+
+    if(isJoined === false){
+        joining = await eventConnector.joiningEvent(user_id, event_id);
+    }
+
+})
 
 
 
