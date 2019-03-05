@@ -23,7 +23,11 @@
        <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
         <form action="/events", method="POST">
-
+            <select name="searchType" class="inputbox" style="position: absolute; left: 28%; top: 3vh;">
+                <option value="" disabled selected>Search By</option>
+                <option value="title">Title</option>
+                <option value="campus">Campus</option>
+            </select>
             <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 35%; top: 3vh;">
 
             <select name="sortBy" class="inputbox" style="position: absolute; left: 55%; top: 3vh;">
@@ -62,13 +66,16 @@
 
 </body>
 
-{{!-- <script>
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'http://localhost:3000/events', true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(JSON.stringify({
-        value: document.getElementById('sorBy').value
-    }));
-</script> --}}
+<script>
+    const sendJoin = (id) => {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://localhost:3000/events/join', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            value: id
+        }));
+    }
+    
+</script>
 
 </html>

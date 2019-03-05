@@ -14,7 +14,7 @@ const fetchEvents = () => {
             host: "localhost",
             user: "root",
             password: "Password",
-            database: "kickstart",
+            database: "realkickstart",
             port: 3306
         });
 
@@ -63,14 +63,58 @@ const renderEvents = (rows) => {
                     <span class="endTime">${row.events_end_time}</span><br/>
                     <span class="eventsLocation">${row.events_locations}, </span>
                     <span class="eventsCampus">${row.events_campus}</span><br/>
+                    <span class="eventsPoints">${row.events_points}</span><br/>
                     <p class="eventsDesc">${row.events_desc}</p>
-                    <button class="eventsButton">Participate</button>
+                    <button class="eventsButton" onclick="sendJoin(${row.events_id})">Participate</button>
+
                 </div>
 
             </div>`
         }
     ).join("").replace(/\s\s+/g, " ");
 }
+
+const determineJoined = (user_id, event_id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+        connector.query("select * from participations where frn_users_id = ? and frn_events_id = ?;", [user_id, event_id], (error, rows, fields) => {
+            if (error) reject(error); else resolve(rows);
+        })
+        
+        connector.end();
+    });
+
+}
+
+
+const joiningEvent = (user_id, event_id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+
+        connector.query("insert into participations (frn_users_id, frn_events_id) values (?, ?);", [user_id, event_id], (error, rows, fields) => {
+            if(error) reject(error); else resolve(rows);
+        })
+
+        connector.end();
+    });
+}
+
 
 
 const defaultFetchEvent = () => {
@@ -79,13 +123,13 @@ const defaultFetchEvent = () => {
             host: "localhost",
             user: "root",
             password: "Password",
-            database: "kickstart",
+            database: "realkickstart",
             port: 3306
         });
 
         connector.connect();
       
-        connector.query("select * from kickstart.kickstart_events;", (error, rows, fields) => {
+        connector.query("select * from kickstart_events;", (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); 
             else resolve(rows);
         });
@@ -101,13 +145,33 @@ const fetchSearchedEvent = (word) => {
             host: "localhost",
             user: "root",
             password: "Password",
-            database: "kickstart",
+            database: "realkickstart",
             port: 3306
         });
 
         connector.connect();
       
         connector.query("select * from kickstart_events where events_title like ?;", [word], (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+  });
+}
+
+const fetchSearchedEventByCampus = (campus) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart_events where events_campus like ?;", [campus], (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
 
@@ -122,13 +186,13 @@ const fetchSortedEvent = (condition) => {
                 host: "localhost",
                 user: "root",
                 password: "Password",
-                database: "kickstart",
+                database: "realkickstart",
                 port: 3306
             });
     
             connector.connect();
     
-            connector.query("SELECT * FROM kickstart.kickstart_events order by events_date and events_start_time asc;", (error, rows, fields) => {
+            connector.query("SELECT * FROM kickstart_events order by events_date and events_start_time asc;", (error, rows, fields) => {
                 if(error) reject("couldn't connect to db"); else resolve(rows);
             });
 
@@ -141,13 +205,13 @@ const fetchSortedEvent = (condition) => {
                 host: "localhost",
                 user: "root",
                 password: "Password",
-                database: "kickstart",
+                database: "realkickstart",
                 port: 3306
             });
     
             connector.connect();
     
-            connector.query("SELECT * FROM kickstart.kickstart_events order by events_point asc;", (error, rows, fields) => {
+            connector.query("SELECT * FROM kickstart_events order by events_points asc;", (error, rows, fields) => {
                 if(error) reject("couldn't connect to db"); else resolve(rows);
             });
 
@@ -160,13 +224,13 @@ const fetchSortedEvent = (condition) => {
                 host: "localhost",
                 user: "root",
                 password: "Password",
-                database: "kickstart",
+                database: "realkickstart",
                 port: 3306
             });
     
             connector.connect();
     
-            connector.query("SELECT * FROM kickstart.kickstart_events order by events_campus asc;", (error, rows, fields) => {
+            connector.query("SELECT * FROM kickstart_events order by events_campus asc;", (error, rows, fields) => {
                 if(error) reject("couldn't connect to db"); else resolve(rows);
             });
 
@@ -187,5 +251,8 @@ module.exports = {
   fetchSearchedEvent,
   renderAdminEvents,
   fetchSortedEvent,
-  defaultFetchEvent
+  defaultFetchEvent,
+  fetchSearchedEventByCampus,
+  determineJoined,
+  joiningEvent
 };
