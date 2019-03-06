@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Staff Page</title>
+      <link href='style.css' rel='stylesheet' type='text/css'/>
+  </head>
+
+  <body>
+      {{> navigation}}
+
+      <div id="contentDiv">
+          <h2>Staff Page</h2>
+          <!-- select USES .inputbox css FROM style.css -->
+          <div id="select" style="width:100%;">
+            <select name="events" style="border-radius: 0.3rem; border-style: solid; box-sizing: border-box; display: inline-block; margin: 0; min-width: calc(2rem + 1em); vertical-align: middle; transition: background-color 0.5s ease, border-color 0.5s ease; color: #565a5c; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.02rem; line-height: 1.2rem; min-height: calc(2rem + 2px); background-color: #ffffff; border-color: #d3d9e3; border-width: 1px; box-shadow: inset 0 2px 0 0 rgba(185, 194, 208, .2); padding: 0.4rem 0.75rem; height: auto;">
+              <option value="option1">Event 1</option>
+              <option value="option2">Event 2</option>
+              <option value="option3">Event 3</option>
+              <option value="option4">Event 4</option>
+            </select>
+          </div>
+          <div style="width:100%;">
+          <!-- textinput USES .inputbox css FROM style.css -->
+            <input type="text" placeholder="text input" style="border-radius: 0.3rem; border-style: solid; box-sizing: border-box; display: inline-block; margin: 0; min-width: calc(2rem + 1em); vertical-align: middle; transition: background-color 0.5s ease, border-color 0.5s ease; color: #565a5c; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.02rem; line-height: 1.2rem; min-height: calc(2rem + 2px); background-color: #ffffff; border-color: #d3d9e3; border-width: 1px; box-shadow: inset 0 2px 0 0 rgba(185, 194, 208, .2); padding: 0.4rem 0.75rem; height: auto;"/>
+          </div>
+          <div style="width:100%;">
+          <!-- submitbutton USES .submitButton css FROM style.css -->
+            <input type="submit" value="Search" class="submitButton" id="searchButton" style="background-color: #006fbf; color: white; border-radius: .3rem; border-style: solid; border-width: 1px; box-sizing: border-box; cursor: pointer; display: inline-block; margin: 0 .75rem 0 0; user-select: none; vertical-align: middle; width: auto; box-shadow: 0 0 0 4px transparent; font-family: inherit; padding: .55rem 1.5rem; font-size: .7rem; line-height: 1rem; font-weight: 700; letter-spacing: .2px;"/>
+          </div>
+        <div id="message" style="width:100%; background-color: lightgray">Success/Failed</div>
+      </div>
+      <footer>
+        <div style="float:left; width:50%; text-align: right;"><p style="padding-right: 5px">Contact Us</p></div>
+        <div style="float:right; width:50%; text-align: left;"><p style="padding-left: 5px">Privacy</p></div>
+      </footer>
+  </body>
+
+</html>
