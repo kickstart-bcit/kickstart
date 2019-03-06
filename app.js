@@ -21,7 +21,8 @@ app.use(session({
 hbs.registerPartials(__dirname + '/views/partials');
 hbs.registerPartial('style', '/views/partials/styles')
 hbs.registerPartial('navigation', '/views/partials/navigation')
-
+hbs.registerPartial('navigation', '/views/partials/adminNav')
+hbs.registerPartial('navigation', '/views/partials/staffNav')
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
@@ -36,6 +37,7 @@ const eventsRouter = require('./routers/eventsRouter');
 const rewardsRouter = require('./routers/rewardsRouter');
 const adminRouter = require('./routers/adminRouter');
 const adminRewardsRouter = require('./routers/adminRewardsRouter');
+const staffRouter = require('./routers/staffRouter');
 
 app.use('/login', loginRouter);
 app.use('/main', sessionHelper.refreshCookie,  sessionHelper.requireLogin, mainRouter);
@@ -43,6 +45,8 @@ app.use('/events', sessionHelper.refreshCookie,  sessionHelper.requireLogin, eve
 app.use('/rewards', sessionHelper.refreshCookie,  sessionHelper.requireLogin, rewardsRouter);
 app.use('/admin', sessionHelper.refreshCookie,  sessionHelper.requireLogin, adminRouter);
 app.use('/adminRewards', sessionHelper.refreshCookie,  sessionHelper.requireLogin, adminRewardsRouter);
+app.use('/staff', sessionHelper.refreshCookie,  sessionHelper.requireLogin, staffRouter);
+
 
 app.get('/', (request, response) => {
     response.redirect('/login');

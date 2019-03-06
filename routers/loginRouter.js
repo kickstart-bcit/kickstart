@@ -6,22 +6,26 @@ const router = express.Router();
 const userConnector = require('../connectors/usersConnector');
 // "/login"
 
-router.route('/')
-
-.get( async (request, response) => {
-    if (request.session && request.session.user) {
-        let user = await userConnector.fetchUser(request.session.user.users_id);
-        if (user) {
-            if (user.users_type == "admin") response.redirect('/admin');
-            response.redirect('/main');
-        } 
-            
-    } else {
-        response.render('log.hbs', {});
+router.get('/', async (request, response) => {
+    try {
+        if (request.session && request.session.user) {
+            let user = await userConnector.fetchUser(request.session.user.users_id);
+            if (user) {
+                if (user.users_type == "admin") response.redirect('/admin');
+                else if (user.users_type == "staff") response.redirect('/staff');
+                else response.redirect('/main');
+            } 
+                
+        } else {
+            response.render('log.hbs', {});
+        }
+    }
+    catch (err){
+        console.log(err)
     }
 })
 
-.post( async (request, response) => {
+router.post('/', async (request, response) => {
     // validation/authentication goes here
     try {
         let user = await userConnector.fetchUser(request.body.loginName);
@@ -33,7 +37,8 @@ router.route('/')
                 request.session.user = user;
                 response.locals.user = user;
                 if (user.users_type == "admin") response.redirect('/admin');
-                response.redirect('/main');
+                else if (user.users_type == 'staff') response.redirect('/staff');
+                else response.redirect('/main');
             } else response.render('log.hbs', {errMsg: "wrong password"});
         }
     }   
