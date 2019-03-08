@@ -21,13 +21,13 @@
         <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
         <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
-            <form action="/events", method="POST">
-                <select name="searchType" class="inputbox" style="position: absolute; left: 28%; top: 3vh;">
-                    <option value="" disabled selected>Search By</option>
-                    <option value="title">Title</option>
-                    <option value="campus">Campus</option>
-                </select>
-                <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 35%; top: 3vh;">
+        <form action="/events", method="POST">
+            <select name="searchType" class="inputbox" style="position: absolute; left: 28%; top: 3vh;">
+                <option value="" disabled selected>Search By</option>
+                <option value="title">Title</option>
+                <option value="campus">Campus</option>
+            </select>
+            <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 35%; top: 3vh;"/>
 
                 <select name="sortBy" class="inputbox" style="position: absolute; left: 55%; top: 3vh;">
                     <option value="" disabled selected>Sort By</option>
@@ -36,7 +36,7 @@
                     <option value="campus">Campus</option>
                 </select>
 
-                <input type="submit" value="Search" class="submitButton" id="searchButton" style="position: absolute; left: 64%; top: 3vh;">
+            <input type="submit" value="Search" class="submitButton" id="searchButton" style="position: absolute; left: 64%; top: 3vh;"/>
 
             </form>
 
