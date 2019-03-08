@@ -24,7 +24,7 @@ body {
 #featuredContent {
     position: relative;
     left: 70%;
-    bottom: 60%;
+    bottom: 70%;
 }
 
 
@@ -111,8 +111,9 @@ body {
 
 #registeredContent {
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 15%;
+    height: 28%;
 }
 
 #registeredEvent1 {
