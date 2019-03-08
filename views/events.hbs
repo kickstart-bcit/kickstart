@@ -10,6 +10,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Events Page</title>
     <link href='style.css' rel='stylesheet' type='text/css'/>
+    <link href='events.css' rel='stylesheet' type='text/css'/>
+
+    <style>
+        @media screen and (max-width: 800px) {
+            .blocks {
+                width: 90%;
+            }
+            #navDiv{
+                position: fixed;
+                flex-direction: column;
+                width: 100%;
+                top: 12vh;
+                left: 0px;
+                height: 22vh;
+                background-color: #003E6B;
+                align-items: center;
+            }
+            #contentDiv {
+                top: 36vh;
+            }
+            #navDiv input {
+                margin: 8px;
+            }
+            #searchdiv{
+                top: 8vh;
+                left: -5vw;
+            }
+            #topBar{
+                left: -5vw;
+            }
+
+        }
+        </style>
 </head>
 
 <body>
@@ -21,24 +54,29 @@
         <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
         <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
-        <form action="/events", method="POST">
-            <select name="searchType" class="inputbox" style="position: absolute; left: 28%; top: 3vh;">
+        <form action="/events", method="POST" id="searchdiv" style="position: absolute; width: 100vw; height: 10vh; display: inline-block">
+            <select name="searchType" class="inputbox" style="position: relative; left: 15vw; top: 3vh; margin: 0;">
                 <option value="" disabled selected>Search By</option>
                 <option value="title">Title</option>
                 <option value="campus">Campus</option>
             </select>
-            <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: absolute; left: 35%; top: 3vh;"/>
+            <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: relative; left: 15vw; top: 3vh; margin: 0;"/>
 
-                <select name="sortBy" class="inputbox" style="position: absolute; left: 55%; top: 3vh;">
-                    <option value="" disabled selected>Sort By</option>
-                    <option value="datetime">Date and time</option>
-                    <option value="point">Point</option>
-                    <option value="campus">Campus</option>
-                </select>
 
-            <input type="submit" value="Search" class="submitButton" id="searchButton" style="position: absolute; left: 64%; top: 3vh;"/>
+            <select name="sortBy" class="inputbox" style="position: relative; left: 15vw; top: 3vh; margin: 0;">
+                <option value="" disabled selected>Sort By</option>
+                <option value="datetime">Date and time</option>
+                <option value="point">Point</option>
+                <option value="campus">Campus</option>
+            </select>
 
-            </form>
+
+            <input type="submit" value="Search" class="submitButton" id="searchButton" style="position: relative; left: 15vw; top: 3vh; margin: 0;"/>
+
+
+        </form>
+
+
 
             <h3 style="position: absolute; left: 53%; top: 1vh;">OR</h3>
         </div>

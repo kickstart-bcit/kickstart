@@ -126,7 +126,7 @@ const renderEvents = (rows) => {
             let pic ="";
             let alt = "";
             if (row.events_campus == "Richmond") {
-                pic = "https://photorator.com/photos/images/bcit-aerospace-campus-richmond-bc-canada--61776.jpg";
+                pic = "http://dev.keithpanel.com/images/sized/images/uploads/projects/BCIT-1-715x470.jpg";
                 alt = "BCIT Richmond Campus"
             } else if (row.events_campus == "Downtown") {
                 pic ="https://www.vanarts.com/drive/uploads/2017/01/BCIT-from-570-Dunsmuir_street-level-1024x681.jpg";
@@ -136,8 +136,10 @@ const renderEvents = (rows) => {
                 alt = "BCIT Burnaby Campus"
             }
 
+
             return `<div class="blocks">
                 <img alt=${alt} src=${pic} style="position: relative; width: 100%; height: auto"/>
+                
                 <div class="eventboxdate">
                     <span class="eventDate">${row.events_date}</span><br/>
                 </div>
@@ -151,7 +153,6 @@ const renderEvents = (rows) => {
                     <span class="eventsPoints">${row.events_points}</span><br/>
                     <p class="eventsDesc">${row.events_desc}</p>
                     <button class="eventsButton" onclick="sendJoin(${row.events_id})">Participate</button>
-
                 </div>
 
             </div>`
