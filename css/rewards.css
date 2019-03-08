@@ -41,32 +41,15 @@
 
 /*list*/
 
-
-#completed{
-	padding-top: 50px;
-}
-
-#toCompletetb {
+#historytb {
   border-collapse: collapse;
   width: 90%;
 }
-#toCompletetb td{
+#historytb td{
   border: 1px solid #ddd;
   padding: 8px;
 }
-#toCompletetb tr:hover {background-color: #f4f4f4;}
-
-
-
-#completedtb {
-  border-collapse: collapse;
-  width: 90%;
-}
-#completedtb td{
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-#completedtb tr:hover {background-color: #f4f4f4;}
+#historytb tr:hover {background-color: #f4f4f4;}
 
 
 #rewardstb {
