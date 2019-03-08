@@ -8,31 +8,39 @@
     <title>Welcome to Kick Start Main</title>
     <link href='style.css' rel='stylesheet' type='text/css'/>
     <link href='main.css' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 </head>
 
 <body>
     {{> navigation}}
 
     <div id="contentDiv">
-        <div id="welcomeDiv">
-            Welcome Back!
+        <div id="profileCard">
+        <img src="{{profileUrl}}" alt="John" style="width:100%">
+        <h1>{{username}}</h1>
+        <p id="userProgram"="title">ACIT Program</p>
+        <p id="pointTotal">Your point total is: {{userPoints}}</p>
+        <div style="margin: 24px 0;">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
         </div>
-        <div id="userContent">
-            <div id="userProfile">
-                <img src="{{profileUrl}}" alt="Profile Picture" id="profilePic">
-            </div>
-            <div id="userDesc">
-                <h2 id="mainName"> {{username}}</h2>
-            <p>A00962733</p>
-            <p>ACIT Program</p>
-            <p style="font-size:18px;font-family:'Courier New', Courier, monospace;font-style:oblique;border:1px groove black;">YOUR POINT TOTAL IS: {{userPoints}}</p>
-            </div>
+        <p><button id="redeemButton">Redeem Points</button></p>
         </div>
         <div id="featuredContent">
-            <h2>Featured Events</h2>
-            <div id="featuredEvent1">
-                <div id="featuredEvent1name">
-                Kick Start Way Finding Station
+                <h2>Featured Events</h2>
+                <div id="featuredEvent1">
+                    <div id="featuredEvent1name">
+                    Kick Start Way Finding Station
+                    </div>
+                    <div id="featuredEvent1time">
+                    August 26th, 3:00PM
+                    </div>
+                    <button type="button"i class="eventButton">View Event</button>
+                    <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage1" width="75" height="75">
+                    
                 </div>
                 <div id="featuredEvent1time">
                 August 26th, 3:00PM
@@ -40,29 +48,74 @@
                 <button type="button" class="eventButton">View Event</button>
             </div>
 
-
-            <div id="featuredEvent2">
-                <div id="featuredEvent2name">
-                Student Services Seminar
-                </div>
-                <div id="featuredEvent2time">
-                August 28th, 5:00PM
-                </div>
-                <button type="button" class="eventButton">View Event</button>
-            </div>
-
-
-            <div id="featuredEvent3">
-                <div id="featuredEvent3name">
-                Meet the Dean
-                </div>
-                <div id="featuredEvent3time">
-                August 30th, 6:00PM
+                <div id="featuredEvent2">
+                    <div id="featuredEvent2name">
+                    Student Services Seminar
+                    </div>
+                    <div id="featuredEvent2time">
+                    August 28th, 5:00PM
+                    </div>
+                    <button type="button"i class="eventButton">View Event</button>
+                     <img src="https://www.vanarts.com/drive/uploads/2017/01/BCIT-from-570-Dunsmuir_street-level-1024x681.jpg" id="eventimage2" width="75" height="75">
+                    
                 </div>
                 <button type="button" class="eventButton">View Event</button>
             </div>
-            
+
+
+                <div id="featuredEvent3">
+                    <div id="featuredEvent3name">
+                    Meet the Dean
+                    </div>
+                    <div id="featuredEvent3time">
+                    August 30th, 6:00PM
+                    </div>
+                    <button type="button"i class="eventButton">View Event</button>
+                     <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage3" width="75" height="75">
+                    
+                </div>
+
+                <div id="featuredEvent4">
+                    <div id="featuredEvent4name">
+                    Kickstart Brunch
+                    </div>
+                    <div id="featuredEvent4time">
+                    September 3rd, 12:00PM
+                    </div>
+                    <button type="button"i class="eventButton">View Event</button>
+                     <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage4" width="75" height="75">
+                    
+                </div>
+                
         </div>
+
+
+        <div id="registeredContent">
+                <h2>Upcoming Events</h2>
+                <div id="registeredEvent1">
+                    <div>KickStart WayFinding Station</div>
+                    <div>August 5th, 2019</div>
+                    <div>5:00PM</div>
+                    <div>Downtown Campus</div>
+                    <button type="button"i class="eventButton">View Event</button>
+                    <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="registeredImage1" width="55" height="55">
+                    </div>
+                <br><br>
+                <div id="registeredEvent2">
+                    <div>KickStart WayFinding Station</div>
+                    <div>August 5th, 2019</div>
+                    <div>5:00PM</div>
+                    <div>Downtown Campus</div>
+                    <button type="button"i class="eventButton">View Event</button>
+                    <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="registeredImage1" width="55" height="55">
+                </div>
+                <br><br>
+                <div id="wayFinding">
+                    <div>Need Help Finding Your Event?</div>
+                    <div>Click on the Wayfinder Map!</div>
+                    <a href="https://www.bcit.ca/files/studentlife/pdf/student_services_wayfinding_guide_2018.pdf"><img src="https://www.bcit.ca/files/kickstart/img/wayfinding_guide.png"/></a>
+                </div>
+0        </div>
 
         <div id="current">
             {{{ current }}}
