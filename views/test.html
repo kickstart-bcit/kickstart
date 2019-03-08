@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Kick Start Main</title>
+    <link href='style.css' rel='stylesheet' type='text/css' />
+    <link href='main.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    {{> navigation}}
+
+    <div id="contentDiv">
+        {{!--
+        <div id="userContent">
+            <div id="userProfile">
+                <img src="{{profileUrl}}" alt="Profile Picture" id="profilePic">
+            </div>
+            <div id="userDesc">
+                <h2 id="mainName"> {{username}}</h2>
+                <p>A00962733</p>
+                <p>ACIT Program</p>
+                <p style="font-size:18px;font-family:'Courier New', Courier, monospace;font-style:oblique;border:1px groove black;">YOUR POINT TOTAL IS: {{userPoints}}</p>
+            </div>
+        </div> --}}
+        <div class="card">
+            <img src="{{profileUrl}}" alt="John" style="width:100%">
+            <h1>{{username}}</h1>
+            <p class="title">ACIT Program</p>
+            <p id="pointTotal">Your point total is: {{userPoints}}</p>
+            <div style="margin: 24px 0;">
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+            </div>
+            <p><button id="redeemButton">Redeem Points</button></p>
+        </div>
+        <div id="featuredContent">
+            <h2>Featured Events</h2>
+            <div id="featuredEvent1">
+                <div id="featuredEvent1name">
+                    Kick Start Way Finding Station
+                </div>
+                <div id="featuredEvent1time">
+                    August 26th, 3:00PM
+                </div>
+                <button type="button" i class="eventButton">View Event</button>
+                <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage1" width="75" height="75">
+
+            </div>
+            <div></div>
+            <div></div>
+
+
+            <div id="featuredEvent2">
+                <div id="featuredEvent2name">
+                    Student Services Seminar
+                </div>
+                <div id="featuredEvent2time">
+                    August 28th, 5:00PM
+                </div>
+                <button type="button" i class="eventButton">View Event</button>
+                <img src="https://www.vanarts.com/drive/uploads/2017/01/BCIT-from-570-Dunsmuir_street-level-1024x681.jpg" id="eventimage2" width="75" height="75">
+
+            </div>
+            <div></div>
+            <div></div>
+
+
+            <div id="featuredEvent3">
+                <div id="featuredEvent3name">
+                    Meet the Dean
+                </div>
+                <div id="featuredEvent3time">
+                    August 30th, 6:00PM
+                </div>
+                <button type="button" i class="eventButton">View Event</button>
+                <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage3" width="75" height="75">
+
+            </div>
+
+            <div id="featuredEvent4">
+                <div id="featuredEvent4name">
+                    Kickstart Brunch
+                </div>
+                <div id="featuredEvent4time">
+                    September 3rd, 12:00PM
+                </div>
+                <button type="button" i class="eventButton">View Event</button>
+                <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage4" width="75" height="75">
+
+            </div>
+
+        </div>
+
+
+        <div id="registeredContent">
+            <h2>Registered Events</h2>
+            <div id="registeredEvent1">
+                KickStart WayFinding Station
+            </div>
+            <div id="registeredEvent1info">
+                August 30th, 2018 5:00PM Downtown Campus
+            </div>
+            <button type="button" i class="eventButton">View Event</button>
+            <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg" id="eventimage1" width="75" height="75">
+
+        </div>
+        <div></div>
+        <div></div>
+
+
+        <div id="registeredEvent2">
+
+            <button type="button" i class="eventButton">View Event</button>
+            <img src="https://www.vanarts.com/drive/uploads/2017/01/BCIT-from-570-Dunsmuir_street-level-1024x681.jpg" id="eventimage2" width="75" height="75">
+
+        </div>
+        <div></div>
+        <div></div>
+
+
+    </div>
+
+    <div id="current">
+        {{{ current }}}
+    </div>
+
+
+    </div>
+
+</body>
+
+</html>

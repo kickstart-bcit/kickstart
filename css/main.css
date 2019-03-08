@@ -1,15 +1,19 @@
-#body {
-    background-color: red;
+body {
+    background-image: linear-gradient(to right, #2c3e50, #4ca1af);
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #userContent {
     height: 100px;
     width: 300px;
     position: relative;
-    left: 45%;
-    margin-left: -500px;
+    left: 60%;
+    margin-left: -300px;
     top: 17%;
     margin-top: -50px;
+    color: black;
+    text-align: center;
 }
 
 #profilePic {
@@ -19,8 +23,8 @@
 
 #featuredContent {
     position: relative;
-    top: 5%;
-    left: 65%
+    left: 70%;
+    bottom: 60%;
 }
 
 
@@ -42,6 +46,13 @@
     width: 25%
 }
 
+#eventimage1 {
+    position: absolute;
+    left: 70%;
+    top: 6%;
+    border: 2px solid black;
+}
+
 #featuredEvent2 {
     top: 120%;
     position: absolute;
@@ -50,6 +61,13 @@
     border-radius: 5px;
     padding: 5px;
     width: 25%
+}
+
+#eventimage2 {
+    position: absolute;
+    left: 70%;
+    top: 6%;
+    border: 2px solid black;
 }
 
 #featuredEvent3 {
@@ -62,15 +80,140 @@
     width: 25%
 }
 
+#eventimage3 {
+    position: absolute;
+    left: 70%;
+    top: 6%;
+    border: 2px solid black;
+}
+
+#featuredEvent4 {
+    top: 300%;
+    position: absolute;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 25%
+}
+
+#eventimage4 {
+    position: absolute;
+    left: 70%;
+    top: 6%;
+    border: 2px solid black;
+}
+
 .eventButton:hover {
     cursor: grab;
     background-color: lightgray;
 }
 
-#welcomeDiv {
+#registeredContent {
+    position: absolute;
+    top: 5%;
+    left: 15%;
+}
+
+#registeredEvent1 {
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    box-shadow: 10px 10px 5px #888;
+}
+
+#registeredImage1 {
+    position: absolute;
+    left: 70%;
+    top: 22%;
+    border: 2px solid black;
+}
+
+#registeredEvent2 {
+    position: absolute;
+    box-shadow: 10px 10px 5px #888;
+    top: 110%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%
+}
+
+#registeredimage2 {
+    position: absolute;
+    left: 70%;
+    top: 6%;
+    border: 2px solid black;
+}
+
+#wayFinding {
+    position: absolute;
+    top: 190%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    width: 120%;
+    left: -9%;
+}
+
+
+/* #welcomeDiv {
     position: relative;
     font-size: 40px;
     left: 41%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     top: 5%
+} */
+
+
+/* Experimental */
+
+#profileCard {
+    position: relative;
+    top: 5%;
+    box-shadow: 0 0 1px 1px black;
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    border: 2px solid black;
+    border-radius: 10px;
+    left: 1%;
+}
+
+#userProgram {
+    font-size: 18px;
+}
+
+#redeemButton {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+button:hover,
+a:hover {
+    opacity: 0.7;
+}
+
+#pointTotal {
+    font-size: 20px;
 }
