@@ -49,11 +49,10 @@
     {{> navigation}}
 
     <div id="contentDiv">
-       {{!-- <h1>events page</h1> --}}
 
-    <div id="topBar" style="position: absolute; width: 100vw; height: 10vh; top: 2vh; display: inline-block">
-       <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
-       <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
+        <div id="topBar" style="position: absolute; width: 100vw; height: 10vh; top: 2vh; display: inline-block">
+        <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
+        <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
         <form action="/events", method="POST" id="searchdiv" style="position: absolute; width: 100vw; height: 10vh; display: inline-block">
             <select name="searchType" class="inputbox" style="position: relative; left: 15vw; top: 3vh; margin: 0;">
@@ -74,27 +73,17 @@
 
             <input type="submit" value="Search" class="submitButton" id="searchButton" style="position: relative; left: 15vw; top: 3vh; margin: 0;"/>
 
+
         </form>
 
 
-        {{!-- <form action='/events', method="POST">
 
-            <select name="sortBy" id = "sortBy" style="position: absolute; right: 35%; top: 3vh">
-                <option value="datetime">Date and time</option>
-                <option value="point">Point</option>
-                <option value="campus">Campus</option>
-            </select>
+            <h3 style="position: absolute; left: 53%; top: 1vh;">OR</h3>
+        </div>
 
-            <input type="submit" value="Submit" id="sortDropdown" style="position: absolute; right: 30%; top: 3vh">
-        </form> --}}
-
-        
-
-    </div>
-
-    <div id="blocks">
-        {{{ renderedEvents }}}
-    </div>
+        <div id="blocks">
+            {{{ renderedEvents }}}
+        </div>
 
     </div>
 

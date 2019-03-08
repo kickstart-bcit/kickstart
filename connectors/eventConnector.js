@@ -7,6 +7,89 @@
 
 const mysql = require("mysql");
 
+const insertEvent = (inputArray) => {
+    return new Promise((resolve, reject) => {
+    const connector = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Password",
+        database: "realkickstart",
+        port: 3306
+    });
+
+
+    connector.connect();
+  
+    connector.query("INSERT INTO `realkickstart`.`kickstart_events` (`events_id`, `events_title`, `events_date`, `events_start_time`, `events_end_time`, `events_locations`, `events_points`, `events_desc`, `events_campus`, `events_isFinished`, `events_isFeatured`) VALUES ( NULL, ? , ?, ?, ?, ?, ?, ?, ?, '0', ?);", inputArray ,(error, rows, fields) => {
+        if (error) reject(error); else resolve(rows);
+    });
+
+    connector.end();
+    });
+}
+
+const updateEvent = (id, inputArray) => {
+    return new Promise((resolve, reject) => {
+    const connector = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Password",
+        database: "realkickstart",
+        port: 3306
+    });
+
+    connector.connect();
+  
+    connector.query("UPDATE kickstart_events SET events_title = ?, events_date = ?, events_start_time = ?, events_end_time = ?, events_locations = ?, events_points =?, events_desc =?, events_campus =?, events_isFeatured =? where events_id = ?", 
+    inputArray.concat([id]), (error, rows, fields) => {
+        if (error) reject(error); else resolve(rows);
+    });
+
+    connector.end();
+});
+}
+
+const deleteEventById = (id) => {
+    return new Promise((resolve, reject) => {
+    const connector = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "Password",
+        database: "realkickstart",
+        port: 3306
+    });
+
+
+    connector.connect();
+  
+    connector.query("DELETE FROM kickstart_events where events_id = ?", id,(error, rows, fields) => {
+        if (error) reject("couldn't connect to db"); else resolve("DELETE SUCCESS");
+    });
+
+    connector.end();
+});
+}
+
+const fetchEventById = (id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart_events where events_id = ?", id,(error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+    });
+}
+
 
 const fetchEvents = () => {
     return new Promise((resolve, reject) => {
@@ -30,8 +113,10 @@ const fetchEvents = () => {
 
 
 const renderAdminEvents = (rows) => {
-    return rows.map( row =>
-        `<tr><td>${row.events_title}<button class="adminEventEditButton">Edit</button></td></tr>`
+    return rows.map( row => 
+        `<tr><td>Title: ${row.events_title} Date:   ${new Date(row.events_date).toString().split(" ").slice(1,4).join(" ")} Time:   ${row.events_start_time} ~ ${row.events_end_time}
+        <button onclick="editEvent(${row.events_id})" class="adminEventEditButton">Edit</button>
+        <button onclick="deleteEvent(${row.events_id})" class="adminEventDeleteButton">Delete</button></td></tr>`
     ).join("").replace(/\s\s+/g, " ");
 }
 
@@ -255,5 +340,9 @@ module.exports = {
   defaultFetchEvent,
   fetchSearchedEventByCampus,
   determineJoined,
-  joiningEvent
+  joiningEvent,
+  fetchEventById,
+  insertEvent,
+  updateEvent,
+  deleteEventById,
 };

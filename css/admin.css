@@ -139,3 +139,42 @@
     height: 100vh;
 
 }
+
+
+
+
+/* popup */
+
+
+#adminEventDeletePopupDiv {
+    display:none;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    position: fixed;
+    width:340px;
+    height:480px;
+    margin: auto;
+    z-index:2;
+    background-color: #ddd;
+}
+
+
+.deletePopupBtn {
+    width:120px;
+    height:30px;
+
+}
+
+#deletePopupCloseBtn {
+    position: absolute;
+    top:-5px;
+    right:-5px;
+    width:20;
+    height:20;
+    font-size: 15px;
+    background-color: white;
+    color:red;
+    text-align: center;
+}

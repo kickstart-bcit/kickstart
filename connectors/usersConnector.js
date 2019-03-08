@@ -28,6 +28,30 @@ const fetchUser = (userId) => {
   });
 }
 
+const fetchStaff = (staffId) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+        connector.query("select * from users where users_id = ? and users_type = 'staff'", userId ,(error, rows, fields) => {
+            if (error) {reject("couldn't connect to db");} 
+            else if (rows.length == 0) reject("no staff with such id");
+            else resolve(rows[0]);
+        });
+
+        connector.end();
+  });
+}
+
+
+
+
 
 module.exports = {
     fetchUser,
