@@ -119,6 +119,63 @@ const renderAdminEvents = (rows) => {
         <button onclick="deleteEvent(${row.events_id})" class="adminEventDeleteButton">Delete</button></td></tr>`
     ).join("").replace(/\s\s+/g, " ");
 }
+/* 
+ * fetch events that have isFeatured = 1
+ */
+const fetchFeaturedEvents = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart_events where events_isFeatured = 1", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+    })
+}
+
+
+/* 
+ * fetch all the events with their participants
+ */
+// const fetchParticipations = () => {
+
+// }
+
+/* 
+ * fetchParticipations by Event Id
+ */
+// const fetchParticipationsByEventId = (eventId) => {
+
+// }
+
+/* 
+ * fetch participation where the staff is managing by staff id
+ */
+// const fetchParticipationsByStaffId = (staffId) => {
+
+// }
+
+/* 
+ * render participations where the staff is managing
+ *
+ */
+// const renderParticipationByStaffId = () => {
+
+// }
+
+
+// const renderParticipationByEventId = () => {
+
+// }
 
 
 const renderEvents = (rows) => {
@@ -344,4 +401,5 @@ module.exports = {
   insertEvent,
   updateEvent,
   deleteEventById,
+  fetchFeaturedEvents
 };

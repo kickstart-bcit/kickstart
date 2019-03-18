@@ -3,19 +3,27 @@
 const mysql = require("mysql");
 const express = require('express');
 const router = express.Router();
+const eventConnector = require('../connectors/eventConnector.js');
 
 // "/main"
 
 router.get('/', async (request, response) => {
-
-    let dispayCurrentEvents = renderCurrentEvents(await fetchCurrentEvent(request.session.user.users_id));
-
-    response.render('main.hbs', {
-        profileUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBO2O1ALH1poBQKrOjkDwHJh6HmZyd5aDGdazJmWxjAhxib5L",
-        username:`${request.session.user.users_firstName} ${request.session.user.users_lastName}`,
-        userPoints: `${request.session.user.users_point}`,
-        current: dispayCurrentEvents
-    });
+    try {
+        let currentEvents = await fetchCurrentEvent(request.session.user.users_id);
+        let featuredEvents = await eventConnector.fetchFeaturedEvents();
+        console.log("main currentEvent",currentEvents)
+        response.render('main.hbs', {
+            profileUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBO2O1ALH1poBQKrOjkDwHJh6HmZyd5aDGdazJmWxjAhxib5L",
+            username:`${request.session.user.users_firstName} ${request.session.user.users_lastName}`,
+            userPoints: `${request.session.user.users_point}`,
+            currentEvents,
+            featuredEvents
+        });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('main.hbs', { err });
+    }
     // console.log('working');
 })
 

@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Events Page</title>
-        <link href='/style.css' rel='stylesheet' type='text/css'/>
+    <title>Staff - Rewards</title>
+    <link href='/style.css' rel='stylesheet' type='text/css' />
+    <link href='/staff.css' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
@@ -14,7 +15,31 @@
 
     <div id="contentDiv">
         <h2>Staff Rewards Page</h2>
-        {{errorMessage}}
+        <div id="studentDisplay">
+            <div id="studentDisplayFormDiv">
+                <form action="/staff/rewards/student" method="post">
+                    <label for="studentIdInput">Student ID</label>
+                    <input type="text" name="studentIdInput" id="studentIdInput" placeholder="Enter Student Number" required>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div id="studentInfo">
+                <p class="studentInfoText"><span>ID:</span>{{studentId}}</p>
+                <p class="studentInfoText"><span>Name: </span>{{studentName}}</p>
+                <p class="studentInfoText"><span>Points: </span>{{studentPoints}}</p>
+                <p class="studentInfoStatusMsg">{{statusMsg}}</p>
+            </div>
+        </div>
+        <div id="dataDiv">
+            <h2>Rewards</h2>
+            <div id="listDiv">
+            {{#each rewards}}<div>
+                <p><span>Title: </span>{{this.title}}</p>
+                <p><span>Points: </span>{{this.point}}</p>
+                <button>Redeem</button>
+            </div>{{/each}}
+            </div>
+        </div>
     </div>
 
 
