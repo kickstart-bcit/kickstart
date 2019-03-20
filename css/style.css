@@ -84,8 +84,6 @@ button {
     height: auto;
 }
 
-
-
 .longinputbox {
     border-radius: 0.3rem;
     border-style: solid;
@@ -137,7 +135,7 @@ button {
 }
 
 #Header {
-    background-color: #003E6B;
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
@@ -207,7 +205,6 @@ button {
 // {{!-- !-- Login Page -- --}}
 #loginDiv {
     position: relative;
-
     top: 10vh;
     left: 0;
     right: 0;
