@@ -100,12 +100,12 @@ router.post('/join', async (request, response) => {
         }
         response.redirect('/main');
     }
-    catch {
+    catch (err){
         response.render('events.hbs', "error")
 
     }
 
-})
+});
 
 
 

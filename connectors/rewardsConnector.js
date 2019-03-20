@@ -114,9 +114,9 @@ const fetchRewards = () => {
 
 const renderAdminRewards = (rows) => {
     return rows.map( row =>
-        `<tr><td>${row.rewards_title} points: ${row.rewards_points}
-        <button onclick="editReward(${row.rewards_id})" class="adminEventEditButton">Edit</button>
-        <button onclick="deleteReward(${row.rewards_id})" class="adminEventDeleteButton">Delete</button></td></tr>`
+        `<tr><td><div class="leftRowPart">${row.rewards_title} <br>Points: ${row.rewards_points}</div>
+        <div class=rightRowPart><button onclick="editReward(${row.rewards_id})" class="adminEventEditButton">Edit</button>
+        <button onclick="deleteReward(${row.rewards_id})" class="adminEventDeleteButton">Delete</button></div></td></tr>`
     ).join("").replace(/\s\s+/g, " ");
 }
 

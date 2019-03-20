@@ -114,9 +114,9 @@ const fetchEvents = () => {
 
 const renderAdminEvents = (rows) => {
     return rows.map( row => 
-        `<tr><td>Title: ${row.events_title} Date:   ${new Date(row.events_date).toString().split(" ").slice(1,4).join(" ")} Time:   ${row.events_start_time} ~ ${row.events_end_time}
-        <button onclick="editEvent(${row.events_id})" class="adminEventEditButton">Edit</button>
-        <button onclick="deleteEvent(${row.events_id})" class="adminEventDeleteButton">Delete</button></td></tr>`
+        `<tr><td><div class="leftRowPart">Title: ${row.events_title} <br> Date:   ${new Date(row.events_date).toString().split(" ").slice(1,4).join(" ")} <br>Time:   ${row.events_start_time} ~ ${row.events_end_time} </div>
+        <div class=rightRowPart><button onclick="editEvent(${row.events_id})" class="adminEventEditButton">Edit</button>
+        <button onclick="deleteEvent(${row.events_id})" class="adminEventDeleteButton">Delete</button><div></td></tr>`
     ).join("").replace(/\s\s+/g, " ");
 }
 /* 
