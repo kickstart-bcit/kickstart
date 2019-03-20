@@ -1,10 +1,3 @@
-// controller for event page goes here
-// TODO: right now the config option is open (i.e. password)
-//  needs to use dotenv to store private information safe
-// TODO2: validation
-// TODO3: stylyze the rendered events
-// TODO4: validation
-
 const mysql = require("mysql");
 
 const insertEvent = (inputArray) => {
@@ -30,23 +23,23 @@ const insertEvent = (inputArray) => {
 
 const updateEvent = (id, inputArray) => {
     return new Promise((resolve, reject) => {
-    const connector = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "Password",
-        database: "realkickstart",
-        port: 3306
-    });
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
 
-    connector.connect();
-  
-    connector.query("UPDATE kickstart_events SET events_title = ?, events_date = ?, events_start_time = ?, events_end_time = ?, events_locations = ?, events_points =?, events_desc =?, events_campus =?, events_isFeatured =? where events_id = ?", 
-    inputArray.concat([id]), (error, rows, fields) => {
-        if (error) reject(error); else resolve(rows);
-    });
+        connector.connect();
+    
+        connector.query("UPDATE kickstart_events SET events_title = ?, events_date = ?, events_start_time = ?, events_end_time = ?, events_locations = ?, events_points =?, events_desc =?, events_campus =?, events_isFeatured =? where events_id = ?", 
+        inputArray.concat([id]), (error, rows, fields) => {
+            if (error) reject(error); else resolve(rows);
+        });
 
-    connector.end();
-});
+        connector.end();
+    });
 }
 
 const deleteEventById = (id) => {
