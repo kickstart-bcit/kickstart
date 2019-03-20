@@ -2,7 +2,7 @@
     position: fixed;
     top: 14vh;
     width: 100vw;
-    height: 100vh;
+    height: 86vh;
     overflow-y: scroll;
     left: 0px;
 }
@@ -107,7 +107,7 @@ button {
     height: auto;
 }
 
-// {{!-- !-- Header Page -- --}}
+// {{!-- !-- Header Page -- --}} //
 #loginHeader {
     background-color: #003E6B;
     position: fixed;
@@ -202,13 +202,15 @@ button {
     transform: scale(1.2, 1.2);
 }
 
-// {{!-- !-- Login Page -- --}}
+
+/* // {{!-- !-- Login Page -- --}} */
+
 #loginDiv {
     position: relative;
     top: 10vh;
     left: 0;
     right: 0;
-    A bottom: 0;
+    bottom: 0;
     margin: auto;
     border: 2px solid #003E6B;
     width: 340px;
@@ -240,6 +242,7 @@ button {
 }
 
 #loginForm input {
-    width: 100px height: 30px;
+    width: 100px;
+    height: 30px;
     font-size: 1.2rem;
 }
