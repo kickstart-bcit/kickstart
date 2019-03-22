@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Welcome to Kick Start Main</title>
-    <link href='style.css' rel='stylesheet' type='text/css' />
-    <link href='main.css' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Welcome to Kick Start Main</title>
+        <link href='style.css' rel='stylesheet' type='text/css' />
+        <link href='main.css' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    </head>
 
-<body>
-    {{> navigation}}
-    {{err}}
-    <div id="contentDiv">
-        
-        <div id="profileCard">
-            <img src="{{profileUrl}}" alt="John" style="border-radius: 50%; width: 19%; margin-top: 9%">
-            <h1 style="font-size: 37px">{{username}}</h1>
-            <p id="userEmail">{{userEmail}}</p>
-            <p id="userID">{{userID}}</p>
-            <p id="userProgram"="title">ACIT Program</p>
-            <p id="pointTotal">Your point total is: <b>{{userPoints}}</b></p>
-            <div style="margin: 24px 0;">
-                <a href="#" style="margin: 3px"><i class="fa fa-dribbble"></i></a>
-                <a href="#"style="margin: 3px"><i class="fa fa-twitter"></i></a>
-                <a href="#" style="margin: 3px"><i class="fa fa-linkedin"></i></a>
-                <a href="#" style="margin: 3px"><i class="fa fa-facebook"></i></a>
+    <body>
+        {{> navigation}}
+        {{err}}
+        <div id="contentDiv">
+            <div id="userContent">
+                <div id="profileCard">
+                    <img src="{{profileUrl}}" alt="Profile Picture" style="border-radius: 50%; width: 19%; margin-top: 9%">
+                    <div id="userDesc">
+                        <h1 style="font-size: 37px">{{username}}</h1>
+                        <p id="userEmail">{{userEmail}}</p>
+                        <p id="userID">{{userID}}</p>
+                        <p id="userProgram"="title">ACIT Program</p>
+                        <p style="font-size:18px;font-family:'Courier New', Courier, monospace;font-style:oblique;border:1px groove black;">YOUR POINT TOTAL IS: {{userPoints}}</p>
+
+                        <div style="margin: 24px 0;">
+                            <a href="#" style="margin: 3px"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"style="margin: 3px"><i class="fa fa-twitter"></i></a>
+                            <a href="#" style="margin: 3px"><i class="fa fa-linkedin"></i></a>
+                            <a href="#" style="margin: 3px"><i class="fa fa-facebook"></i></a>
+                        </div>
+                        <p><button id="redeemButton">Redeem Points</button></p>
+                    </div>
+                </div>
+
             </div>
-            <p><button id="redeemButton">Redeem Points</button></p>
-            
-        </div>
-        {{!-- btn onpress, redirect to events/:id --}}
-        {{!-- at events page, display the event (id) --}}
-        {{!--   participate button onpress , redirect to main page with the added event on the registered  --}}
-        {{!--   back button onpress , redirect to main page without the event added  --}}
-        {{!-- if the user is already participating a featured event, render different color on the btn  --}}
-        {{!-- if the user is  participating a featured event, render different color on the div  --}}
-        
-        
-        <div id="eventsPart">
+            {{!-- btn onpress, redirect to events/:id --}}
+            {{!-- at events page, display the event (id) --}}
+            {{!--   participate button onpress , redirect to main page with the added event on the registered  --}}
+            {{!--   back button onpress , redirect to main page without the event added  --}}
+            {{!-- if the user is already participating a featured event, render different color on the btn  --}}
+            {{!-- if the user is  participating a featured event, render different color on the div  --}}
 
-            <div id="registeredContent">
-                <h2 style="color: #006fbf; margin-bottom: 30px;">Upcoming Events</h2>
-                    {{#each currentEvents}}
-                    <div class="registeredEvent">
-                        <h3 class="">{{this.events_title}}</h3>
+
+            <div id="eventsPart">
+
+                <div id="registeredContent">
+                    <h2 style="color: #006fbf; margin-bottom: 30px;">Upcoming Events</h2>
+                        {{#each currentEvents}}
+                        <div class="registeredEvent">
+                            <h3 class="">{{this.events_title}}</h3>
+                            <div class="">{{this.events_date}}</div>
+                            <div>{{this.events_start_time}}</div>
+                            <div>{{this.events_locations}}, {{this.events_campus}}</div>
+                            <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
+                            <button class="quitButton" onclick="sendQuit({{this.events_id}})">Quit</button>
+                        </div><br />{{/each}}
+                </div>
+
+                <div id="featuredContent">
+                <h2 style="color: #006fbf; margin-bottom: 30px;">Featured Events</h2>
+                    {{#each featuredEvents}}<div class="featuredEvent">
+                        <h3 class="featuredEventName">{{this.events_title}}</h3>
                         <div class="">{{this.events_date}}</div>
                         <div>{{this.events_start_time}}</div>
                         <div>{{this.events_locations}}, {{this.events_campus}}</div>
                         <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
-                        <button class="quitButton" onclick="sendQuit({{this.events_id}})">Quit</button>
                     </div><br />{{/each}}
+                </div>
+
+                <div id="wayFinding">
+                    <h2 style="color: #006fbf; margin-bottom: 30px;">Need Help Finding Your Event?</h2>
+                    <h3>Click on the Wayfinder Map!</h3>
+                    <a href="https://www.bcit.ca/files/studentlife/pdf/student_services_wayfinding_guide_2018.pdf"><img style="margin-left:30px; width: 80%" src="https://www.bcit.ca/files/kickstart/img/wayfinding_guide.png" /></a>
+                </div>
+
             </div>
 
-            <div id="featuredContent">
-            <h2 style="color: #006fbf; margin-bottom: 30px;">Featured Events</h2>
-                {{#each featuredEvents}}<div class="featuredEvent">
-                    <h3 class="featuredEventName">{{this.events_title}}</h3>
-                    <div class="">{{this.events_date}}</div>
-                    <div>{{this.events_start_time}}</div>
-                    <div>{{this.events_locations}}, {{this.events_campus}}</div>
-                    <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
-                </div><br />{{/each}}
-            </div>
-
-            <div id="wayFinding">
-                <h2 style="color: #006fbf; margin-bottom: 30px;">Need Help Finding Your Event?</h2>
-                <h3>Click on the Wayfinder Map!</h3>
-                <a href="https://www.bcit.ca/files/studentlife/pdf/student_services_wayfinding_guide_2018.pdf"><img style="margin-left:30px; width: 80%" src="https://www.bcit.ca/files/kickstart/img/wayfinding_guide.png" /></a>
+            <div id="current">
+                {{{ current }}}
             </div>
 
         </div>
 
+    </body>
 
-    </div>
+    <script>
+        const sendQuit = (id) => {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", 'http://localhost:3000/main/quit', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                value: id
+            }));
+        }
 
-</body>
-
-<script>
-    const sendQuit = (id) => {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", 'http://localhost:3000/main/quit', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify({
-            value: id
-        }));
-    }
-    
-</script>
+    </script>
 
 </html>

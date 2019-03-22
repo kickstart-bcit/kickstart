@@ -16,7 +16,6 @@ body {
     font-family: Lato, 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     font-weight: 400;
     line-height: 1.4rem;
-
 }
 
 button {
@@ -86,8 +85,6 @@ button {
     height: auto;
 }
 
-
-
 .longinputbox {
     border-radius: 0.3rem;
     border-style: solid;
@@ -111,7 +108,7 @@ button {
     height: auto;
 }
 
-// {{!-- !-- Header Page -- --}}
+// {{!-- !-- Header Page -- --}} //
 #loginHeader {
     background-color: #003E6B;
     position: fixed;
@@ -139,7 +136,7 @@ button {
 }
 
 #Header {
-    background-color: #003E6B;
+    background-color: black;
     position: fixed;
     top: 0;
     left: 0;
@@ -206,14 +203,21 @@ button {
     transform: scale(1.2, 1.2);
 }
 
-// {{!-- !-- Login Page -- --}}
+
+/* .navbuttons {
+    background-color: black;
+    color: black;
+} */
+
+
+/* // {{!-- !-- Login Page -- --}} */
+
 #loginDiv {
     position: relative;
-
     top: 10vh;
     left: 0;
     right: 0;
-    A bottom: 0;
+    bottom: 0;
     margin: auto;
     border: 2px solid #003E6B;
     width: 340px;
@@ -245,6 +249,7 @@ button {
 }
 
 #loginForm input {
-    width: 100px height: 30px;
+    width: 100px;
+    height: 30px;
     font-size: 1.2rem;
 }
