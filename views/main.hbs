@@ -16,11 +16,14 @@
     {{> navigation}}
     {{err}}
     <div id="contentDiv">
+        
         <div id="profileCard">
-            <img src="{{profileUrl}}" alt="John" style="width:100%">
+            <img src="{{profileUrl}}" alt="John" style="border-radius: 50%; width: 15%; margin-top: 10%">
             <h1>{{username}}</h1>
+            <p id="userEmail">{{userEmail}}</p>
+            <p id="userID">{{userID}}</p>
             <p id="userProgram"="title">ACIT Program</p>
-            <p id="pointTotal">Your point total is: {{userPoints}}</p>
+            <p id="pointTotal">Your point total is: <b>{{userPoints}}</b></p>
             <div style="margin: 24px 0;">
                 <a href="#"><i class="fa fa-dribbble"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -28,12 +31,7 @@
                 <a href="#"><i class="fa fa-facebook"></i></a>
             </div>
             <p><button id="redeemButton">Redeem Points</button></p>
-            <div id="wayFinding">
-                <div>Need Help Finding Your Event?</div>
-                <div>Click on the Wayfinder Map!</div>
-                <a href="https://www.bcit.ca/files/studentlife/pdf/student_services_wayfinding_guide_2018.pdf"><img
-                        src="https://www.bcit.ca/files/kickstart/img/wayfinding_guide.png" /></a>
-            </div>
+            
         </div>
         {{!-- btn onpress, redirect to events/:id --}}
         {{!-- at events page, display the event (id) --}}
@@ -42,30 +40,38 @@
         {{!-- if the user is already participating a featured event, render different color on the btn  --}}
         {{!-- if the user is  participating a featured event, render different color on the div  --}}
         
-        <div id="featuredContent">
+        
+        <div id="eventsPart">
 
-            <h2>Featured Events</h2>
+            <div id="registeredContent">
+                <h2 style="color: #006fbf; margin-bottom: 30px;">Upcoming Events</h2>
+                    {{#each currentEvents}}
+                    <div class="registeredEvent">
+                        <h3 class="">{{this.events_title}}</h3>
+                        <div class="">{{this.events_date}}</div>
+                        <div>{{this.events_start_time}}</div>
+                        <div>{{this.events_locations}}, {{this.events_campus}}</div>
+                        <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
+                    </div><br />{{/each}}
+            </div>
+
+            <div id="featuredContent">
+            <h2 style="color: #006fbf; margin-bottom: 30px;">Featured Events</h2>
                 {{#each featuredEvents}}<div class="featuredEvent">
                     <h3 class="featuredEventName">{{this.events_title}}</h3>
-                    <p class="featuredEventTime">{{this.events_date}}</p>
-                    <button type="button" i class="eventButton">View Event</button>
-                    <img src="https://s3-media2.fl.yelpcdn.com/bphoto/n5A2PtT9E0TnWNQUxH3DCw/o.jpg"
-                        width="75" height="75">
-                </div><br />{{/each}}
-        </div>
-
-
-        <div id="registeredContent">
-            <h2>Upcoming Events</h2>
-                {{#each currentEvents}}<div class="registeredEvent">
-                    <h3 class="">{{this.events_title}}</h3>
                     <div class="">{{this.events_date}}</div>
                     <div>{{this.events_start_time}}</div>
                     <div>{{this.events_locations}}, {{this.events_campus}}</div>
-                    <button type="button" i class="eventButton">View Event</button>
+                    <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button></h3>
                 </div><br />{{/each}}
-            
-            
+            </div>
+
+            <div id="wayFinding">
+                <h2 style="color: #006fbf; margin-bottom: 30px;">Need Help Finding Your Event?</h2>
+                <h3>Click on the Wayfinder Map!</h3>
+                <a href="https://www.bcit.ca/files/studentlife/pdf/student_services_wayfinding_guide_2018.pdf"><img style="margin-left:30px; width: 80%" src="https://www.bcit.ca/files/kickstart/img/wayfinding_guide.png" /></a>
+            </div>
+
         </div>
 
 
