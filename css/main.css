@@ -1,19 +1,9 @@
 body {
-    background: white;
-    /*color: #515456;*/
-    color: black;
-    font-family: 'Josefin Sans', sans-serif;
+    /*background: white;*/
+    background-color: #F7F7F7;
+    color: #515456;
+    /*color: black;*/
 }
-
-
-/* .eventButton {
-    position: relative;
-    left: 60%;
-    bottom: 25px;
-    border-radius: 10px;
-    height: 25px;
-    border: 1px solid black;
-} */
 
 
 .eventButton:hover {
@@ -35,20 +25,9 @@ body {
     border-width: 0.5px;
     border-color: #e1e8f2;
     top: 20vh;
-    margin-bottom: 50px;
+    background-color: white;
 }
 
-
-/* #welcomeDiv {
-    position: relative;
-    font-size: 40px;
-    left: 41%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    top: 5%
-} */
-
-
-/* Experimental */
 
 #profileCard {
     position: fixed;
@@ -65,13 +44,16 @@ body {
     height: 75vh;
     text-align: center;
     line-height: 1.6rem;
-    background-color: #F7F7F7;
+    /*background-color: #F7F7F7;*/
     border-radius: .5rem;
     border-style: solid;
     border-width: 0.5px;
     border-color: #e1e8f2;
     top: 20vh;
     left: 4vw;
+    background-color: white;
+    color: black;
+
 }
 
 #eventsPart{
@@ -92,7 +74,9 @@ body {
     text-indent: 2em;
     /*text-align: center;*/
     line-height: 1.6rem;
-    background-color: #fff;
+    /*background-color: #fff;*/
+
+    background-color: #F7F7F7;
     top: 20vh;
     left: 44vw;
     overflow-y: scroll;
@@ -107,13 +91,16 @@ body {
     height: auto;
     text-indent: 2em;
     line-height: 1.6rem;
-    background-color: #F7F7F7;
+    /*background-color: #F7F7F7;*/
     border-radius: .5rem;
     border-style: solid;
     border-width: 0.5px;
     border-color: #e1e8f2;
     top: 20vh;
     margin-bottom: 30px;
+    background-color: white;
+    line-height: 1.8rem;
+
 }
 
 #featuredContent {
@@ -121,13 +108,14 @@ body {
     height: auto;
     text-indent: 2em;
     line-height: 1.6rem;
-    background-color: #F7F7F7;
     border-radius: .5rem;
     border-style: solid;
     border-width: 0.5px;
     border-color: #e1e8f2;
     top: 20vh;
     margin-bottom: 30px;
+    background-color: white;
+
 }
 
 
@@ -146,6 +134,10 @@ body {
     bottom: 2vh;
     left: 0px;
     border-radius: 0px;
+}
+
+button {
+     margin: 10px 0px 0 0; 
 }
 
 a {

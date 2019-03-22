@@ -1,4 +1,6 @@
-
+/*body {
+    background-color: #F7F7F7;
+}*/
 
 // {{!-- !-- Events Page -- --}}
 #closeBut {
@@ -70,7 +72,8 @@
     height: auto;
     text-align: center;
     line-height: 1.6rem;
-    background-color: #F7F7F7;
+    /*background-color: #F7F7F7;*/
+    background-color: white;
     border-radius: .5rem;
     border-style: solid;
     border-width: 0.5px;
@@ -130,7 +133,7 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 10px;
 }
 
 /* Track */
