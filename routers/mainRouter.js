@@ -73,5 +73,20 @@ const renderCurrentEvents = (rows) => {
 ).join("").replace(/\s\s+/g, " ");
 }
 
+router.post('/quit', async(request, response) => {
+    try {
+        console.log('the event id is', request.body.value);
+        console.log('the user is', request.session.user.users_id);
+        event_id = request.body.value;
+        user_id = request.session.user.users_id;
+
+        quittingEvent = await eventConnector.quittingEvent(user_id, event_id);
+        response.redirect('/');
+    }
+    catch(err){
+        response.render('event.hbs', 'error')
+    }
+});
+
 
 module.exports = router;
