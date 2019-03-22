@@ -1,3 +1,8 @@
+body {
+    background-color: #F7F7F7;
+}
+
+
 #pointsbox {
 	position: relative;
 	float: right;
@@ -23,20 +28,48 @@
 }
 
 #rewardsleft {
+
 	width:40%; 
 	float:left;
 	padding-top: 20px;
-	padding-left: 85px;
-	padding-bottom: 100px;
+	padding-left: 45px;
+	padding-bottom: 50px;
+
+	position: relative;
+    margin: 2%;
+    margin-top: 50px;
+    height: auto;
+    line-height: 1.6rem;
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    left: 4vw;
+    background-color: white;
 	
 
 }
 
 #rewardsright {
-	width:40%; 
+	width:36%; 
 	float:right;
 	padding-top: 20px;
-	padding-bottom: 100px;
+
+	padding-left: 70px;
+	padding-bottom: 50px;
+	right: 4vw;
+
+	position: relative;
+
+	margin: 2%;
+    margin-top: 50px;
+    height: auto;
+    line-height: 1.6rem;
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    background-color: white;
 }
 
 
@@ -62,3 +95,25 @@
   padding: 8px;
 }
 #rewardstb tr:hover {background-color: #f4f4f4;}
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

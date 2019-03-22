@@ -195,7 +195,7 @@ const renderEvents = (rows) => {
 
 
             return `<div class="blocks">
-                <img alt=${alt} src=${pic} style="position: relative; width: 100%; height: auto"/>
+                <img alt=${alt} src=${pic} style="position: relative; width: 100%; height: auto; border-radius: .5rem;"/>
                 
                 <div class="eventboxdate">
                     <span class="eventDate">${row.events_date}</span><br/>
