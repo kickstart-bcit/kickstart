@@ -12,9 +12,11 @@ router.get('/', async (request, response) => {
         let currentEvents = await fetchCurrentEvent(request.session.user.users_id);
         let featuredEvents = await eventConnector.fetchFeaturedEvents();
         response.render('main.hbs', {
-            profileUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeBO2O1ALH1poBQKrOjkDwHJh6HmZyd5aDGdazJmWxjAhxib5L",
+            profileUrl:"https://www.walkaboutfoundation.org/wp-content/uploads/2018/06/cropped-default-user.png",
             username:`${request.session.user.users_firstName} ${request.session.user.users_lastName}`,
             userPoints: `${request.session.user.users_point}`,
+            userEmail: `${request.session.user.users_email}`,
+            userID: `${request.session.user.users_id}`,
             currentEvents,
             featuredEvents
         });

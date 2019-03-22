@@ -1,195 +1,123 @@
 body {
-    background-image: linear-gradient(to right, #2c3e50, #4ca1af);
-    color: black;
-    font-family: 'Josefin Sans', sans-serif;
+    /*background: white;*/
+    background-color: #F7F7F7;
+    color: #515456;
+    /*color: black;*/
 }
 
-#userContent {
-    height: 100px;
-    width: 300px;
-    position: relative;
-    left: 60%;
-    margin-left: -300px;
-    top: 17%;
-    margin-top: -50px;
-    color: black;
-    text-align: center;
-}
-
-#profilePic {
-    border-radius: 30px;
-    height: 300px;
-}
-
-#featuredContent {
-    position: relative;
-    left: 70%;
-    bottom: 70%;
-}
-
-
-/* .eventButton {
-    position: relative;
-    left: 60%;
-    bottom: 25px;
-    border-radius: 10px;
-    height: 25px;
-    border: 1px solid black;
-} */
-
-#featuredEvent1 {
-    position: relative;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 25%
-}
-
-#eventimage1 {
-    position: absolute;
-    left: 70%;
-    top: 6%;
-    border: 2px solid black;
-}
-
-#featuredEvent2 {
-    top: 120%;
-    position: absolute;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 25%
-}
-
-#eventimage2 {
-    position: absolute;
-    left: 70%;
-    top: 6%;
-    border: 2px solid black;
-}
-
-#featuredEvent3 {
-    top: 210%;
-    position: absolute;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 25%
-}
-
-#eventimage3 {
-    position: absolute;
-    left: 70%;
-    top: 6%;
-    border: 2px solid black;
-}
-
-#featuredEvent4 {
-    top: 300%;
-    position: absolute;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 25%
-}
-
-#eventimage4 {
-    position: absolute;
-    left: 70%;
-    top: 6%;
-    border: 2px solid black;
-}
 
 .eventButton:hover {
     cursor: grab;
-    background-color: lightgray;
+    background-color: #003E6B;
+    opacity: 1;
 }
 
-#registeredContent {
-    position: absolute;
-    top: 3%;
-    left: 15%;
-    height: 28%;
-}
-
-#registeredEvent1 {
-    position: relative;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 100%;
-    box-shadow: 10px 10px 5px #888;
-}
-
-#registeredImage1 {
-    position: absolute;
-    left: 70%;
-    top: 22%;
-    border: 2px solid black;
-}
-
-#registeredEvent2 {
-    position: absolute;
-    box-shadow: 10px 10px 5px #888;
-    top: 110%;
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 100%
-}
-
-#registeredimage2 {
-    position: absolute;
-    left: 70%;
-    top: 6%;
-    border: 2px solid black;
-}
 
 #wayFinding {
-    position: absolute;
-    top: 190%;
+    margin-top: 0px;
+    height: auto;
+    text-indent: 2em;
+    /*text-align: center;*/
+    line-height: 1.6rem;
+    background-color: #F7F7F7;
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    top: 20vh;
     background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 5px;
-    width: 120%;
-    left: -9%;
 }
 
 
-/* #welcomeDiv {
-    position: relative;
-    font-size: 40px;
-    left: 41%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    top: 5%
-} */
-
-
-/* Experimental */
-
 #profileCard {
-    position: relative;
-    top: 5%;
-    box-shadow: 0 0 1px 1px black;
-    max-width: 300px;
+    position: fixed;
+    /*width: 40vw;*/
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    /*height: 100vh;*/
+    /*border-right: 1px solid rgba(0,0,0,.2);*/
+/*
+    position: relative;*/
+    width: 35vw;
+    margin: 2%;
+    margin-top: 0px;
+    height: 75vh;
+    text-align: center;
+    line-height: 1.6rem;
+    /*background-color: #F7F7F7;*/
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    top: 20vh;
+    left: 4vw;
+    background-color: white;
+    color: black;
+
+}
+
+#eventsPart{
+    position: fixed;
+ /*   top: 5%;
+    max-width: 30%;
     margin: auto;
     text-align: center;
     font-family: 'Josefin Sans', sans-serif;
-    border: 2px solid black;
-    border-radius: 10px;
-    left: 1%;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    left: 1%;*/
+
+    width: 47vw;
+    margin: 2%;
+    margin-top: 0px;
+    height: 75vh;
+    text-indent: 2em;
+    /*text-align: center;*/
+    line-height: 1.6rem;
+    /*background-color: #fff;*/
+
+    background-color: #F7F7F7;
+    top: 20vh;
+    left: 44vw;
+    overflow-y: scroll;
 }
 
-#userProgram {
-    font-size: 18px;
+.featuredEvent {
+    display: block;
 }
+
+#registeredContent {
+    margin-top: 0px;
+    height: auto;
+    text-indent: 2em;
+    line-height: 1.6rem;
+    /*background-color: #F7F7F7;*/
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    top: 20vh;
+    margin-bottom: 30px;
+    background-color: white;
+    line-height: 1.8rem;
+
+}
+
+#featuredContent {
+    margin-top: 0px;
+    height: auto;
+    text-indent: 2em;
+    line-height: 1.6rem;
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    top: 20vh;
+    margin-bottom: 30px;
+    background-color: white;
+
+}
+
 
 #redeemButton {
     border: none;
@@ -202,6 +130,14 @@ body {
     cursor: pointer;
     width: 100%;
     font-size: 18px;
+    position: absolute;
+    bottom: 2vh;
+    left: 0px;
+    border-radius: 0px;
+}
+
+button {
+     margin: 10px 0px 0 0; 
 }
 
 a {
@@ -216,5 +152,39 @@ a:hover {
 }
 
 #pointTotal {
-    font-size: 20px;
+    font-size: 22px;
+}
+
+#userEmail {
+    font-size: 18px;
+}
+
+#userID {
+    font-size: 18px;
+}
+
+
+#userProgram {
+    font-size: 18px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
