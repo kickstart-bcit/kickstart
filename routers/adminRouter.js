@@ -23,6 +23,20 @@ router.get('/', async (request, response) => {
 
 });
 
+router.get('/finished', async (request, response) => {
+    try {
+        let events = await eventConnector.fetchFinishedEvents();
+        let renderedAdminEvents = eventConnector.renderAdminEvents(events); 
+        response.render('adminEvents.hbs', {
+            renderedAdminEvents
+        });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('adminEvents.hbs', err)
+    }
+
+});
 /* 
  *  handler for Admin events inputs  
  * takes inputs from forms to perform 
@@ -97,6 +111,24 @@ router.get('/edit/:id', async (request, response) => {
 })
 
 router.get('/delete/:id', async (request, response) => {
+    try {
+            // delete 
+        let deleteEventFromParticipationResult = await eventConnector.deleteParticipationById(request.params.id);
+        let deleteEventResult = await eventConnector.deleteEventById(request.params.id);
+        let events = await eventConnector.fetchEvents();
+        let renderedAdminEvents = eventConnector.renderAdminEvents(events); 
+        response.render('adminEvents.hbs', {
+            renderedAdminEvents
+        });
+    }
+
+    catch (err) {
+        console.log(err);
+        response.render('adminEvents.hbs', err)
+    }
+})
+
+router.get('/finish/:id', async (request, response) => {
     try {
         let result = await eventConnector.deleteEventById(request.params.id);
         let events = await eventConnector.fetchEvents();

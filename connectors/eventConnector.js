@@ -52,16 +52,55 @@ const deleteEventById = (id) => {
         port: 3306
     });
 
-
     connector.connect();
-  
+
     connector.query("DELETE FROM kickstart_events where events_id = ?", id,(error, rows, fields) => {
-        if (error) reject("couldn't connect to db"); else resolve("DELETE SUCCESS");
+        if (error) reject("couldn't connect to db"); else resolve("DELETE SUCCESS from events table");
     });
 
     connector.end();
 });
 }
+
+const deleteParticipationById = (id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+    
+    
+        connector.connect();
+      
+        connector.query("DELETE FROM participations where events_id = ?", id,(error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve("DELETE SUCCESS from participations");
+        });
+
+        connector.end();
+    });
+}
+/* TODO finish events and move event, participants to finished_events */
+const finishEventById = async eventId => {
+        const connector = await mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+        let result = "";
+        await connector.connect();
+        
+        let query = ``;
+        await connector.query(query, id, (error, rows, fields) => { result = rows;});
+
+
+        await connector.end();
+}
+
 
 const fetchEventById = (id) => {
     return new Promise((resolve, reject) => {
@@ -96,7 +135,7 @@ const fetchEvents = () => {
 
         connector.connect();
       
-        connector.query("select * from kickstart_events", (error, rows, fields) => {
+        connector.query("select * from kickstart_events where events_isFinished = 0", (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
 
@@ -127,7 +166,30 @@ const fetchFeaturedEvents = () => {
 
         connector.connect();
       
-        connector.query("select * from kickstart_events where events_isFeatured = 1", (error, rows, fields) => {
+        connector.query("select * from kickstart_events where events_isFeatured = 1 and events_isFinished = 0", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+    })
+}
+
+/* 
+ * fetch past (finished) events for admin page
+ */
+const fetchFinishedEvents = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from kickstart_events where events_isFinished = 1", (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
 
@@ -136,8 +198,11 @@ const fetchFeaturedEvents = () => {
 }
 
 
+
+
 /* 
  * fetch all the events with their participants
+ * for admin
  */
 // const fetchParticipations = () => {
 
@@ -265,7 +330,7 @@ const defaultFetchEvent = () => {
 
         connector.connect();
       
-        connector.query("select * from kickstart_events;", (error, rows, fields) => {
+        connector.query("select * from kickstart_events where events_isFinished = 0;", (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); 
             else resolve(rows);
         });
@@ -287,7 +352,7 @@ const fetchSearchedEvent = (word) => {
 
         connector.connect();
       
-        connector.query("select * from kickstart_events where events_title like ?;", [word], (error, rows, fields) => {
+        connector.query("select * from kickstart_events where events_title like ? and events_isFinished = 0;", [word], (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
 
@@ -307,7 +372,7 @@ const fetchSearchedEventByCampus = (campus) => {
 
         connector.connect();
       
-        connector.query("select * from kickstart_events where events_campus like ?;", [campus], (error, rows, fields) => {
+        connector.query("select * from kickstart_events where events_campus like ? and events_isFinished = 0;", [campus], (error, rows, fields) => {
             if (error) reject("couldn't connect to db"); else resolve(rows);
         });
 
@@ -328,7 +393,7 @@ const fetchSortedEvent = (condition) => {
     
             connector.connect();
     
-            connector.query("SELECT * FROM kickstart_events order by events_date and events_start_time asc;", (error, rows, fields) => {
+            connector.query("SELECT * FROM kickstart_events where events_isFinished = 0 order by events_date and events_start_time asc;", (error, rows, fields) => {
                 if(error) reject("couldn't connect to db"); else resolve(rows);
             });
 
@@ -347,7 +412,7 @@ const fetchSortedEvent = (condition) => {
     
             connector.connect();
     
-            connector.query("SELECT * FROM kickstart_events order by events_points asc;", (error, rows, fields) => {
+            connector.query("SELECT * FROM kickstart_events where events_isFinished = 0order by events_points asc;", (error, rows, fields) => {
                 if(error) reject("couldn't connect to db"); else resolve(rows);
             });
 
@@ -366,7 +431,7 @@ const fetchSortedEvent = (condition) => {
     
             connector.connect();
     
-            connector.query("SELECT * FROM kickstart_events order by events_campus asc;", (error, rows, fields) => {
+            connector.query("SELECT * FROM kickstart_events where events_isFinished = 0 order by events_campus asc;", (error, rows, fields) => {
                 if(error) reject("couldn't connect to db"); else resolve(rows);
             });
 
@@ -383,6 +448,7 @@ const fetchSortedEvent = (condition) => {
 
 module.exports = {
   fetchEvents,
+  fetchFinishedEvents,
   renderEvents,
   fetchSearchedEvent,
   renderAdminEvents,
@@ -395,5 +461,6 @@ module.exports = {
   insertEvent,
   updateEvent,
   deleteEventById,
-  fetchFeaturedEvents
+  fetchFeaturedEvents,
+  deleteParticipationById
 };
