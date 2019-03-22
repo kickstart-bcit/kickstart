@@ -74,3 +74,7 @@ const closePopup = () => {
 const deleteConfirmed = () => {
     window.location.replace(window.location.origin + "/admin/delete/" + selectedEvent);
 }
+
+const finishConfirmed = () => {
+    window.location.replace(window.location.origin + "/admin/finish/" + selectedEvent);
+}
