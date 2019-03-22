@@ -52,6 +52,7 @@
                         <div>{{this.events_start_time}}</div>
                         <div>{{this.events_locations}}, {{this.events_campus}}</div>
                         <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
+                        <button class="quitButton" onclick="sendQuit({{this.events_id}})">Quit</button>
                     </div><br />{{/each}}
             </div>
 
@@ -63,7 +64,6 @@
                     <div>{{this.events_start_time}}</div>
                     <div>{{this.events_locations}}, {{this.events_campus}}</div>
                     <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
-                    <button class="quitButton" onclick="sendQuit({{this.events_id}})">Quit</button>
                 </div><br />{{/each}}
             </div>
 
