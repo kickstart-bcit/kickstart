@@ -258,6 +258,26 @@ const joiningEvent = (user_id, event_id) => {
     });
 }
 
+const quittingEvent = (user_id, event_id) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+
+        connector.query("delete from participations where frn_users_id = ? and frn_events_id = ?;", [user_id, event_id], (error, rows, fields) => {
+            if(error) reject (error); else resolve(rows);
+        })
+
+        connector.end();
+    })
+}
+
 
 
 const defaultFetchEvent = () => {
@@ -402,5 +422,6 @@ module.exports = {
   insertEvent,
   updateEvent,
   deleteEventById,
-  fetchFeaturedEvents
+  fetchFeaturedEvents,
+  quittingEvent
 };
