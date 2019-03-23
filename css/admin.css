@@ -159,12 +159,27 @@
     bottom:0;
     right:0;
     position: fixed;
-    width:340px;
-    height:480px;
+    width:500px;
+    height:640px;
     margin: auto;
     z-index:2;
     background-color: #ddd;
 }
+
+#adminEventFinishPopupDiv {
+    display:none;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    position: fixed;
+    width:500px;
+    height:640px;
+    margin: auto;
+    z-index:2;
+    background-color: #ddd;
+}
+
 
 
 .deletePopupBtn {

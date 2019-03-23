@@ -24,12 +24,19 @@ let PopupDivDesc = document.getElementById("deletePopupDesc")
 let PopupDivFeatured = document.getElementById("deletePopupFeatured")
 let contentDiv = document.getElementById("contentDiv");
 
+let adminEventFinishPopupDiv = document.getElementById("adminEventFinishPopupDiv");
+let finishPopupTitle = document.getElementById("finishPopupTitle");
+let finishPopupDate = document.getElementById("finishPopupDate");
+let participantsList = document.getElementById("participantsList");
+
+
+
 const editEvent = (id) => {
     fetch(window.location.origin + "/admin/edit/" + id)
         .then(res => res.json())
         .then(res => {
             inputH2.innerHTML = "Update Event " + id;
-            let event = res[0];
+            let event = res.event[0];
             console.log(event);
             isEdit.value = "true";
             idInput.value = event["events_id"];
@@ -51,7 +58,7 @@ const deleteEvent = (id) => {
     fetch(window.location.origin + "/admin/edit/" + id)
         .then(res => res.json())
         .then(res => {
-            let event = res[0];
+            let event = res.event[0];
             console.log(event);
             PopupDivTitle.innerHTML = event["events_title"];
             PopupDivDate.innerHTML = event["events_date"].split("T")[0];
@@ -61,13 +68,52 @@ const deleteEvent = (id) => {
             PopupDivLocation.innerHTML = event["events_locations"];
             PopupDivPoints.innerHTML = event["events_points"];
             PopupDivDesc.innerHTML = event["events_desc"];
+            PopupDivFeatured.innerHTML = event["events_isFeatured"]?"Yes":"No";
             PopupDiv.style.display = "block";
+            contentDiv.style.filter =  "blur(13px)";
+        })
+}
+
+const confirmEvent = (id) => {
+    selectedEvent = id;
+    
+    fetch(window.location.origin + "/admin/edit/" + id)
+        .then(res => res.json())
+        .then(res => {
+            let event = res.event[0];
+            let participants = res.participants;
+            console.log("In confirmEvent() fetch result")
+            finishPopupTitle.innerHTML = event["events_title"];
+            finishPopupDate.innerHTML = event["events_date"].split("T")[0];
+            for (let participant of participants){
+                let pli = document.createElement('li');
+                let studentId = document.createElement('span');
+                studentId.className = 'participantName';
+                let name = document.createElement('span');
+                name.className = 'participantName';
+                studentId.innerHTML = participant.studentId;
+                name.innerHTML = participant.studentName;
+                pli.appendChild(studentId);
+                pli.appendChild(name);
+                participantsList.appendChild(pli);
+            }
+            if (!participantsList.childElementCount) {
+                let msgli = document.createElement('li');
+                msgli.style.color = "red";
+                msgli.innerHTML = 'no participant';
+                participantsList.appendChild(msgli);
+            }
+            adminEventFinishPopupDiv.style.display = "block";
             contentDiv.style.filter =  "blur(13px)";
         })
 }
 
 const closePopup = () => {
     PopupDiv.style.display = "none";
+    adminEventFinishPopupDiv.style.display = "none";
+    while (participantsList.firstChild) {
+        participantsList.removeChild(participantsList.firstChild);
+    }
     contentDiv.style.filter = ""; 
 }    
 
