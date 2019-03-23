@@ -106,7 +106,8 @@ router.post('/', async (request, response)=>{
 router.get('/edit/:id', async (request, response) => {
     // validate request.params.id;
     let event = await eventConnector.fetchEventById(request.params.id);
-    response.json(event);
+    let participants = await eventConnector.fetchParticipationsByEventId(request.params.id);
+    response.json({event:event,participants:participants});
 
 })
 
@@ -130,7 +131,13 @@ router.get('/delete/:id', async (request, response) => {
 
 router.get('/finish/:id', async (request, response) => {
     try {
-        let result = await eventConnector.deleteEventById(request.params.id);
+        // insert into finished_events
+        // delete from  participation
+        // update event to finish
+        let eventId = request.params.id
+        let confirmEventResult = await eventConnector.confirmParticipationByEventId(eventId);
+        let deleteParticipationResult = await eventConnector.deleteParticipationById(eventId);
+        let finishEventResult = await eventConnector.finishEventById(eventId);
         let events = await eventConnector.fetchEvents();
         let renderedAdminEvents = eventConnector.renderAdminEvents(events); 
         response.render('adminEvents.hbs', {

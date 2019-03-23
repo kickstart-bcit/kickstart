@@ -12,8 +12,19 @@
 
 <body>
     {{> adminNav}}
+    <div id="adminEventFinishPopupDiv">
+        <h2>Do you want to finish this event</h2>
+        <p><Strong>Title:   </Strong><span id="finishPopupTitle"></span></p>
+        <p><Strong>Date:    </Strong><span id="finishPopupDate"></span></p>
+        <p><Strong>Participants:</Strong></p>
+        <ul id="participantsList"></ul>
+        <button class="deletePopupBtn" onclick="finishConfirmed()">Finish</button>
+        <button class="deletePopupBtn" onclick="closePopup()">No</button>
+        <button id="deletePopupCloseBtn" onclick="closePopup()">X</button>
+    </div>
+
     <div id="adminEventDeletePopupDiv">
-        <h2>Delete the event or mark it as finished</h2>
+        <h2>Deleting event will remove participants. Do you still want to proceed? </h2>
         <p><Strong>Title:   </Strong><span id="deletePopupTitle"></span></p>
         <p><Strong>Date:    </Strong><span id="deletePopupDate"></span></p>
         <p><Strong>Start Time:   </Strong><span id="deletePopupStartTime"></span></p>
@@ -23,9 +34,8 @@
         <p><Strong>Points:   </Strong><span id="deletePopupPoints"></span></p>
         <p><Strong>Description:   </Strong><span id="deletePopupDesc"></span></p>
         <p><Strong>Featured:   </Strong><span id="deletePopupFeatured"></span></p>
-        <button class="deletePopupBtn" onclick="deleteConfirmed()">Delete</button>
-        <button class="deletePopupBtn" onclick="finishConfirmed()">Finish</button>
-        <button class="deletePopupBtn" onclick="closePopup()">Close</button>
+        <button class="deletePopupBtn" onclick="deleteConfirmed()">Yes</button>
+        <button class="deletePopupBtn" onclick="closePopup()">No</button>
         <button id="deletePopupCloseBtn" onclick="closePopup()">X</button>
     </div>
 

@@ -55,7 +55,11 @@ const deleteEventById = (id) => {
     connector.connect();
 
     connector.query("DELETE FROM kickstart_events where events_id = ?", id,(error, rows, fields) => {
-        if (error) reject("couldn't connect to db"); else resolve("DELETE SUCCESS from events table");
+        if (error) {
+            console.log("ERROR from deleteEventByID() ")
+            reject(error);
+        } 
+        else resolve("DELETE SUCCESS from events table");
     });
 
     connector.end();
@@ -75,30 +79,15 @@ const deleteParticipationById = (id) => {
     
         connector.connect();
       
-        connector.query("DELETE FROM participations where events_id = ?", id,(error, rows, fields) => {
-            if (error) reject("couldn't connect to db"); else resolve("DELETE SUCCESS from participations");
+        connector.query("DELETE FROM participations where frn_events_id = ?", id,(error, rows, fields) => {
+            if (error) {
+                console.log("ERROR from deleteParticipationById() ")
+                reject(error);
+            } else resolve(rows);
         });
 
         connector.end();
     });
-}
-/* TODO finish events and move event, participants to finished_events */
-const finishEventById = async eventId => {
-        const connector = await mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "Password",
-            database: "realkickstart",
-            port: 3306
-        });
-        let result = "";
-        await connector.connect();
-        
-        let query = ``;
-        await connector.query(query, id, (error, rows, fields) => { result = rows;});
-
-
-        await connector.end();
 }
 
 
@@ -148,7 +137,8 @@ const renderAdminEvents = (rows) => {
     return rows.map( row => 
         `<tr><td><div class="leftRowPart">Title: ${row.events_title} <br> Date:   ${new Date(row.events_date).toString().split(" ").slice(1,4).join(" ")} <br>Time:   ${row.events_start_time} ~ ${row.events_end_time} </div>
         <div class=rightRowPart><button onclick="editEvent(${row.events_id})" class="adminEventEditButton">Edit</button>
-        <button onclick="deleteEvent(${row.events_id})" class="adminEventDeleteButton">Delete</button><div></td></tr>`
+        <button onclick="deleteEvent(${row.events_id})" class="adminEventDeleteButton">Delete</button><div>
+        <button onclick="confirmEvent(${row.events_id})" class="adminEventDeleteButton">Finish</button><div></td></tr>`
     ).join("").replace(/\s\s+/g, " ");
 }
 /* 
@@ -190,7 +180,10 @@ const fetchFinishedEvents = () => {
         connector.connect();
       
         connector.query("select * from kickstart_events where events_isFinished = 1", (error, rows, fields) => {
-            if (error) reject("couldn't connect to db"); else resolve(rows);
+            if (error){
+                console.log("in fetchFnishedEvents(): ");
+                reject(error);
+            }  else resolve(rows);
         });
 
         connector.end();
@@ -198,43 +191,112 @@ const fetchFinishedEvents = () => {
 }
 
 
+/* 
+ * receive user id and event id and delete from participants 
+ * in case user did not participated
+ */
+const removeParticipant = (userId, eventId) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
 
+        connector.connect();
+        let query = "delete from participations where frn_users_id = ? and frn_events_id =?";
+        connector.query(query, [userId, eventId],(error, rows, fields) => {
+            if (error){
+                console.log("in removeParticipant(): ");
+                reject(error);
+            }  else resolve(rows);
+        });
+
+        connector.end();
+    })
+}
 
 /* 
- * fetch all the events with their participants
- * for admin
+ *  insert participants to finished_events table
  */
-// const fetchParticipations = () => {
+const confirmParticipationByEventId = (eventId) => {
+    let query =  "insert into finished_events (finished_events_id, frn_events_id, frn_users_id, finished_date ) select Null, frn_events_id, frn_users_id, date(now()) from participations where frn_events_id = ?;"
+    
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
 
-// }
+        connector.connect();
+        connector.query(query, eventId,(error, rows, fields) => {
+            if (error){
+                console.log("in confirmParticipationByEventId(): ");
+                reject(error);
+            }  else resolve(rows);
+        });
+
+        connector.end();
+    })
+}
 
 /* 
  * fetchParticipations by Event Id
+ * input is an event id
+ * output is list of participants ( studentId, studentName )
  */
-// const fetchParticipationsByEventId = (eventId) => {
+const fetchParticipationsByEventId = (eventId) => {
+    let query = "select pt.frn_users_id as studentId, concat(u.users_firstName, ' ', u.users_lastName) as studentName from participations as pt inner join users as u on u.users_id = pt.frn_users_id where pt.frn_events_id = ?;"
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
 
-// }
+        connector.connect();
+        connector.query(query, eventId,(error, rows, fields) => {
+            if (error){
+                console.log("in fetchParticipationsByEventId(): ");
+                reject(error);
+            }  else resolve(rows);
+        });
 
-/* 
- * fetch participation where the staff is managing by staff id
+        connector.end();
+    })
+}
+/*  
+ * mark an event as finished
  */
-// const fetchParticipationsByStaffId = (staffId) => {
+const finishEventById = (eventId) => {
+    let query = "update kickstart_events set events_isFinished = 1 where events_id = ?;"
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
 
-// }
+        connector.connect();
+        connector.query(query, eventId,(error, rows, fields) => {
+            if (error){
+                console.log("in finishEventById(): ");
+                reject(error);
+            }  else resolve(rows);
+        });
 
-/* 
- * render participations where the staff is managing
- *
- */
-// const renderParticipationByStaffId = () => {
-
-// }
-
-
-// const renderParticipationByEventId = () => {
-
-// }
-
+        connector.end();
+    })
+}
 
 const renderEvents = (rows) => {
         return rows.map( row => {
@@ -467,21 +529,25 @@ const fetchSortedEvent = (condition) => {
 
 
 module.exports = {
-  fetchEvents,
-  fetchFinishedEvents,
-  renderEvents,
-  fetchSearchedEvent,
-  renderAdminEvents,
-  fetchSortedEvent,
-  defaultFetchEvent,
-  fetchSearchedEventByCampus,
-  determineJoined,
-  joiningEvent,
   fetchEventById,
+  fetchEvents,
+  fetchFeaturedEvents,
+  fetchFinishedEvents,
+  fetchSearchedEvent,
+  fetchSearchedEventByCampus,
+  fetchSortedEvent,
+  renderEvents,
+  renderAdminEvents,
+  joiningEvent,
+  defaultFetchEvent,
+  determineJoined,
   insertEvent,
   updateEvent,
   deleteEventById,
-  fetchFeaturedEvents,
   quittingEvent,
-  deleteParticipationById
+  removeParticipant,
+  deleteParticipationById,
+  finishEventById,
+  confirmParticipationByEventId,
+  fetchParticipationsByEventId
 };
