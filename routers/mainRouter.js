@@ -81,7 +81,7 @@ router.post('/quit', async(request, response) => {
         user_id = request.session.user.users_id;
 
         quittingEvent = await eventConnector.quittingEvent(user_id, event_id);
-        response.redirect('/');
+        response.render('main.hbs');
     }
     catch(err){
         response.render('event.hbs', 'error')
