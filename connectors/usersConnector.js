@@ -10,9 +10,9 @@ const mysql = require("mysql");
 const fetchUser = (userId) => {
     return new Promise((resolve, reject) => {
         const connector = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "Password",
+            host: "us-cdbr-iron-east-03.cleardb.net",
+            user: "b1fd3377f33cda",
+            password: "ebc2d924",
             database: "realkickstart",
             port: 3306
         });
@@ -31,9 +31,9 @@ const fetchUser = (userId) => {
 const fetchStaff = (staffId) => {
     return new Promise((resolve, reject) => {
         const connector = mysql.createConnection({
-            host: "localhost",
-            user: "root",
-            password: "Password",
+            host: "us-cdbr-iron-east-03.cleardb.net",
+            user: "b1fd3377f33cda",
+            password: "ebc2d924",
             database: "realkickstart",
             port: 3306
         });
