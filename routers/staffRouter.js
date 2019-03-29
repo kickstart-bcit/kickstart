@@ -8,11 +8,9 @@ const rewardsConnector = require('../connectors/rewardsConnector');
 
 // "/staff" handlers
 
-router.get('/',  (request, response) => {
+router.get('/',  async (request, response) => {
     try {
-        response.render('staffEvents.hbs', {errorMessage:"success"
-        });
-        console.log("/staff");
+        response.redirect('/staff/events');
     }
     catch (err) {
         console.log(err);
@@ -20,6 +18,45 @@ router.get('/',  (request, response) => {
     }
 });
 
+router.get('/events',  async (request, response) => {
+    try {
+        events = await eventConnector.fetchEvents();
+        response.render('staffEvents.hbs', { events });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('staffEvents.hbs',{ errorMessage:"error"})
+    }
+});
+/* receives eventId and returns participants [{stdId, stdName},...]*/
+router.get('/participants/:eventId',  async (request, response) => {
+    try {
+        let participants = await eventConnector.fetchParticipationsByEventId(request.params.eventId)
+        response.json({ participants })    
+    } catch (err) {
+        console.log(err);
+        response.render('staffEvents.hbs',{err})
+    }
+});
+
+router.get('/finish/:id', async (request, response) => {
+    try {
+        let eventId = request.params.id;
+        let event = await eventConnector.fetchEventById(eventId);
+        let point = event.events_point;
+        let confirmEventResult = await eventConnector.confirmParticipationByEventId(eventId);
+        let deleteParticipationResult = await eventConnector.deleteParticipationById(eventId);
+        let finishEventResult = await eventConnector.finishEventById(eventId);
+        let events = await eventConnector.fetchEvents();
+        response.render('staffEvents.hbs', {
+            events
+        });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('staffEvents.hbs', err)
+    }
+})
 
 router.get('/events',   (request, response) => {
     try {
@@ -65,31 +102,19 @@ router.get('/challenges',   (request, response) => {
 });
 
 
-// router.get('/:type',   (request, response) => {
-//     try {
-//         if (request.params.type == 'events') {
-//             //shows the list of events the current staff is assigned with
-//             // each list shows the participants
-//                 console.log("/staff/events");
-//                 response.render('staffEvents.hbs', {
-//             }); 
-
-//         } else if (request.params.type == 'rewards') {
-//                 console.log("/staff/rewards");
-//                 response.render('staffRewards.hbs', {
-//             });
-//         } else if (request.params.type == 'challenges') {
-//                 console.log("/staff/challenges");
-//                 response.render('staffChallenges.hbs', {
-//             });
-//         }
-//     }
-//     catch (err) {
-//         console.log(err);
-//         response.render('staffEvents.hbs', { errorMessage:"error"})
-//     }
-// });
-
+router.post('/delete', async (request, response) => {
+    try{
+        let sid = request.body.studentId;
+        let eid = request.body.eventId;
+        console.log(sid, eid);
+        let result = await eventConnector.deleteParticipant(sid, eid);
+        response.json({result})
+    }
+    catch (e) {
+        console.log(e);
+        response.json(e)
+    }
+})
 
 
 module.exports = router;
