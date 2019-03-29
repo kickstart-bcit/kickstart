@@ -130,7 +130,24 @@ router.get('/challenges',   (request, response) => {
     }
 });
 
+router.post('/challenges',   (request, response) => {
+    try {
+            //shows the list of events the current staff is assigned with
+            // each list shows the participants
+            console.log("/staff/challenges");
+            response.render('staffChallenges.hbs', {})
+    }
+    catch (err) {
+        console.log(err);
+        response.render('staffEvents.hbs', { errorMessage:"error"})
+    }
+});
 
+/* 
+    for staff evetns page  
+    input: sid(user id), eid(event id)
+    output json of result from delete query on participation table  
+    */
 router.post('/delete', async (request, response) => {
     try{
         let sid = request.body.studentId;
