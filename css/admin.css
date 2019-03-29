@@ -19,11 +19,11 @@
 }
 
 .leftRowPart {
-    width: 60%;
+    width: 55%;
     float: left;
 }
 .rightRowPart {
-    width: 30%;
+    width: 45%;
     float: right;
     margin: auto;
     height: 100%;
@@ -34,14 +34,7 @@
     margin-bottom: 50px;
 }
 
-/*#adminEventContentDiv {
-    width: 100%;
-    height: 100%;
-    display:flex;
-    flex-direction: row;
-    position: relative;
-}
-*/
+
 #formDiv {
 	position: relative;
     width: 80%;
@@ -158,12 +151,19 @@
     left:0;
     bottom:0;
     right:0;
-    position: fixed;
-    width:500px;
-    height:640px;
+    position: absolute;
+    width:30%;
+    max-height: 80%;
     margin: auto;
     z-index:2;
-    background-color: #ddd;
+    background-color: #fff;
+    line-height: 1.6rem;
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    padding: 20px;
+    overflow: auto;
 }
 
 #adminEventFinishPopupDiv {
@@ -172,30 +172,62 @@
     left:0;
     bottom:0;
     right:0;
-    position: fixed;
-    width:500px;
-    height:640px;
+    position: absolute;
+    width:30%;
+    max-height: 80%;
     margin: auto;
     z-index:2;
-    background-color: #ddd;
+    background-color: #fff;
+    line-height: 1.6rem;
+    border-radius: .5rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: #e1e8f2;
+    padding: 20px;
+    overflow: auto;
 }
 
 
 
 .deletePopupBtn {
-    width:120px;
-    height:30px;
+    float: right;
+    width: 20%;
 
 }
 
 #deletePopupCloseBtn {
     position: absolute;
-    top:-5px;
+    top:5px;
     right:-5px;
-    width:20;
-    height:20;
     font-size: 15px;
     background-color: white;
-    color:red;
+    color:grey;
     text-align: center;
+    border-color: white;
+
+}
+
+#deletePopupCloseBtn:hover {
+    border-color: grey;
+
+}
+
+#greyDiv {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    display: none;
+    left: 0px;
+}
+
+#RegreyDiv {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    display: none;
+    left: 0px;
 }

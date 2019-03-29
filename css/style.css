@@ -34,11 +34,15 @@ button {
     box-shadow: 0 0 0 4px transparent;
     font-family: inherit;
     padding: .55rem 1.5rem;
-    font-size: .7rem;
+    font-size: .75rem;
     line-height: 1rem;
     font-weight: 700;
     letter-spacing: .2px;
 }
+
+button:hover {
+    background-color: #004f89;
+    }
 
 .submitButton {
     background-color: #006fbf;
@@ -56,10 +60,14 @@ button {
     box-shadow: 0 0 0 4px transparent;
     font-family: inherit;
     padding: .55rem 1.5rem;
-    font-size: .7rem;
+    font-size: .75rem;
     line-height: 1rem;
     font-weight: 700;
     letter-spacing: .2px;
+}
+
+.submitButton:hover {
+    background-color: #004f89;
 }
 
 .inputbox {
@@ -186,21 +194,15 @@ button {
 
 #navDiv input {
     width: auto;
-    height: 30px;
     color: white;
     background-color: #003E6B;
     font-size: 1.7rem;
     margin: 15px;
+    margin-bottom: 10px;
     border: none;
 }
 
 #navDiv input:hover {
-    width: auto;
-    height: 30px;
-    color: white;
-    background-color: #003E6B;
-    font-size: 1.7rem;
-    margin: 15px;
     opacity: 0.8;
     transform: scale(1.2, 1.2);
 }

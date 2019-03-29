@@ -13,18 +13,18 @@
 <body>
     {{> adminNav}}
     <div id="adminEventFinishPopupDiv">
-        <h2>Do you want to finish this event</h2>
+        <h2 style="text-align: center;">Do you want to finish this event</h2>
         <p><Strong>Title:   </Strong><span id="finishPopupTitle"></span></p>
         <p><Strong>Date:    </Strong><span id="finishPopupDate"></span></p>
         <p><Strong>Participants:</Strong></p>
         <ul id="participantsList"></ul>
         <button class="deletePopupBtn" onclick="finishConfirmed()">Finish</button>
-        <button class="deletePopupBtn" onclick="closePopup()">No</button>
+        <button style="background-color: #bcb8b8; color: black" onmouseover="this.style.backgroundColor='#a8a6a6';" onmouseout="this.style.backgroundColor='#bcb8b8'" class="deletePopupBtn" onclick="closePopup()">No</button>
         <button id="deletePopupCloseBtn" onclick="closePopup()">X</button>
     </div>
 
     <div id="adminEventDeletePopupDiv">
-        <h2>Deleting event will remove participants. Do you still want to proceed? </h2>
+        <h2 style="text-align: center;">Deleting event will remove participants. Do you still want to proceed? </h2>
         <p><Strong>Title:   </Strong><span id="deletePopupTitle"></span></p>
         <p><Strong>Date:    </Strong><span id="deletePopupDate"></span></p>
         <p><Strong>Start Time:   </Strong><span id="deletePopupStartTime"></span></p>
@@ -35,77 +35,80 @@
         <p><Strong>Description:   </Strong><span id="deletePopupDesc"></span></p>
         <p><Strong>Featured:   </Strong><span id="deletePopupFeatured"></span></p>
         <button class="deletePopupBtn" onclick="deleteConfirmed()">Yes</button>
-        <button class="deletePopupBtn" onclick="closePopup()">No</button>
+        <button style="background-color: #bcb8b8; color: black" onmouseover="this.style.backgroundColor='#a8a6a6';" onmouseout="this.style.backgroundColor='#bcb8b8'" class="deletePopupBtn" onclick="closePopup()">No</button>
         <button id="deletePopupCloseBtn" onclick="closePopup()">X</button>
     </div>
 
     <div id="contentDiv">
-            <div id="formDivWrap">
-                <div id="formDiv">
-                    <h2 id="inputH2">New Event<br><br></h2>
-                    <form action="/admin" enctype="application/json" method="POST" id="adminEventForm">
-                        <input id="isEdit" style="display:none" name="isEdit" type="text" value="false">
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="eventIdInput">ID </label>
-                            <input class="fieldInput" name="eventIdInput" id="eventIdInput" type="text" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="eventTitleInput">Event Name</label>
-                            <input class="fieldInput" name="eventTitleInput" id="eventTitleInput" type="text" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="dateInput">Date</label>
-                            <input class="fieldInput" name="dateInput" id="dateInput" type="date" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="startTimeInput">Start Time</label>
-                            <input class="fieldInput" name="startTimeInput" id="startTimeInput" type="time" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="endTimeInput">End Time</label>
-                            <input class="fieldInput" name="endTimeInput" id="endTimeInput" type="time" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="campusInput">Campus</label>
-                            <select id="campusInput" name="campusInput" class="fieldInput">
-                                <option value="" disabled selected>Select Campus</option>
-                                <option value="Burnaby">Burnaby</option>
-                                <option value="Downtown">Downtown</option>
-                                <option value="Richmond">Richmond</option>
-                            </select>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="location">Location</label>
-                            <input class="fieldInput" name="locationInput" id="location" type="text" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="pointsInput">Points</label>
-                            <input class="fieldInput" name="pointsInput" min=0 max=3000 id="pointsInput" type="number" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="descriptionInput">Description</label>
-                            <input class="fieldInput" name="descInput" id="descriptionInput" rows=5 type="textarea" value="" required>
-                        </div>
-                        <div class="adminEventFormDiv">
-                            <label class="floatLabel" for="isFeaturedInput">Featured</label>
-                           <select id="isFeatured" name="isFeaturedInput" class="fieldInput" >
-                                <option value=0 selected>No</option>
-                                <option value=1>Yes</option>
-                            </select>
-                        </div>
+        <div id="formDivWrap">
+            <div id="formDiv">
+                <h2 id="inputH2">New Event<br><br></h2>
+                <form action="/admin" enctype="application/json" method="POST" id="adminEventForm">
+                    <input id="isEdit" style="display:none" name="isEdit" type="text" value="false">
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="eventIdInput">ID </label>
+                        <input class="fieldInput" name="eventIdInput" id="eventIdInput" type="text" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="eventTitleInput">Event Name</label>
+                        <input class="fieldInput" name="eventTitleInput" id="eventTitleInput" type="text" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="dateInput">Date</label>
+                        <input class="fieldInput" name="dateInput" id="dateInput" type="date" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="startTimeInput">Start Time</label>
+                        <input class="fieldInput" name="startTimeInput" id="startTimeInput" type="time" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="endTimeInput">End Time</label>
+                        <input class="fieldInput" name="endTimeInput" id="endTimeInput" type="time" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="campusInput">Campus</label>
+                        <select id="campusInput" name="campusInput" class="fieldInput">
+                            <option value="" disabled selected>Select Campus</option>
+                            <option value="Burnaby">Burnaby</option>
+                            <option value="Downtown">Downtown</option>
+                            <option value="Richmond">Richmond</option>
+                        </select>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="location">Location</label>
+                        <input class="fieldInput" name="locationInput" id="location" type="text" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="pointsInput">Points</label>
+                        <input class="fieldInput" name="pointsInput" min=0 max=3000 id="pointsInput" type="number" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="descriptionInput">Description</label>
+                        <input class="fieldInput" name="descInput" id="descriptionInput" rows=5 type="textarea" value="" required>
+                    </div>
+                    <div class="adminEventFormDiv">
+                        <label class="floatLabel" for="isFeaturedInput">Featured</label>
+                       <select id="isFeatured" name="isFeaturedInput" class="fieldInput" >
+                            <option value=0 selected>No</option>
+                            <option value=1>Yes</option>
+                        </select>
+                    </div>
 
-                        <br><input class="submitButton" type="submit">
-                    </form>
-                </div>
+                    <br><input class="submitButton" type="submit">
+                </form>
             </div>
-            <div id="adminEventDiv">
-                <h2>Current Events<br><br></h2>
-                    {{ errorMessage }}
-                <table id="adminEventtb">
-                    {{{renderedAdminEvents}}}
-                </table>
-            </div>
+        </div>
+        <div id="adminEventDiv">
+            <h2>Current Events<br><br></h2>
+                {{ errorMessage }}
+            <table id="adminEventtb">
+                {{{renderedAdminEvents}}}
+            </table>
+        </div>
     </div>
+
+    <div id="greyDiv"></div>
+    
     <script src="/adminEvents.js"></script>
 
 </body>
