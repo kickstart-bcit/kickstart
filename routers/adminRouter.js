@@ -134,7 +134,10 @@ router.get('/finish/:id', async (request, response) => {
         // insert into finished_events
         // delete from  participation
         // update event to finish
-        let eventId = request.params.id
+        let eventId = request.params.id;
+        let event = await eventConnector.fetchEventById(eventId);
+        let point = event.events_point;
+        let updatePointResult = await eventConnector.updateUsersPoint(point, eventId);
         let confirmEventResult = await eventConnector.confirmParticipationByEventId(eventId);
         let deleteParticipationResult = await eventConnector.deleteParticipationById(eventId);
         let finishEventResult = await eventConnector.finishEventById(eventId);

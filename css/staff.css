@@ -4,7 +4,14 @@
 /* 
  *  Staff Events Page
  */
+.staffEventTitle:hover {
+    background-color: #bbb;
+    color:white;
+}
 
+ .participantDiv {
+    display:none;
+}
 
 /* 
  * Rewards & Challenges
