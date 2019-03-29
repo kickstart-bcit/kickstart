@@ -18,7 +18,7 @@
 
             <div id="studentDisplayFormDiv">
                 <form action="/staff/rewards/student" method="post">
-                    <label for="studentIdInput">Student ID</label>
+                    <label for="studentIdInput" style="color: black">Student ID</label>
                     <input class="inputbox" type="text" name="studentIdInput" id="studentIdInput" placeholder="Enter Student Number"
                         required>
                     <input class="submitButton" type="submit" value="Search">
@@ -27,10 +27,10 @@
             </div>
             <div id="studentInfo">
 
-                <h1 style="padding-top: 30px;">Student Information</h1>
-                <p class="studentInfoText"><span>ID:</span>{{studentId}}</p>
-                <p class="studentInfoText"><span>Name: </span>{{studentName}}</p>
-                <p class="studentInfoText"><span>Points: </span>{{studentPoints}}</p>
+                <h1 style="padding-top: 30px; ">Student Information</h1>
+                <p class="studentInfoText"><span style="color: black">ID: </span>{{studentId}}</p>
+                <p class="studentInfoText"><span style="color: black">Name: </span>{{studentName}}</p>
+                <p class="studentInfoText"><span style="color: black">Points: </span>{{studentPoints}}</p>
             </div>
             
         </div>

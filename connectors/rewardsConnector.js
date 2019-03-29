@@ -208,7 +208,7 @@ const redeemRewards = (sid, rid) => {
 const renderReedemableRewards = (rewards, sid) => {
   return rewards.map(
     item =>
-      `<div><p><button onclick="redeem(${item.rewards_id},'${sid}')">redeem</button>&nbsp<span>Title: </span>${item.rewards_title}<span> &nbsp | &nbsp Points: </span>${item.rewards_points
+      `<div><p><button onclick="redeem(${item.rewards_id},'${sid}')">redeem</button>&nbsp<span style="color: black">Title: </span>${item.rewards_title}<span style="color: black"> &nbsp | &nbsp Points: </span>${item.rewards_points
       } </p></div>`
   ).join("").replace(/\s\s+/g, " ");
 };
