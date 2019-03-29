@@ -92,13 +92,13 @@ router.post('/rewards/student', async (request, response) => {
         let sid = request.body.studentIdInput;
         let student = await usersConnector.fetchUser(sid);
         if (student){
-            let rewards = await rewardsConnector.fetchRewardsByPoint(student.users_point);
-            console.log(rewards);
+            let renderedRewards = rewardsConnector.renderReedemableRewards(await rewardsConnector.fetchRewardsByPoint(student.users_point), sid);
+
             response.render('staffRewards.hbs', {
                 studentId: student.users_id,
                 studentName: student.users_firstName + " "+ student.users_lastName,
                 studentPoints: student.users_point,
-                rewards: rewards
+                renderedRedeemable:renderedRewards
             })
         } else {
             let msg = `<p>No Student with ${sid}`
@@ -145,5 +145,48 @@ router.post('/delete', async (request, response) => {
     }
 })
 
+router.get('/redeem/:rid/:sid', async (request, response) => {
+    try{
+        let sid = request.params.sid;
+        let student = await usersConnector.fetchUser(sid);
+        let rid = request.params.rid;
+        if (student){
+            let reward = await rewardsConnector.fetchRewardById(rid);
+            if (student.users_point >= reward[0].rewards_points){
+                await rewardsConnector.redeemRewards(sid,rid);
+                await rewardsConnector.insertRedeemedReward(sid,rid);
+                student = await usersConnector.fetchUser(sid);
+                let renderedRewards = rewardsConnector.renderReedemableRewards(await rewardsConnector.fetchRewardsByPoint(student.users_point), sid);
 
+                response.render('staffRewards.hbs', {
+                    studentId: student.users_id,
+                    studentName: student.users_firstName + " "+ student.users_lastName,
+                    studentPoints: student.users_point,
+                    renderedRedeemable:renderedRewards
+                })
+            } else {
+                response.render('staffRewards.hbs', {
+                    studentId: student.users_id,
+                    studentName: student.users_firstName + " "+ student.users_lastName,
+                    studentPoints: student.users_point,
+                    statusMsg:"insufficient point"
+                })
+            }
+            
+        } else {
+            response.render('staffRewards.hbs', {
+                studentId: student.users_id,
+                studentName: student.users_firstName + " "+ student.users_lastName,
+                studentPoints: student.users_point,
+                statusMsg:"no user with such id"
+            })
+        }
+    } catch (e) {
+        console.log(e);
+        response.render('staffRewards.hbs', {
+            statusMsg:e
+        })
+     
+    }
+})
 module.exports = router;

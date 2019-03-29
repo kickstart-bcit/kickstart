@@ -36,10 +36,7 @@
         <div id="dataDiv">
             <h2>Rewards</h2>
             <div id="listDiv">
-                {{#each rewards}}<div>
-                    <p><span>Title: </span>{{this.rewards_title}} <span>Points:
-                        </span>{{this.rewards_points}}<button onclick="redeem({{studentId}},{{this.rewards_id}})">Redeem</button></p>
-                </div>{{/each}}
+                {{{renderedRedeemable}}}
             </div>
         </div>
     </div>
@@ -47,7 +44,7 @@
 <script>
 
     const redeem = (sid, rid)=> {
-        fetch()
+        window.location.replace(window.location.origin + "/staff/redeem/" + sid +"/"+ rid);
     }
 </script>
 

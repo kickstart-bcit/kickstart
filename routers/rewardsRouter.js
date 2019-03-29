@@ -10,9 +10,11 @@ const rewardsConnector = require('../connectors/rewardsConnector');
 router.get('/', async (request, response) => {
     try {
         let renderedRewards = rewardsConnector.renderRewards(await rewardsConnector.fetchRewards()); 
+        let redeemed = await rewardsConnector.fetchRedeemedRewardsByStudentId(request.session.user.users_id);
         response.render('rewards.hbs', {
         	userPoints: `${request.session.user.users_point}`,
-        	renderedRewards 
+            renderedRewards,
+            redeemed 
         });
     }
     catch (err){
