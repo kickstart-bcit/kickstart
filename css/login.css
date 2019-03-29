@@ -2,10 +2,10 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background: #34495e;
+    background: #fff;
   }
   .box{
-    width: 350px;
+    width: 300px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -13,6 +13,8 @@ body{
     transform: translate(-50%,-50%);
     background: #003E6B;
     text-align: center;
+    border-radius: 20px;
+    box-shadow:         3px 3px 5px 6px #ccc;
   }
   .box h1{
     color: white;
