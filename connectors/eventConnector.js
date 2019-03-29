@@ -329,7 +329,7 @@ const renderEvents = (rows) => {
                     <span class="eventsCampus">${row.events_campus}</span><br/>
                     <span class="eventsPoints">${row.events_points}</span><br/>
                     <p class="eventsDesc">${row.events_desc}</p>
-                    <button class="eventsButton" onclick="sendJoin(${row.events_id})">Participate</button>
+                    <button class="eventsButton" onclick="sendJoin(${row.events_id}); event.target.innerHTML='Registered'; event.target.style.backgroundColor='#7e7e7e'">Participate</button>
                 </div>
 
             </div>`
