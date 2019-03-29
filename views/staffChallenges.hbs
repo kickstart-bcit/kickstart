@@ -22,22 +22,18 @@
                     <input type="text" name="studentIdInput" id="studentIdInput" placeholder="Enter Student Number" required>
                     <input type="submit" value="Submit">
                 </form>
+                <p class="errMsg">{{statusMsg}}</p>
             </div>
             <div id="studentInfo">
                 <p class="studentInfoText"><span>ID:</span>{{studentId}}</p>
                 <p class="studentInfoText"><span>Name: </span>{{studentName}}</p>
                 <p class="studentInfoText"><span>Points: </span>{{studentPoints}}</p>
-                <p class="studentInfoStatusMsg">{{statusMsg}}</p>
             </div>
         </div>
         <div id="dataDiv">
             <h2>Challenges</h2>
             <div id="listDiv"> 
-                {{#each challenges}}<div>   
-                    <p><span>Title: </span>{{this.title}}</p>
-                    <p><span>Points: </span>{{this.point}}</p>
-                    <button>Redeem</button>
-                </div>{{/each}}
+                {{{ challenges }}}
             </div>
         </div>
     </div>
