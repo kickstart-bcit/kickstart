@@ -117,20 +117,11 @@ router.post('/rewards/student', async (request, response) => {
 })
 
 
-router.get('/challenges',   (request, response) => {
-    try {
-            //shows the list of events the current staff is assigned with
-            // each list shows the participants
-            console.log("/staff/challenges");
-            response.render('staffChallenges.hbs', {})
-    }
-    catch (err) {
-        console.log(err);
-        response.render('staffEvents.hbs', { errorMessage:"error"})
-    }
-});
-
-
+/* 
+    for staff evetns page  
+    input: sid(user id), eid(event id)
+    output json of result from delete query on participation table  
+    */
 router.post('/delete', async (request, response) => {
     try{
         let sid = request.body.studentId;
@@ -187,6 +178,50 @@ router.get('/redeem/:rid/:sid', async (request, response) => {
             statusMsg:e
         })
      
+    }
+})
+
+
+
+router.get('/challenges',   (request, response) => {
+    try {
+            //shows the list of events the current staff is assigned with
+            // each list shows the participants
+            console.log("/staff/challenges");
+            response.render('staffChallenges.hbs', {})
+    }
+    catch (err) {
+        console.log(err);
+        response.render('staffChallenges.hbs', { errorMessage:"error"})
+    }
+});
+
+router.post('/challenges/student', async (request, response) => {
+    try {
+        let sid = request.body.studentIdInput;
+        let student = await usersConnector.fetchUser(sid);
+        if (student){
+            // fetch challenges from db
+            // render challenges (format html with the info fetched from db) 
+            response.render('staffChallenges.hbs', {
+                studentId: student.users_id,
+                studentName: student.users_firstName + " "+ student.users_lastName,
+                studentPoints: student.users_point,
+                challenges:"<p style='color:red'>There is currently no challenge available...</p>"
+            })
+        } else {
+            let msg = `<p>No Student with ${sid}`
+            response.render('staffChallenges.hbs', {
+                statusMsg: msg
+            })
+        }
+
+    } catch (e) {
+        let msg = `No Student with ${request.body.studentIdInput}`
+        console.log(e);
+        response.render('staffChallenges.hbs', {
+            statusMsg: msg
+        })
     }
 })
 module.exports = router;
