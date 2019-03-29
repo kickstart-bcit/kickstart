@@ -14,30 +14,16 @@
 	    {{> navigation}}
 
 	    <div id="contentDiv">
-          <!-- <div id="redeempointsbox">
-              <div id="pointsbox" style="font-size: 25px;color: #e69138">
-                  Current Points: <b>{{userPoints}}</b>
-              </div>
-          </div> -->
             
 	        <div id="rewardsleft">
             <h2 style="color: #006fbf">History</h2>
             <table id="historytb">
-              <tr>
-                <td>Coffee Giftcard $5</td>
-                <td>500</td>
-                <td>2019-08-23</td>
-              </tr>
-              <tr>
-                <td>Free Daily Parking</td>
-                <td>1000</td>
-                <td>2019-08-17</td>
-              </tr>
-              <tr>
-                <td>Tuition Voucher $150</td>
-                <td>12000</td>
-                <td>2019-08-13</td>
-              </tr>
+              {{#each redeemed}}<tr>
+                <td>{{this.rewards_title}}</td>
+                <td>{{this.rewards_points}}</td>
+                <td>{{this.redeemed_date}}</td>
+              </tr>{{/each}}
+              
             </table>
 	        </div>
 
