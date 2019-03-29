@@ -14,19 +14,19 @@
     {{> staffNav}}
 
     <div id="contentDiv">
-        <h2>Staff Events Page</h2>
+        <h1 style="padding-top: 30px; padding-bottom: 50px;">Staff Events Page</h1>
         {{!-- display events --}}
         {{!-- event title onclick, display participants --}}
         {{!-- confirm btn for each participants --}}
         {{!-- confirm all btn to make the events finished and insert finished_events each participant --}}
         {{errorMessage}}
         {{#each events}}<div class="staffEventDiv">
-            <div class="staffEventTitle" onclick="revealPDiv({{this.events_id}})">
-                <h2>{{this.events_title}}<span> {{this.events_date}}</span><button onclick="confirm({{this.events_id}})">confirm</button></h2>
+            <div class="staffEventTitle" onclick="revealPDiv({{this.events_id}});">
+                <h2>{{this.events_title}}<span>&nbsp | &nbsp{{this.events_date}}</span><button style="float: right;" onclick="confirm({{this.events_id}})">confirm</button></h2>
             </div>
             <div class = "participantDiv" id="participantDiv{{this.events_id}}">
-                <ul id="participantList{{this.events_id}}">
-                </ul>
+                <div style="background-color: #fff; color: 515456" id="participantList{{this.events_id}}">
+                </div>
             </div>  
         </div>{{/each}}
                 
@@ -47,10 +47,11 @@
                     pL.appendChild(li);
                 }
                 for (participant of res.participants){
-                    let li = document.createElement('li');
+                    let li = document.createElement('div');
                     let name = document.createElement('span');
                     let sId = document.createElement('span');
                     let cB = document.createElement('button');
+                    cB.classList.add("closeBut");
                     cB.innerHTML = "X";
                     cB.addEventListener('click', () => {
                             fetch(window.location.origin + "/staff/delete", {
@@ -66,11 +67,11 @@
                             })
                             .catch(e=>console.log(e));
                         });
-                    sId.innerHTML = participant.studentId;
-                    name.innerHTML = participant.studentName;
+                    sId.innerHTML = participant.studentId + ' ';
+                    name.innerHTML = participant.studentName + ' ';
+                    li.appendChild(cB);
                     li.appendChild(sId);
                     li.appendChild(name);
-                    li.appendChild(cB);
                     pL.appendChild(li);
                 }
                 pDiv.style.display = "block";
