@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 const eventConnector = require('../connectors/eventConnector');
 const rewardsConnector = require('../connectors/rewardsConnector');
-
+const usersConnector = require('../connectors/usersConnector');
 // "/staff" handlers
 
 router.get('/',  async (request, response) => {
@@ -86,6 +86,35 @@ router.get('/rewards',   (request, response) => {
         response.render('staffEvents.hbs', { errorMessage:"error"})
     }
 });
+
+router.post('/rewards/student', async (request, response) => {
+    try {
+        let sid = request.body.studentIdInput;
+        let student = await usersConnector.fetchUser(sid);
+        if (student){
+            let rewards = await rewardsConnector.fetchRewardsByPoint(student.users_point);
+            console.log(rewards);
+            response.render('staffRewards.hbs', {
+                studentId: student.users_id,
+                studentName: student.users_firstName + " "+ student.users_lastName,
+                studentPoints: student.users_point,
+                rewards: rewards
+            })
+        } else {
+            let msg = `<p>No Student with ${sid}`
+            response.render('staffRewards.hbs', {
+                statusMsg: msg
+            })
+        }
+
+    } catch (e) {
+        let msg = `No Student with ${request.body.studentIdInput}`
+        console.log(e);
+        response.render('staffRewards.hbs', {
+            statusMsg: msg
+        })
+    }
+})
 
 
 router.get('/challenges',   (request, response) => {

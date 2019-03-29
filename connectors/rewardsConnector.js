@@ -86,7 +86,7 @@ const fetchRewardById = (id) => {
         connector.connect();
       
         connector.query("select * from rewards where rewards_id = ?", id, (error, rows, fields) => {
-            if (error) reject("couldn't connect to db"); else resolve(rows);
+            if (error) reject(error); else resolve(rows);
         });
 
         connector.end();
@@ -105,13 +105,32 @@ const fetchRewards = () => {
         connector.connect();
       
         connector.query("select * from rewards", (error, rows, fields) => {
-            if (error) reject("couldn't connect to db"); else resolve(rows);
+            if (error) reject(error); else resolve(rows);
         });
 
         connector.end();
   });
 }
 
+const fetchRewardsByPoint = (point) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from rewards where rewards_points <= ?", point, (error, rows, fields) => {
+            if (error) reject(error); else resolve(rows);
+        });
+
+        connector.end();
+  });
+}
 const renderAdminRewards = (rows) => {
     return rows.map( row =>
         `<tr><td><div class="leftRowPart">${row.rewards_title} <br>Points: ${row.rewards_points}</div>
@@ -130,6 +149,26 @@ const renderRewards = (rows) => {
     ).join("").replace(/\s\s+/g, " ");
 }
 
+const redeemRewards = (sid, rid) => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select * from rewards where rewards_points <= ?", point, (error, rows, fields) => {
+            if (error) reject(error); else resolve(rows);
+        });
+
+        connector.end();
+  });
+}
+
 module.exports = {
   fetchRewards,
   renderRewards,
@@ -137,5 +176,7 @@ module.exports = {
   fetchRewardById,
   insertReward,
   deleteRewardById,
-  updateReward
+  updateReward,
+  fetchRewardsByPoint,
+  redeemRewards
 };
