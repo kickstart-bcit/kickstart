@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 const eventConnector = require('../connectors/eventConnector');
 const rewardsConnector = require('../connectors/rewardsConnector');
-
+const usersConnector = require('../connectors/usersConnector');
 // "/staff" handlers
 
 router.get('/',  async (request, response) => {
@@ -87,6 +87,35 @@ router.get('/rewards',   (request, response) => {
     }
 });
 
+router.post('/rewards/student', async (request, response) => {
+    try {
+        let sid = request.body.studentIdInput;
+        let student = await usersConnector.fetchUser(sid);
+        if (student){
+            let renderedRewards = rewardsConnector.renderReedemableRewards(await rewardsConnector.fetchRewardsByPoint(student.users_point), sid);
+
+            response.render('staffRewards.hbs', {
+                studentId: student.users_id,
+                studentName: student.users_firstName + " "+ student.users_lastName,
+                studentPoints: student.users_point,
+                renderedRedeemable:renderedRewards
+            })
+        } else {
+            let msg = `<p>No Student with ${sid}`
+            response.render('staffRewards.hbs', {
+                statusMsg: msg
+            })
+        }
+
+    } catch (e) {
+        let msg = `No Student with ${request.body.studentIdInput}`
+        console.log(e);
+        response.render('staffRewards.hbs', {
+            statusMsg: msg
+        })
+    }
+})
+
 
 router.get('/challenges',   (request, response) => {
     try {
@@ -116,5 +145,48 @@ router.post('/delete', async (request, response) => {
     }
 })
 
+router.get('/redeem/:rid/:sid', async (request, response) => {
+    try{
+        let sid = request.params.sid;
+        let student = await usersConnector.fetchUser(sid);
+        let rid = request.params.rid;
+        if (student){
+            let reward = await rewardsConnector.fetchRewardById(rid);
+            if (student.users_point >= reward[0].rewards_points){
+                await rewardsConnector.redeemRewards(sid,rid);
+                await rewardsConnector.insertRedeemedReward(sid,rid);
+                student = await usersConnector.fetchUser(sid);
+                let renderedRewards = rewardsConnector.renderReedemableRewards(await rewardsConnector.fetchRewardsByPoint(student.users_point), sid);
 
+                response.render('staffRewards.hbs', {
+                    studentId: student.users_id,
+                    studentName: student.users_firstName + " "+ student.users_lastName,
+                    studentPoints: student.users_point,
+                    renderedRedeemable:renderedRewards
+                })
+            } else {
+                response.render('staffRewards.hbs', {
+                    studentId: student.users_id,
+                    studentName: student.users_firstName + " "+ student.users_lastName,
+                    studentPoints: student.users_point,
+                    statusMsg:"insufficient point"
+                })
+            }
+            
+        } else {
+            response.render('staffRewards.hbs', {
+                studentId: student.users_id,
+                studentName: student.users_firstName + " "+ student.users_lastName,
+                studentPoints: student.users_point,
+                statusMsg:"no user with such id"
+            })
+        }
+    } catch (e) {
+        console.log(e);
+        response.render('staffRewards.hbs', {
+            statusMsg:e
+        })
+     
+    }
+})
 module.exports = router;

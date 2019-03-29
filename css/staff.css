@@ -5,9 +5,11 @@ body {
 
 #contentDiv{
 	text-indent: 50px;
-
 }
 
+.errMsg {
+    color:red
+}
 /* 
  *  Staff Events Page
  */
