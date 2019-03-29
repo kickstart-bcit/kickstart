@@ -132,6 +132,26 @@ const fetchEvents = () => {
   });
 }
 
+const fetchEventIdFromParticipation = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select frn_events_id from participations", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+
+    })
+}
 
 const renderAdminEvents = (rows) => {
     return rows.map( row => 
@@ -549,5 +569,6 @@ module.exports = {
   deleteParticipationById,
   finishEventById,
   confirmParticipationByEventId,
-  fetchParticipationsByEventId
+  fetchParticipationsByEventId,
+  fetchEventIdFromParticipation
 };

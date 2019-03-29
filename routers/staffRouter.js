@@ -8,8 +8,33 @@ const rewardsConnector = require('../connectors/rewardsConnector');
 
 // "/staff" handlers
 
-router.get('/',  (request, response) => {
+router.get('/',  async (request, response) => {
     try {
+        response.redirect('/events');
+    }
+    catch (err) {
+        console.log(err);
+        response.render('staffEvents.hbs',{ errorMessage:"error"})
+    }
+});
+
+router.get('/events',  async (request, response) => {
+    try {
+        events = await eventConnector.fetchEvents();
+        response.render('staffEvents.hbs', { events });
+    }
+    catch (err) {
+        console.log(err);
+        response.render('staffEvents.hbs',{ errorMessage:"error"})
+    }
+});
+/* receives eventId and returns participants [{stdId, stdName},...]*/
+router.get('/participants/:eventId',  (request, response) => {
+    try {
+        let result = {};
+        result.events = await eventConnector.fetchEvents();
+        
+        let participants = eventConnector.fetchParticipationsByEventId()
         response.render('staffEvents.hbs', {errorMessage:"success"
         });
         console.log("/staff");

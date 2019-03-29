@@ -19,9 +19,26 @@
         {{!-- confirm btn for each participants --}}
         {{!-- confirm all btn to make the events finished and insert finished_events each participant --}}
         {{errorMessage}}
+        {{#each events}}<div class="staffEventDiv">
+            <div class="staffEventTitle" onclick="revealPDiv({{this.events_id}}">
+                <h2>{{this.events_title}}<span> {{this.events_date}}</span></h2>
+            </div>
+            <div id="participantDiv{{this.events_id}}">
+                <ul class="participantList">
+                </ul>
+                <button onclick="closePDiv">closeIcon</button>
+            </div>  
+        </div>{{/each}}
        
     </div>
-
+<script>
+    const revealPDiv = (eventId) => {
+        document.getElementById(`participationDiv${eventId}`).style.display = "none";
+    }
+    const closePDiv = (eventId) => {
+        document.getElementById(`participationDiv${eventId}`).style.display = "block";
+    }
+</script>
 </body>
 
 </html>
