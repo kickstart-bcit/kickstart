@@ -14,24 +14,25 @@
     {{> staffNav}}
 
     <div id="contentDiv">
-        <h2>Staff Challenges Page</h2>
         <div id="studentDisplay">
             <div id="studentDisplayFormDiv">
                 <form action="/staff/challenges/student" method="post">
-                    <label for="studentIdInput">Student ID</label>
-                    <input type="text" name="studentIdInput" id="studentIdInput" placeholder="Enter Student Number" required>
-                    <input type="submit" value="Submit">
+                    <label for="studentIdInput" style="color: black">Student ID</label>
+                    <input class="inputbox" type="text" name="studentIdInput" id="studentIdInput" placeholder="Enter Student Number" required>
+                    <input class="submitButton" type="submit" value="Search">
                 </form>
                 <p class="errMsg">{{statusMsg}}</p>
             </div>
+
             <div id="studentInfo">
-                <p class="studentInfoText"><span>ID:</span>{{studentId}}</p>
-                <p class="studentInfoText"><span>Name: </span>{{studentName}}</p>
-                <p class="studentInfoText"><span>Points: </span>{{studentPoints}}</p>
+                <h1 style="padding-top: 30px; ">Student Information</h1>
+                <p class="studentInfoText"><span style="color: black">ID: </span>{{studentId}}</p>
+                <p class="studentInfoText"><span style="color: black">Name: </span>{{studentName}}</p>
+                <p class="studentInfoText"><span style="color: black">Points: </span>{{studentPoints}}</p>
             </div>
         </div>
         <div id="dataDiv">
-            <h2>Challenges</h2>
+            <h1 style="padding-top: 30px;">Challenges</h1>
             <div id="listDiv"> 
                 {{{ challenges }}}
             </div>
