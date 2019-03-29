@@ -1,81 +1,60 @@
-body {
-    background-image: linear-gradient(to right, #2c3e50, #4ca1af);
-}
-
-#loginDiv {
-    position: relative;
-    top: 10vh;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    border: 2px solid #003E6B;
-    width: 340px;
-    height: 500px;
-    background-color: whitesmoke;
-}
-
-#loginDiv h2 {
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #fff;
+  }
+  .box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #003E6B;
     text-align: center;
-    font-family: Georgia;
-    font-style: bold;
-}
-
-#loginForm {
-    display: flex;
-    justify-content: space-evenly;
-    flex-flow: column wrap;
-    align-items: center;
-    height: 200px;
-    width: 100%;
-    font-family: Georgia;
-}
-
-#loginForm div {
-    display: flex;
-}
-
-#loginForm label {
-    width: 80px;
-    height: 30px;
-    margin-right: 15px;
-}
-
-#loginForm input {
+    border-radius: 20px;
+    box-shadow:         3px 3px 5px 6px #ccc;
+  }
+  .box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .box input[type = "text"],.box input[type = "password"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #ffe812;
+    padding: 14px 10px;
     width: 200px;
-    height: 30px;
-    font-size: 1.2rem;
-}
-
-#loginName {
-    position: relative;
-    top: 25px;
-    right: 100px;
-    border-radius: 10px;
-    border: 1px inset grey
-}
-
-#passwordLog {
-    position: relative;
-    top: 60px;
-}
-
-#loginPw {
-    position: relative;
-    top: 85px;
-    right: 100px;
-    border-radius: 10px;
-    border: 1px inset grey
-}
-
-#login_button {
-    position: relative;
-    top: 115px;
-    border-radius: 10px;
-    font-family: Georgia;
-}
-
-#login_button:hover {
-    cursor: grab;
-    background-color: lightgray;
-}
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+    width: 280px;
+    border-color: #ffe835;
+  }
+  .box input[type = "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #ffe812;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .box input[type = "submit"]:hover{
+    background: #fff;
+    color:#ffe812;
+  }
+  

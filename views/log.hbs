@@ -6,31 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kick Start Login</title>
-    <link href='style.css' rel='stylesheet' type='text/css'/>
     <link href='login.css' rel='stylesheet' type='text/css'/>
 </head>
 
 <body>
-    <div id="contentDiv">
-        <div id="loginDiv">
-            <h2>Sign In</h2>
-            <form id="loginForm" class="" enctype="application/json" action="/login" method="post">
-                <div class="loginElement">
-                    <label class="" for="loginName">BCIT ID</label>
-                    <input id="loginName" class="" name="loginName" type="text" placeholder=" Username" value="" />
-                </div>
-                <div class="loginElement">
-                    <label class="" for="loginPw" id="passwordLog">Password</label>
-                    <input id="loginPw" class="" name="loginPw" type="password" placeholder=" Password" value="" />
-                </div>
-                <div class="">
-                    <input class="" id="login_button" type="submit" value="Login" />
-                </div>
-            </form>
-            <p style="color:red">{{ errMsg }}</p>
-        </div>
-    </div>
-
+    <form id="loginForm" class="box" enctype="application/json" action="/login" method="post">
+        <h1>Sign In</h1>
+        <input id="loginName" class="" name="loginName" type="text" placeholder=" Username" value="" />
+        <input id="loginPw" class="" name="loginPw" type="password" placeholder=" Password" value="" />
+        <input class="" id="login_button" type="submit" value="Login" />
+    </form>
+    <p style="color:red; font-weight:bold">{{ errMsg }}</p>
 </body>
 
 </html>
