@@ -12,6 +12,7 @@ let PopupDivTitle = document.getElementById("deletePopupTitle")
 let PopupDivPoints = document.getElementById("deletePopupPoints")
 let PopupDivDesc = document.getElementById("deletePopupDesc")
 let contentDiv = document.getElementById("contentDiv");
+let greyDiv = document.getElementById("RegreyDiv");
 
 const editReward = (id) => {
 
@@ -43,13 +44,14 @@ const deleteReward = (id) => {
         PopupDivPoints.innerHTML = rewards["rewards_points"];
         PopupDivDesc.innerHTML = rewards["rewards_desc"];
         PopupDiv.style.display = "block";
-        contentDiv.style.filter =  "blur(13px)";
+        greyDiv.style.display = "block";
+
     })
 }
 
 const closePopup = () => {
     PopupDiv.style.display = "none";
-    contentDiv.style.filter = ""; 
+    greyDiv.style.display = "none";
 }
 const deleteConfirmed = () => {
     window.location.replace(window.location.origin + "/adminRewards/delete/" + selectedReward);
