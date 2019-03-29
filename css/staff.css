@@ -1,6 +1,4 @@
 body {
-    background-color: #fff;
-    color: #515456;
 }
 
 #contentDiv{
@@ -57,6 +55,7 @@ body {
  }
 
  #studentDisplayFormDiv {
+ 	padding-top: 30px;
 
  }
 
@@ -69,7 +68,6 @@ body {
 }
 
 #listDiv {
-    
 }
 
  /* 
