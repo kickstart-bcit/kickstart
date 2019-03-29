@@ -29,6 +29,9 @@ let finishPopupTitle = document.getElementById("finishPopupTitle");
 let finishPopupDate = document.getElementById("finishPopupDate");
 let participantsList = document.getElementById("participantsList");
 
+let greyDiv = document.getElementById("greyDiv");
+
+
 
 
 const editEvent = (id) => {
@@ -70,7 +73,7 @@ const deleteEvent = (id) => {
             PopupDivDesc.innerHTML = event["events_desc"];
             PopupDivFeatured.innerHTML = event["events_isFeatured"]?"Yes":"No";
             PopupDiv.style.display = "block";
-            contentDiv.style.filter =  "blur(13px)";
+            greyDiv.style.display = "block";
         })
 }
 
@@ -104,7 +107,8 @@ const confirmEvent = (id) => {
                 participantsList.appendChild(msgli);
             }
             adminEventFinishPopupDiv.style.display = "block";
-            contentDiv.style.filter =  "blur(13px)";
+            greyDiv.style.display = "block";
+
         })
 }
 
@@ -114,7 +118,7 @@ const closePopup = () => {
     while (participantsList.firstChild) {
         participantsList.removeChild(participantsList.firstChild);
     }
-    contentDiv.style.filter = ""; 
+    greyDiv.style.display = "none";
 }    
 
 const deleteConfirmed = () => {
