@@ -1,17 +1,50 @@
+body {
+    background-color: #fff;
+    color: #515456;
+}
 
+#contentDiv{
+	text-indent: 50px;
 
+}
 
 /* 
  *  Staff Events Page
  */
-.staffEventTitle:hover {
-    background-color: #bbb;
-    color:white;
+
+.staffEventDiv{
+	border-top: 1px solid rgba(0,0,0,.2);
+	border-bottom: 1px solid rgba(0,0,0,0);
+
+ }
+
+.staffEventDiv:hover {
+    background-color: #f4f4f4;
+
 }
 
  .participantDiv {
     display:none;
+    position: relative;
+    padding-bottom: 0px;
 }
+
+.closeBut {
+    top:5px;
+    right:-5px;
+    font-size: 15px;
+    background-color: white;
+    color:grey;
+    text-align: center;
+    border-color: white;
+}
+
+.closeBut:hover {
+    border-color: grey;
+    background-color: white;
+
+}
+
 
 /* 
  * Rewards & Challenges
