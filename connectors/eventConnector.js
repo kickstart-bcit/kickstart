@@ -132,6 +132,26 @@ const fetchEvents = () => {
   });
 }
 
+const fetchEventIdFromParticipation = () => {
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+      
+        connector.query("select frn_events_id from participations", (error, rows, fields) => {
+            if (error) reject("couldn't connect to db"); else resolve(rows);
+        });
+
+        connector.end();
+
+    })
+}
 
 const renderAdminEvents = (rows) => {
     return rows.map( row => 
@@ -526,6 +546,51 @@ const fetchSortedEvent = (condition) => {
     
 }
 
+const deleteParticipant = (studentId, eventId) => {
+    let query = "delete from participations where frn_users_id = ? and frn_events_id=?;"
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+        connector.query(query, [studentId, eventId],(error, rows, fields) => {
+            if (error){
+                console.log("in deleteParticipant(): ");
+                reject(error);
+            }  else resolve(rows);
+        });
+
+        connector.end();
+    })
+}
+
+const updateUsersPoint = (point, eventId) => {
+    let query = "UPDATE  users SET users_point = users_point + ? WHERE users_id IN(SELECT frn_users_id FROM participations WHERE frn_events_id = ?);"
+    return new Promise((resolve, reject) => {
+        const connector = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "Password",
+            database: "realkickstart",
+            port: 3306
+        });
+
+        connector.connect();
+        connector.query(query, [point, eventId],(error, rows, fields) => {
+            if (error){
+                console.log("in updateUsersPoints(): ");
+                reject(error);
+            }  else resolve(rows);
+        });
+
+        connector.end();
+    })
+}
 
 
 module.exports = {
@@ -549,5 +614,8 @@ module.exports = {
   deleteParticipationById,
   finishEventById,
   confirmParticipationByEventId,
-  fetchParticipationsByEventId
+  fetchParticipationsByEventId,
+  fetchEventIdFromParticipation,
+  deleteParticipant,
+  updateUsersPoint
 };
