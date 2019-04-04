@@ -2,7 +2,6 @@ body {
     background-color: #ededed;
 }
 
-
 #pointsbox {
 	position: relative;
 	float: right;
@@ -23,21 +22,19 @@ body {
 	margin: auto;
 	width: 95vw;
 	display: inline-block;
-	padding-top: 30px;
-	
+	padding-top: 30px;	
 }
 
-#rewardsleft {
-
-	width:40%; 
-	float:left;
+.rewardsleft {
+	width: 40%; 
+	float: left;
 	padding-top: 20px;
 	padding-left: 45px;
-	padding-bottom: 50px;
-
+	padding-bottom: 20px;
 	position: relative;
     margin: 2%;
     margin-top: 50px;
+    margin-bottom: -30px;
     height: auto;
     line-height: 1.6rem;
     border-radius: .5rem;
@@ -46,23 +43,19 @@ body {
     border-color: #e1e8f2;
     left: 4vw;
     background-color: white;
-	
-
 }
 
-#rewardsright {
-	width:36%; 
-	float:right;
+.rewardsright {
+	width: 36%;
+	float: right;
 	padding-top: 20px;
-
 	padding-left: 70px;
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 	right: 4vw;
-
 	position: relative;
-
 	margin: 2%;
     margin-top: 50px;
+    margin-bottom: -30px;
     height: auto;
     line-height: 1.6rem;
     border-radius: .5rem;
@@ -72,48 +65,48 @@ body {
     background-color: white;
 }
 
-
 /*list*/
 
 #historytb {
-  border-collapse: collapse;
-  width: 90%;
+    border-collapse: collapse;
+    width: 90%;
 }
+
 #historytb td{
-  border: 1px solid #ddd;
-  padding: 8px;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
+
 #historytb tr:hover {background-color: #f4f4f4;}
 
-
 #rewardstb {
-  border-collapse: collapse;
-  width: 85%;
+    border-collapse: collapse;
+    width: 85%;
 }
+
 #rewardstb td{
-  border: 1px solid #ddd;
-  padding: 8px;
+    border: 1px solid #ddd;
+    padding: 8px;
 }
+
 #rewardstb tr:hover {background-color: #f4f4f4;}
-
-
 
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+    background: #f1f1f1; 
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+    background: #888; 
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+    background: #555; 
 }

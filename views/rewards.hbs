@@ -14,34 +14,42 @@
 	    {{> navigation}}
 
 	    <div id="contentDiv">
+
+            <div class="rewardsleft">
+                <p style="color: #e69138; text-align: left; padding-right: 50px; overflow: hidden; white-space: nowrap;">
+                    Please visit a Kick Start representative to redeem your points!
+                </p>     
+            </div>
+
+            <div class="rewardsright">
+                <p style="color: #e69138; text-align: right; padding-right: 50px;">
+                    Current Points: <b>{{userPoints}}</b>
+                </p>                
+            </div>
             
-	        <div id="rewardsleft">
-            <h2 style="color: #006fbf">History</h2>
-            <table id="historytb">
-              {{#each redeemed}}<tr>
-                <td>{{this.rewards_title}}</td>
-                <td>{{this.rewards_points}}</td>
-                <td>{{this.redeemed_date}}</td>
-              </tr>{{/each}}
-              
-            </table>
+	        <div class="rewardsleft">
+                <h2 style="color: #006fbf">History</h2>
+                <table id="historytb">
+                    {{#each redeemed}}
+                    <tr>
+                        <td>{{this.rewards_title}}</td>
+                        <td>{{this.rewards_points}}</td>
+                        <td>{{this.redeemed_date}}</td>
+                    </tr>{{/each}}
+                </table>
 	        </div>
 
-	        <div id="rewardsright">
-            <p style="font-size: 25px; color: #e69138; text-align: right; padding-right: 50px;">
-                  Current Points: <b>{{userPoints}}</b>
-              </p>
-	        	<h2 style="color: #006fbf">Rewards</h2>
-
+	        <div class="rewardsright">
+                <h2 style="color: #006fbf">Rewards</h2>
                 <table id="rewardstb">
-                  {{{ renderedRewards }}}
+                    {{{ renderedRewards }}}
                 </table>
 	        </div>
 	    </div>
+
 	    <footer>
 	    	<div style="float:left; width:50%; text-align: right;"><p style="padding-right: 5px">Contact Us</p></div>
 	    	<div style="float:right; width:50%; text-align: left;"><p style="padding-left: 5px">Privacy</p></div>
 	    </footer>
 	</body>
-
 </html>
