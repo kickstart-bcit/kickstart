@@ -16,14 +16,13 @@ body {
 	border-top: 1px solid rgba(0,0,0,.2);
 	border-bottom: 1px solid rgba(0,0,0,0);
 
- }
+}
 
 .staffEventDiv:hover {
     background-color: #f4f4f4;
-
 }
 
- .participantDiv {
+.participantDiv {
     display:none;
     position: relative;
     padding-bottom: 0px;
@@ -45,19 +44,17 @@ body {
 
 }
 
-
 /* 
  * Rewards & Challenges
  */
 
- #studentDisplay {
+#studentDisplay {
 
- }
+}
 
- #studentDisplayFormDiv {
- 	padding-top: 30px;
-
- }
+#studentDisplayFormDiv {
+    padding-top: 30px;
+}
 
 #studentInfo {
 
@@ -68,13 +65,13 @@ body {
 }
 
 #listDiv {
+
 }
 
- /* 
- * Staff Rewards Page
- */
+/* 
+* Staff Rewards Page
+*/
 
- /* 
- * Staff Challenges Page
- */
- 
+/* 
+* Staff Challenges Page
+*/
