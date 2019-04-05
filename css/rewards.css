@@ -65,6 +65,12 @@ body {
     background-color: white;
 }
 
+.rewardsright h2{
+    color: #e69138; 
+    text-align: right; 
+    padding-right: 50px;
+}
+
 /*list*/
 
 #historytb {

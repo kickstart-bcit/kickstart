@@ -22,7 +22,7 @@
         {{errorMessage}}
         {{#each events}}<div class="staffEventDiv">
             <div class="staffEventTitle" onclick="revealPDiv({{this.events_id}});">
-                <h2>{{this.events_title}}<span>&nbsp | &nbsp{{this.events_date}}</span><button style="float: right; margin-right: 40px;" onclick="confirm({{this.events_id}})">confirm</button></h2>
+                <h3>{{this.events_title}}<span>&nbsp | &nbsp{{this.events_date}}</span><button style="float: right; margin-right: 40px;" onclick="confirm({{this.events_id}})">confirm</button></h3>
             </div>
             <div class = "participantDiv" id="participantDiv{{this.events_id}}">
                 <div style="background-color: #fff; color: 515456" id="participantList{{this.events_id}}">
