@@ -56,7 +56,7 @@
                             <div class="">{{this.events_date}}</div>
                             <div>{{this.events_start_time}}</div>
                             <div>{{this.events_locations}}, {{this.events_campus}}</div>
-                            <button style="margin-left: 30px;" type="button" i class="eventButton">View Event</button>
+                            <button style="margin-left: 30px;" onclick="fetchRegisteredEvent({{this.events_id}})" type="button" i class="eventButton">View Event</button>
                             <button class="quitButton" onclick="sendQuit({{this.events_id}})">Quit</button>
                         </div><br />{{/each}}
                 </div>
@@ -96,6 +96,10 @@
             xhr.send(JSON.stringify({
                 value: id
             }));
+        }
+
+        const fetchRegisteredEvent = (eventId) => {
+            window.location.replace(window.location.origin + "/events/" + eventId);
         }
 
     </script>

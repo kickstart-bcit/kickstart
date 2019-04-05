@@ -3,13 +3,11 @@ body {
     color: #515456;
 }
 
-
 .eventButton:hover {
     cursor: grab;
     background-color: #004f89;
     opacity: 1;
 }
-
 
 #wayFinding {
     margin-top: 0px;
@@ -26,7 +24,6 @@ body {
     background-color: white;
 }
 
-
 #profileCard {
     position: fixed;
     /*width: 40vw;*/
@@ -34,8 +31,7 @@ body {
     font-family: 'Josefin Sans', sans-serif;
     /*height: 100vh;*/
     /*border-right: 1px solid rgba(0,0,0,.2);*/
-/*
-    position: relative;*/
+    /*position: relative;*/
     width: 35vw;
     margin: 2%;
     margin-top: 0px;
@@ -50,12 +46,11 @@ body {
     left: 4vw;
     background-color: white;
     color: black;
-
 }
 
 #eventsPart{
     position: fixed;
- /*   top: 5%;
+    /*top: 5%;
     max-width: 30%;
     margin: auto;
     text-align: center;
@@ -63,7 +58,6 @@ body {
     border-left: 1px solid black;
     border-right: 1px solid black;
     left: 1%;*/
-
     width: 47vw;
     margin: 2%;
     margin-top: 0px;
@@ -93,7 +87,6 @@ body {
     margin-bottom: 30px;
     background-color: white;
     line-height: 1.8rem;
-
 }
 
 #featuredContent {
@@ -108,9 +101,7 @@ body {
     top: 20vh;
     margin-bottom: 30px;
     background-color: white;
-
 }
-
 
 #redeemButton {
     border: none;
@@ -134,7 +125,7 @@ body {
 }
 
 button {
-     margin: 10px 0px 0 0; 
+    margin: 10px 0px 0 0; 
 }
 
 a {
@@ -142,7 +133,6 @@ a {
     font-size: 22px;
     color: black;
 }
-
 
 a:hover {
     opacity: 0.7;
@@ -152,8 +142,6 @@ a:hover {
     font-size: 22px;
 }
 
-
-
 #userEmail {
     font-size: 18px;
 }
@@ -162,11 +150,9 @@ a:hover {
     font-size: 18px;
 }
 
-
 #userProgram {
     font-size: 18px;
 }
-
 
 /* width */
 ::-webkit-scrollbar {

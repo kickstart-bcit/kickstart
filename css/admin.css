@@ -3,12 +3,13 @@
   border-collapse: collapse;
   width: 90%;
 }
+
 #adminEventtb td{
   border: 1px solid #ddd;
   padding: 8px;
 }
-#adminEventtb tr:hover {background-color: #f4f4f4;}
 
+#adminEventtb tr:hover {background-color: #f4f4f4;}
 
 .adminEventEditButton {
 	float: right;
@@ -96,17 +97,11 @@
     width:60%;
     height: auto;
     float: right;
-
 }
 
-
 /* 
-
     Admin Rewards 
-
 */
-
-
 #adminRewardtb {
     border-collapse: collapse;
     width: 90%;
@@ -124,7 +119,6 @@
     position: relative;
 }
 
-
 .adminRewardFormDiv{
 	position: relative;
 	border-bottom: 1px solid rgba(0,0,0,.2);
@@ -139,12 +133,7 @@
 
 }
 
-
-
-
 /* popup */
-
-
 #adminEventDeletePopupDiv {
     display:none;
     top:0;
@@ -187,12 +176,9 @@
     overflow: auto;
 }
 
-
-
 .deletePopupBtn {
     float: right;
     width: 20%;
-
 }
 
 #deletePopupCloseBtn {
@@ -204,12 +190,10 @@
     color:grey;
     text-align: center;
     border-color: white;
-
 }
 
 #deletePopupCloseBtn:hover {
     border-color: grey;
-
 }
 
 #greyDiv {

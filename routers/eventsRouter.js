@@ -107,15 +107,23 @@ router.post('/join', async (request, response) => {
 
 });
 
+/* 
+    fetch an event 
+*/
+router.get('/:id', async (req, res)=> {
+    try {
+        let renderedEvents = eventConnector.renderEvents(await eventConnector.fetchEventById(req.params.id)); 
+        res.render('events.hbs', { renderedEvents });
 
+    }
+    catch (err){
+        console.log(err);
+        res.render('events.hbs', err)
+    }        
+});
 
 
 
 module.exports = router;
 
 
-
-// if(request.body.sortBy !== ''){
-//     var sortByCmd = request.body.sortBy;
-//     console.log(sortByCmd);
-// }
