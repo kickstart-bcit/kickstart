@@ -43,7 +43,9 @@ router.get('/finish/:id', async (request, response) => {
     try {
         let eventId = request.params.id;
         let event = await eventConnector.fetchEventById(eventId);
-        let point = event.events_point;
+        let point = event[0].events_points;
+        console.log(event);
+        let updatePointResult = await eventConnector.updateUsersPoint(point, eventId);
         let confirmEventResult = await eventConnector.confirmParticipationByEventId(eventId);
         let deleteParticipationResult = await eventConnector.deleteParticipationById(eventId);
         let finishEventResult = await eventConnector.finishEventById(eventId);
