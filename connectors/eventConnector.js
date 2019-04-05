@@ -570,7 +570,7 @@ const deleteParticipant = (studentId, eventId) => {
 }
 
 const updateUsersPoint = (point, eventId) => {
-    let query = "UPDATE  users SET users_point = users_point + ? WHERE users_id IN(SELECT frn_users_id FROM participations WHERE frn_events_id = ?);"
+    let query = "UPDATE users SET users_point = users_point + ? WHERE users_id IN (SELECT frn_users_id FROM participations WHERE frn_events_id = ?);"
     return new Promise((resolve, reject) => {
         const connector = mysql.createConnection({
             host: "localhost",
