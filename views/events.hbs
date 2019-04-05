@@ -15,30 +15,47 @@
     <style>
         @media screen and (max-width: 800px) {
             .blocks {
-                width: 90%;
+                width: 95%;
+            }
+            #bannerDiv {
+                height: 8vh;
+                width: auto;
+            }
+
+            #bannerDiv h1 {
+                font-size: 20px;
+                top: 0px;
             }
             #navDiv{
                 position: fixed;
                 flex-direction: column;
                 width: 100%;
-                top: 12vh;
+                top: 8vh;
                 left: 0px;
-                height: 22vh;
+                height: 25vh;
                 background-color: #003E6B;
                 align-items: center;
             }
+            
             #contentDiv {
-                top: 36vh;
+                top: 33vh;
+                height: 67vh;
             }
             #navDiv input {
                 margin: 8px;
+                font-size: 24px;
             }
             #searchdiv{
                 top: 8vh;
                 left: -5vw;
+                width: 100vw;
             }
             #topBar{
-                left: -5vw;
+                left: -7vw;
+                top: 0vh;
+            }
+            .longinputbox{
+                width: 40vw;
             }
 
         }
@@ -50,17 +67,17 @@
 
     <div id="contentDiv">
 
-        <div id="topBar" style="position: absolute; width: 100vw; height: 10vh; top: 2vh; display: inline-block">
+        <div id="topBar">
         <button id="blockView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/events'">Block View</button>
         <button id="calendarView" class="viewButtons" style="position: relative; left: 10vw; top: 3vh; margin: 0;" onclick="location.href='/calendar'">Calendar View</button>
 
-        <form action="/events", method="POST" id="searchdiv" style="position: absolute; width: 60vw; height: 10vh; left:24vw; display: inline-block">
+        <form action="/events", method="POST" id="searchdiv">
             <select name="searchType" class="inputbox" style="position: relative; left: 15vw; top: 3vh; margin: 0;">
                 <option value="" disabled selected>Search By</option>
                 <option value="title">Title</option>
                 <option value="campus">Campus</option>
             </select>
-            <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here" style="position: relative; left: 15vw; top: 3vh; margin: 0;"/>
+            <input class="longinputbox" type="text" name="searchTerm" id="searchWord" placeholder="Search here"/>
 
 
             <select name="sortBy" class="inputbox" style="position: relative; left: 15vw; top: 3vh; margin: 0;">
