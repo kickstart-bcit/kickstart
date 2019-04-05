@@ -142,7 +142,7 @@ button:hover {
 }
 
 #Header {
-    background-color: #003c79;
+    background-color: #003E6B;
     position: fixed;
     top: 0;
     left: 0;
@@ -168,14 +168,17 @@ button:hover {
 
 #bannerDiv h1 {
     color: white;
-    font-size: 50px;
-    bottom:0;
+    font-size: 40px;
     height: auto;
     width: auto;
     position: relative;
-    top:25px;
+    top:30px;
     margin: 30px;
-/*    margin-bottom: 40px;*/
+}
+
+.navbuttons {
+    font-family: 'Josefin Sans', sans-serif; 
+    font-size: 31px;
 }
 
 #navDiv {
@@ -194,7 +197,7 @@ button:hover {
     width: auto;
     color: white;
     background-color: #003E6B;
-    font-size: 1.7rem;
+    font-size: 31px;
     margin: 15px;
     margin-bottom: 10px;
     border: none;

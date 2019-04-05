@@ -3,6 +3,29 @@
 }*/
 
 // {{!-- !-- Events Page -- --}}
+#topBar {
+    position: absolute; 
+    width: 100vw; 
+    height: 10vh; 
+    top: 2vh; 
+    display: inline-block;
+}
+
+#searchdiv {
+    position: absolute; 
+    width: 60vw; 
+    height: 10vh; 
+    left:24vw; 
+    display: inline-block;
+}
+
+.longinputbox {
+    position: relative; 
+    left: 15vw; 
+    top: 3vh; 
+    margin: 0;
+}
+
 #closeBut {
     float: right;
     position: relative;

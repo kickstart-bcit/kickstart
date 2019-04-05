@@ -50,14 +50,6 @@ body {
 
 #eventsPart{
     position: fixed;
-    /*top: 5%;
-    max-width: 30%;
-    margin: auto;
-    text-align: center;
-    font-family: 'Josefin Sans', sans-serif;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    left: 1%;*/
     width: 47vw;
     margin: 2%;
     margin-top: 0px;
@@ -107,7 +99,8 @@ body {
     border: none;
     outline: 0;
     display: inline-block;
-    padding: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     color: white;
     background-color: #000;
     text-align: center;
