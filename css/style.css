@@ -40,7 +40,7 @@ button {
 
 button:hover {
     background-color: #004f89;
-    }
+}
 
 .submitButton {
     background-color: #006fbf;
@@ -175,8 +175,8 @@ button:hover {
     position: relative;
     top:25px;
     margin: 30px;
-/*    margin-bottom: 40px;
-*/}
+/*    margin-bottom: 40px;*/
+}
 
 #navDiv {
     position: absolute;
@@ -205,12 +205,10 @@ button:hover {
     transform: scale(1.2, 1.2);
 }
 
-
 /* .navbuttons {
     background-color: black;
     color: black;
-} 
-
+}*/
 
 /* // {{!-- !-- Login Page -- --}} */
 

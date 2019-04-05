@@ -61,7 +61,6 @@
     left: 0px;
     right: 0px;
     margin: auto;
-
 }
 
 .blocks {
@@ -93,7 +92,6 @@
     display: inline-block;
     box-sizing: border-box;
     padding: 5px;
-
 }
 
 
@@ -106,7 +104,6 @@
     margin-right: 2%;
     float: left;
     overflow: hidden;
-
 }
 
 /*change width*/
@@ -129,7 +126,6 @@
     height: 100px;
     overflow-y: scroll;
 }
-
 
 /* width */
 ::-webkit-scrollbar {
